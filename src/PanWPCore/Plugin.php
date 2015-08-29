@@ -19,6 +19,7 @@ class Plugin {
 
 	public function __construct( $filePath, $name, $version, $textDomain, $slug = '' ) {
 		$this->filePath = $filePath;
+
 		$baseName = plugin_basename( $filePath );
 		$baseName = preg_replace( RegExp::nonAlphaNumeric, '_', $baseName );
 
@@ -64,5 +65,19 @@ class Plugin {
 	 */
 	public function getTextDomain() {
 		return $this->textDomain;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getPluginData() {
+		return $this->pluginData;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getFilePath() {
+		return $this->filePath;
 	}
 }
