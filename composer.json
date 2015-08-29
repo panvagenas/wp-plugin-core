@@ -1,5 +1,6 @@
 {
   "name": "panvagenas/wp-plugin-core",
+  "version": "0.0.1-dev"
   "description": "WP Plugins Core for developing plugins",
   "license": "GPL-3.0+",
   "keywords": [],
