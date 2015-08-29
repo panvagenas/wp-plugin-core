@@ -1,0 +1,45 @@
+{
+  "name": "vagenas/wp-plugins-core",
+  "description": "WP Plugins Core for developing plugins",
+  "license": "GPL-3.0+",
+  "keywords": [],
+  "authors": [
+    {
+      "name": "Panagiotis Vagenas",
+      "email": "pan.vagenas@gmail.com",
+      "homepage": "https://gr.linkedin.com/in/panvagenas",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "vierbergenlars/php-semver": "3.*",
+    "monolog/monolog": "1.*",
+    "rmccue/requests": "1.*",
+    "danielstjules/stringy": "2.*",
+    "nesbot/carbon": "1.*",
+    "aura/session": "2.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.8.*",
+    "symfony/var-dumper": "2.7.*",
+    "devster/ubench": "1.*"
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "files": [
+      "resources/includes/redux/redux-framework/framework.php",
+      "resources/includes/redux/redux-extensions/extensions-init.php"
+    ],
+    "psr-4": {
+      "PanWPCore\\": "src/PanWPCore"
+    }
+  },
+  "archive": {
+    "exclude": ["/docs", "/tests"]
+  }
+}
