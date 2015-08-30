@@ -14,7 +14,7 @@ class Redux {
 	protected $args = [ ];
 	protected $helpTabs = [ ];
 
-	public function __construct( Plugin $plugin, Array $args ) {
+	public function __construct( Plugin $plugin, Array $args = [] ) {
 		$this->optName = Options::genOptName($plugin);
 		$defaults      = array(
 			// TYPICAL -> Change these values as you need/desire
