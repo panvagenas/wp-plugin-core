@@ -16,9 +16,11 @@ class Plugin {
 	protected $textDomain;
 	protected $pluginData = [];
 	protected $filePath = '';
+	protected $baseNamespace = '';
 
-	public function __construct( $filePath, $name, $version, $textDomain, $slug = '' ) {
+	public function __construct( $baseNamespace, $filePath, $name, $version, $textDomain, $slug = '' ) {
 		$this->filePath = $filePath;
+		$this->baseNamespace = $baseNamespace;
 
 		$baseName = plugin_basename( $filePath );
 		$baseName = preg_replace( RegExp::nonAlphaNumeric, '_', $baseName );
