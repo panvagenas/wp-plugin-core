@@ -14,9 +14,10 @@ class Redux {
 	protected $args = [ ];
 	protected $helpTabs = [ ];
 
-	public function __construct( Plugin $plugin, Array $args = [] ) {
-		$this->optName = Options::genOptName($plugin);
+	public function __construct( Plugin $plugin, Array $args = [ ] ) {
+		$this->optName = Options::genOptName( $plugin );
 		$defaults      = array(
+			'disable_tracking'     => true,
 			// TYPICAL -> Change these values as you need/desire
 			'opt_name'             => $this->optName,
 			// This is where your data is stored in the database and also becomes your global variable name.
@@ -124,6 +125,10 @@ class Redux {
 		$this->args = array_merge( $defaults, $args );
 
 		$this->reduxSetArgs();
+
+		add_action( 'admin_menu', function() {
+			remove_submenu_page('tools.php','redux-about');
+		},12 );
 	}
 
 	protected function reduxSetArgs() {
@@ -214,11 +219,11 @@ class Redux {
 	}
 
 	/**
-	 * @param $title
-	 * @param $id
+	 * @param            $title
+	 * @param            $id
 	 * @param bool|false $subsection
-	 * @param string $desc
-	 * @param array $additionalArgs
+	 * @param string     $desc
+	 * @param array      $additionalArgs
 	 *
 	 * @return $this
 	 */
@@ -230,18 +235,20 @@ class Redux {
 			'desc'       => $desc
 		];
 
-		\Redux::setSection($this->optName, array_merge($section, $additionalArgs));
+		\Redux::setSection( $this->optName, array_merge( $section, $additionalArgs ) );
+
 		return $this;
 	}
 
 	/**
-	 * @param $sectionId
+	 * @param       $sectionId
 	 * @param array $fieldArgs
 	 *
 	 * @return $this
 	 */
-	public function addField($sectionId, Array $fieldArgs){
-		\Redux::processFieldsArray($this->optName, $sectionId, [$fieldArgs]);
+	public function addField( $sectionId, Array $fieldArgs ) {
+		\Redux::processFieldsArray( $this->optName, $sectionId, [ $fieldArgs ] );
+
 		return $this;
 	}
 }
