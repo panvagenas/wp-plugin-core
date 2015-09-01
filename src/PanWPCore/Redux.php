@@ -11,10 +11,10 @@ namespace PanWPCore;
 
 class Redux {
 	protected $optName = '';
-	protected $args = [ ];
-	protected $helpTabs = [ ];
+	protected $args = array();
+	protected $helpTabs = array();
 
-	public function __construct( Plugin $plugin, Array $args = [ ] ) {
+	public function __construct( Plugin $plugin, Array $args = array() ) {
 		$this->optName = Options::genOptName( $plugin );
 		$defaults      = array(
 			'disable_tracking'     => true,
@@ -143,11 +143,11 @@ class Redux {
 	 * @return $this
 	 */
 	public function addAdminBarLinks( $id, $href, $title ) {
-		$this->args['admin_bar_links'][] = [
+		$this->args['admin_bar_links'][] = array(
 			'id'    => $id,
 			'href'  => $href,
 			'title' => $title
-		];
+		);
 
 		$this->reduxSetArgs();
 
@@ -162,11 +162,11 @@ class Redux {
 	 * @return $this
 	 */
 	public function addShareIcons( $url, $title, $icon ) {
-		$this->args['share_icons'][] = [
+		$this->args['share_icons'][] = array(
 			'url'   => $url,
 			'title' => $title,
 			'icon'  => $icon
-		];
+		);
 
 		$this->reduxSetArgs();
 
@@ -198,11 +198,11 @@ class Redux {
 	}
 
 	public function addHelpTab( $id, $title, $content ) {
-		\Redux::setHelpTab( $this->optName, [
+		\Redux::setHelpTab( $this->optName, array(
 			'id'      => $id,
 			'title'   => $title,
 			'content' => $content
-		] );
+		) );
 
 		return $this;
 	}
@@ -227,13 +227,13 @@ class Redux {
 	 *
 	 * @return $this
 	 */
-	public function addSection( $title, $id, $subsection = false, $desc = '', $additionalArgs = [ ] ) {
-		$section = [
+	public function addSection( $title, $id, $subsection = false, $desc = '', $additionalArgs = array() ) {
+		$section = array(
 			'title'      => $title,
 			'id'         => $id,
 			'subsection' => $subsection,
 			'desc'       => $desc
-		];
+		);
 
 		\Redux::setSection( $this->optName, array_merge( $section, $additionalArgs ) );
 
@@ -247,7 +247,7 @@ class Redux {
 	 * @return $this
 	 */
 	public function addField( $sectionId, Array $fieldArgs ) {
-		\Redux::processFieldsArray( $this->optName, $sectionId, [ $fieldArgs ] );
+		\Redux::processFieldsArray( $this->optName, $sectionId, array( $fieldArgs ) );
 
 		return $this;
 	}

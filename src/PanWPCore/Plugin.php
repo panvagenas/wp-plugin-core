@@ -9,16 +9,18 @@
 namespace PanWPCore;
 
 
-class Plugin {
+class Plugin extends Core {
 	protected $slug = '';
 	protected $name = '';
 	protected $version = '';
 	protected $textDomain;
-	protected $pluginData = [];
+	protected $pluginData = array();
 	protected $filePath = '';
 	protected $baseNamespace = '';
 
 	public function __construct( $baseNamespace, $filePath, $name, $version, $textDomain, $slug = '' ) {
+		parent::__construct( $this );
+
 		$this->filePath = $filePath;
 		$this->baseNamespace = $baseNamespace;
 
@@ -27,17 +29,17 @@ class Plugin {
 
 		$this->slug = $slug ? $slug : String::create( $baseName )->underscored()->toString();
 
-		$this->name = $name;
-		$this->version = $version;
+		$this->name       = $name;
+		$this->version    = $version;
 		$this->textDomain = $textDomain;
 
-		add_action('admin_init', [$this, 'setPluginData']);
+		add_action( 'admin_init', array( $this, 'setPluginData' ) );
 	}
 
 	/**
 	 *
 	 */
-	public function setPluginData(){
+	public function setPluginData() {
 		$this->pluginData = \get_plugin_data( $this->filePath );
 	}
 
