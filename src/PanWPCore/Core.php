@@ -66,6 +66,7 @@ class Core {
 		$property = (string) $property;
 
 		return isset( $this->{$property} )
+		       || isset($this->Plugin->{$property})
 		       || class_exists( $this->_getCoreClassName( $property ) )
 		       || class_exists( $this->_getPluginClassName( $property ) );
 	}
@@ -77,14 +78,14 @@ class Core {
 	 * @throws \Exception
 	 */
 	public function __get( $property ) {
-		if ( property_exists( $this, $property ) ) {
-			return $this->{$property};
+		if ( property_exists( $this->Plugin, $property ) ) {
+			return $this->Plugin->{$property};
 		}
 
 		if ( class_exists( $class = $this->_getPluginClassName( $property ) ) ) {
-			return $this->{$property} = new $class( $this->Plugin );
+			return $this->Plugin->{$property} = new $class( $this->Plugin );
 		} elseif ( class_exists( $class = $this->_getCoreClassName( $property ) ) ) {
-			return $this->{$property} = new $class( $this->Plugin );
+			return $this->Plugin->{$property} = new $class( $this->Plugin );
 		} else {
 			throw new \Exception( 'Undefined Class ' . $property );
 		}
@@ -117,7 +118,7 @@ class Core {
 	}
 
 	/**
-	 * @param $class
+	 * @param string $class
 	 *
 	 * @return string
 	 */
@@ -127,7 +128,7 @@ class Core {
 	}
 
 	/**
-	 * @param $class
+	 * @param string $class
 	 *
 	 * @return string
 	 */

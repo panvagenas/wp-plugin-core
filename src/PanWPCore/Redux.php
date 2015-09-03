@@ -12,7 +12,6 @@ namespace PanWPCore;
 class Redux extends Core {
 	protected $optName = '';
 	protected $args = array();
-	protected $helpTabs = array();
 
 	public function __construct( Plugin $plugin, Array $args = array() ) {
 		parent::__construct( $plugin );
