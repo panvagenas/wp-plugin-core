@@ -24,6 +24,7 @@ class Initializer extends Core{
 	 */
 	public final function run(){
 		self::coreInit();
+		$this->_init();
 		$this->init();
 	}
 
@@ -40,6 +41,13 @@ class Initializer extends Core{
 		}
 	}
 
+	private final function _init(){
+		$textDomain = $this->Plugin->getTextDomain();
+		$pluginDir = basename(dirname($this->Plugin->getFilePath())) . $this->Paths->translationsRelDirPath;
+		add_action('plugins_loaded', function() use ($textDomain, $pluginDir){
+			load_plugin_textdomain($textDomain, null, $pluginDir);
+		});
+	}
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since TODO ${VERSION}

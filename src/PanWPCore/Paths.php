@@ -13,6 +13,7 @@ class Paths  extends Core{
 	public $pluginBaseDir;
 	public $uploadsBaseDir;
 	public $logFilePath;
+	public $translationsRelDirPath = '/lang';
 
 	/**
 	 * @param Plugin $plugin
