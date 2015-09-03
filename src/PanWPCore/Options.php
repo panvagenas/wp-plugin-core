@@ -9,7 +9,7 @@
 namespace PanWPCore;
 
 
-class Options {
+class Options extends Core{
 	protected $optName = '';
 	/**
 	 * @var \ReduxFramework
@@ -20,6 +20,8 @@ class Options {
 	 * @param Plugin $plugin
 	 */
 	public function __construct(Plugin $plugin){
+		parent::__construct( $plugin );
+
 		$this->optName = self::genOptName($plugin);
 		$this->reduxInstance = get_redux_instance( $this->optName );
 	}

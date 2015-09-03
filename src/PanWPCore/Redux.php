@@ -9,12 +9,13 @@
 namespace PanWPCore;
 
 
-class Redux {
+class Redux extends Core {
 	protected $optName = '';
 	protected $args = array();
 	protected $helpTabs = array();
 
 	public function __construct( Plugin $plugin, Array $args = array() ) {
+		parent::__construct( $plugin );
 		$this->optName = Options::genOptName( $plugin );
 		$defaults      = array(
 			'disable_tracking'     => true,
@@ -40,7 +41,7 @@ class Redux {
 			'async_typography'     => true,
 			// Use a asynchronous font on the front end or font string
 			//'disable_google_fonts_link' => true,                    // Disable this in case you want to create your own google fonts loader
-			'admin_bar'            => true,
+			'admin_bar'            => false,
 			// Show the panel pages on the admin bar
 			'admin_bar_icon'       => 'dashicons-portfolio',
 			// Choose an icon for the admin bar menu
@@ -98,7 +99,7 @@ class Redux {
 				'icon_color'    => 'lightgray',
 				'icon_size'     => 'normal',
 				'tip_style'     => array(
-					'color'   => 'red',
+					'color'   => 'yellow',
 					'shadow'  => true,
 					'rounded' => false,
 					'style'   => '',
@@ -125,12 +126,12 @@ class Redux {
 		$this->args = array_merge( $defaults, $args );
 
 		$this->reduxSetArgs();
-
-		add_action( 'admin_menu', function() {
-			remove_submenu_page('tools.php','redux-about');
-		},12 );
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since TODO ${VERSION}
+	 */
 	protected function reduxSetArgs() {
 		\Redux::setArgs( $this->optName, $this->args );
 	}
@@ -222,8 +223,8 @@ class Redux {
 	 * @param            $title
 	 * @param            $id
 	 * @param bool|false $subsection
-	 * @param string     $desc
-	 * @param array      $additionalArgs
+	 * @param string $desc
+	 * @param array $additionalArgs
 	 *
 	 * @return $this
 	 */
@@ -248,6 +249,35 @@ class Redux {
 	 */
 	public function addField( $sectionId, Array $fieldArgs ) {
 		\Redux::processFieldsArray( $this->optName, $sectionId, array( $fieldArgs ) );
+
+		return $this;
+	}
+
+	/**
+	 * @param $name
+	 * @param $value
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since TODO ${VERSION}
+	 */
+	public function setArg( $name, $value ) {
+		$this->args[ $name ] = $value;
+		$this->reduxSetArgs();
+
+		return $this;
+	}
+
+	/**
+	 * @param array $args
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since TODO ${VERSION}
+	 */
+	public function setArgs(Array $args){
+		$this->args = array_merge($this->args, $args);
+		$this->reduxSetArgs();
 
 		return $this;
 	}

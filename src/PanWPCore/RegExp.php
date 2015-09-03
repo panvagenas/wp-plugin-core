@@ -9,6 +9,6 @@
 namespace PanWPCore;
 
 
-class RegExp {
+class RegExp extends Core {
 	const nonAlphaNumeric = '/[^\da-z]/i';
 }

@@ -9,7 +9,7 @@
 namespace PanWPCore;
 
 
-class Dumper {
+class Dumper extends Core{
 	/**
 	 * Dumps passed arguments and dies
 	 */

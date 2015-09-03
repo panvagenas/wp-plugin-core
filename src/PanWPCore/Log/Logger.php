@@ -10,11 +10,12 @@ namespace PanWPCore\Log;
 
 
 use Monolog\Handler\StreamHandler;
+use PanWPCore\Core;
 use PanWPCore\Log\Handlers\DBHandler;
 use PanWPCore\Paths;
 use PanWPCore\Plugin;
 
-class Logger {
+class Logger extends Core{
 	/**
 	 * @var \Monolog\Logger
 	 */
@@ -28,9 +29,10 @@ class Logger {
 	 * @param Plugin $plugin
 	 */
 	public function __construct( Plugin $plugin ) {
+		parent::__construct( $plugin );
+
 		$this->logger      = new \Monolog\Logger( $plugin->getSlug() );
-		$paths             = new Paths( $plugin );
-		$this->logFilePath = $paths->logFilePath;
+		$this->logFilePath = $this->Paths->logFilePath;
 	}
 
 	/**

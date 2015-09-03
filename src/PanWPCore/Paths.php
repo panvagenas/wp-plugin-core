@@ -9,7 +9,7 @@
 namespace PanWPCore;
 
 
-class Paths {
+class Paths  extends Core{
 	public $pluginBaseDir;
 	public $uploadsBaseDir;
 	public $logFilePath;
@@ -18,6 +18,8 @@ class Paths {
 	 * @param Plugin $plugin
 	 */
 	public function __construct( Plugin $plugin ) {
+		parent::__construct( $plugin );
+
 		$this->pluginBaseDir = dirname( $plugin->getFilePath() );
 
 		$uploadsData = wp_upload_dir();

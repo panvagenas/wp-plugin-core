@@ -33,6 +33,8 @@ class Plugin extends Core {
 		$this->version    = $version;
 		$this->textDomain = $textDomain;
 
+		$this->Initializer->run();
+
 		add_action( 'admin_init', array( $this, 'setPluginData' ) );
 	}
 

@@ -9,5 +9,5 @@
 namespace PanWPCore;
 
 
-class Hooks {
+class Hooks extends Core{
 }

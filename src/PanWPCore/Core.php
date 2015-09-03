@@ -10,13 +10,13 @@ namespace PanWPCore;
 
 
 class Core {
-	protected $plugin;
+	protected $Plugin;
 
 	/**
-	 * @param $baseNamespace
+	 * @param Plugin $plugin
 	 */
 	public function __construct( Plugin $plugin ) {
-		$this->plugin = &$plugin;
+		$this->Plugin = &$plugin;
 	}
 
 	/**
@@ -44,9 +44,9 @@ class Core {
 		}
 
 		if ( class_exists( $class = $this->_getPluginClassName( $property ) ) ) {
-			return $this->{$property} = new $class( $this->plugin );
+			return $this->{$property} = new $class( $this->Plugin );
 		} elseif ( class_exists( $class = $this->_getCoreClassName( $property ) ) ) {
-			return $this->{$property} = new $class( $this->plugin );
+			return $this->{$property} = new $class( $this->Plugin );
 		} else {
 			throw new \Exception( 'Undefined Class ' . $property );
 		}
@@ -61,8 +61,8 @@ class Core {
 	public function __call( $method, $args ) {
 		if ( method_exists( $this, $method ) ) {
 			return call_user_func_array( array( $this, $method ), $args );
-		} else if ( method_exists( $this->plugin, $method ) ) {
-			return call_user_func_array( array( $this->plugin, $method ), $args );
+		} else if ( method_exists( $this->Plugin, $method ) ) {
+			return call_user_func_array( array( $this->Plugin, $method ), $args );
 		}
 
 		if ( class_exists( $class = $this->_getPluginClassName( $method ) ) ) {
@@ -84,6 +84,7 @@ class Core {
 	 * @return string
 	 */
 	protected function _getCoreClassName( $class ) {
+		$class = str_replace('__', '\\', $class);
 		return '\\' . __NAMESPACE__ . '\\' . $class;
 	}
 
@@ -93,6 +94,7 @@ class Core {
 	 * @return string
 	 */
 	protected function _getPluginClassName( $class ) {
-		return '\\' . $this->plugin->baseNamespace . '\\' . $class;
+		$class = str_replace('__', '\\', $class);
+		return '\\' . $this->Plugin->baseNamespace . '\\' . $class;
 	}
 }
