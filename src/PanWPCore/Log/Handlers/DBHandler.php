@@ -18,7 +18,10 @@ class DBHandler extends AbstractProcessingHandler {
 
 	public function __construct( $logName, $level = Logger::DEBUG, $bubble = true ) {
 		$this->logName = $logName;
-		$this->logs    = (array) get_option( $this->logName );
+
+		$log        = get_option( $this->logName );
+		$this->logs = is_array( $log ) ? $log : array();
+
 		parent::__construct( $level, $bubble );
 	}
 
