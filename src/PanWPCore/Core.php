@@ -8,7 +8,45 @@
 
 namespace PanWPCore;
 
-
+/**
+ * Class Core
+ * @package PanWPCore
+ * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since TODO ${VERSION}
+ *
+ * @property Actions $Actions
+ * @method Actions Actions() Actions()
+ *
+ * @property Dumper $Dumper
+ * @method Dumper Dumper() Dumper()
+ *
+ * @property Filters $Filters
+ * @method Filters Filters() Filters()
+ *
+ * @property Hooks $Hooks
+ * @method Hooks Hooks() Hooks()
+ *
+ * @property I18n $I18n
+ * @method I18n I18n() I18n()
+ *
+ * @property Initializer $Initializer
+ * @method Initializer Initializer() Initializer()
+ *
+ * @property Options $Options
+ * @method Options Options() Options()
+ *
+ * @property Paths $Paths
+ * @method Paths Paths() Paths()
+ *
+ * @property Plugin $Plugin
+ * @method Plugin Plugin() Plugin( string $baseNamespace, string $filePath, string $name, string $version, string $textDomain, string $slug = '')
+ *
+ * @property Redux $Redux
+ * @method Redux Redux() Redux(Plugin $plugin, Array $args = array())
+ *
+ * @property String $String
+ * @method String String() String()
+ */
 class Core {
 	protected $Plugin;
 
