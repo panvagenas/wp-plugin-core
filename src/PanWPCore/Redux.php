@@ -15,7 +15,7 @@ class Redux extends Core {
 
 	public function __construct( Plugin $plugin, Array $args = array() ) {
 		parent::__construct( $plugin );
-		$this->optName = Options::genOptName( $plugin );
+		$this->optName = $this->Options->getOptName();
 		$defaults      = array(
 			'disable_tracking'     => true,
 			// TYPICAL -> Change these values as you need/desire
