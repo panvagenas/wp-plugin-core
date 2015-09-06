@@ -14,7 +14,7 @@ class Redux extends Core {
 	protected $args = array();
 
 	public static $reduxDefaults = array(
-		'disable_tracking'     => true,
+		'allow_tracking'     => false,
 		// TYPICAL -> Change these values as you need/desire
 		'menu_type'            => 'menu',
 		//Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
@@ -127,7 +127,7 @@ class Redux extends Core {
 			// Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
 		);
 
-		$this->args = array_merge( self::$reduxDefaults, $pluginSpecificDefaults, $args );
+		$this->args = array_merge( self::$reduxDefaults, $pluginSpecificDefaults, $this->Options->getReduxArgs(), $args );
 
 		$this->reduxSetArgs();
 	}

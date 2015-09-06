@@ -9,12 +9,22 @@
 namespace PanWPCore;
 
 
+use Stringy\Stringy;
+
 class Options extends Core {
 	protected $optName = '';
 	/**
 	 * @var \ReduxFramework
 	 */
 	protected $reduxInstance;
+	/**
+	 * @var array
+	 */
+	protected $defaults = array();
+	/**
+	 * @var array
+	 */
+	protected $reduxArgs = array();
 
 	/**
 	 * @param Plugin $plugin
@@ -22,14 +32,14 @@ class Options extends Core {
 	public function __construct( Plugin $plugin ) {
 		parent::__construct( $plugin );
 
-		if ( empty( $this->optName ) ) {
-			$this->optName = self::genOptName( $plugin );
-		}
-		$this->reduxInstance = get_redux_instance( $this->optName );
-	}
+//		if ( empty( $this->optName ) ) {
+//			$this->optName = $plugin->getSlug() . '_options';
+//		}
 
-	public static function genOptName( Plugin $plugin ) {
-		return $plugin->getSlug() . '_options';
+
+//		if(!($this->reduxInstance instanceof \ReduxFramework)){
+//			$this->reduxInstance = new \ReduxFramework(array(), array_merge(Redux::$reduxDefaults, array('opt_name' => $this->optName)));
+//		}
 	}
 
 	/**
@@ -64,5 +74,38 @@ class Options extends Core {
 	 */
 	public function getAll() {
 		return $this->reduxInstance->options;
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setupReduxInstance(){
+		$this->reduxInstance = get_redux_instance( $this->optName );
+//		Dumper::dd($GLOBALS['wp_actions'], $this);
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setup(){}
+
+	/**
+	 * @param string $name
+	 *
+	 * @return mixed
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getDefaults($name = '') {
+		return empty($name) ? $this->defaults : (isset($this->defaults[$name]) ? $this->defaults[$name] : false);
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getReduxArgs() {
+		return $this->reduxArgs;
 	}
 }

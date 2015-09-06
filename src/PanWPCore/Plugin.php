@@ -10,39 +10,32 @@ namespace PanWPCore;
 
 
 class Plugin extends Core {
-	protected $slug = '';
-	protected $name = '';
-	protected $version = '';
+	protected $slug;
+	protected $name;
+	protected $version;
 	protected $textDomain;
-	protected $pluginData = array();
-	protected $filePath = '';
-	protected $baseNamespace = '';
+	protected $filePath;
+	protected $baseNamespace;
+	protected $baseName;
 
-	public function __construct( $baseNamespace, $filePath, $name, $version, $textDomain, $slug = '' ) {
+	public function __construct( $baseNamespace, $filePath, $name, $version, $textDomain = '', $slug = '' ) {
 		parent::__construct( $this );
 
-		$this->filePath = $filePath;
+		$this->filePath      = $filePath;
 		$this->baseNamespace = $baseNamespace;
+		$this->baseName = plugin_basename($filePath);
 
-		$baseName = plugin_basename( $filePath );
-		$baseName = preg_replace( RegExp::nonAlphaNumeric, '_', $baseName );
+		if ( ! $slug ) {
+			$slug = String::create( plugin_basename( substr($filePath, 0, -4) ) )->underscored()->toString();
+		}
+		$slug = preg_replace( RegExp::nonAlphaNumeric, '_', $slug );
 
-		$this->slug = $slug ? $slug : String::create( $baseName )->underscored()->toString();
-
+		$this->slug       = $slug;
 		$this->name       = $name;
 		$this->version    = $version;
 		$this->textDomain = $textDomain;
 
 		$this->Initializer->run();
-
-		add_action( 'admin_init', array( $this, 'setPluginData' ) );
-	}
-
-	/**
-	 *
-	 */
-	public function setPluginData() {
-		$this->pluginData = \get_plugin_data( $this->filePath );
 	}
 
 	/**
@@ -85,5 +78,19 @@ class Plugin extends Core {
 	 */
 	public function getFilePath() {
 		return $this->filePath;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getBaseName() {
+		return $this->baseName;
+	}
+
+	/**
+	 * @return Plugin
+	 */
+	public function getBaseNamespace() {
+		return $this->baseNamespace;
 	}
 }
