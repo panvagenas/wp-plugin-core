@@ -55,17 +55,18 @@ class Initializer extends Core {
 
 		register_activation_hook( $this->Plugin->getBaseName(), array( $this->Installer, 'activation' ) );
 		register_deactivation_hook( $this->Plugin->getBaseName(), array( $this->Installer, 'deactivation' ) );
-		register_uninstall_hook( $this->Plugin->getBaseName(), array( get_class($this->Installer), 'uninstall' ) );
+		register_uninstall_hook( $this->Plugin->getBaseName(), array( get_class( $this->Installer ), 'uninstall' ) );
 
 		$optName = $this->Options->getOptName();
 		if ( ! empty( $optName ) ) {
-			add_action( 'plugins_loaded', array( $this->Options, 'setup' ), 10 );
-			add_action( 'redux/construct', array( $this->Options, 'setupReduxInstance' ), 10 );
+			if ( is_admin() ) {
+				$this->Options->setup();
+			}
 		} else {
 			unset( $this->Options );
 		}
 
-		add_action( 'redux/construct', array( $this, 'init' ), 11 );
+		$this->init();
 	}
 
 	/**

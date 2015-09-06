@@ -22,6 +22,10 @@ class Options extends Core {
 	 */
 	protected $defaults = array();
 	/**
+	 * @var mixed|void
+	 */
+	protected $options;
+	/**
 	 * @var array
 	 */
 	protected $reduxArgs = array();
@@ -31,15 +35,9 @@ class Options extends Core {
 	 */
 	public function __construct( Plugin $plugin ) {
 		parent::__construct( $plugin );
-
-//		if ( empty( $this->optName ) ) {
-//			$this->optName = $plugin->getSlug() . '_options';
-//		}
-
-
-//		if(!($this->reduxInstance instanceof \ReduxFramework)){
-//			$this->reduxInstance = new \ReduxFramework(array(), array_merge(Redux::$reduxDefaults, array('opt_name' => $this->optName)));
-//		}
+		if($this->optName){
+			$this->options = get_option($this->optName);
+		}
 	}
 
 	/**
@@ -56,9 +54,9 @@ class Options extends Core {
 	 * @return mixed
 	 */
 	public function get( $optionName, $default = null ) {
-		return ( isset ( $this->reduxInstance->options[ $optionName ] ) )
-			? $this->reduxInstance->options[ $optionName ]
-			: $this->reduxInstance->_get_default( $optionName, $default );
+		return ( isset ( $this->options[ $optionName ] ) )
+			? $this->options[ $optionName ]
+			: $this->getDefaults( $optionName, $default );
 	}
 
 	/**
@@ -66,23 +64,15 @@ class Options extends Core {
 	 * @param $value
 	 */
 	public function set( $optionName, $value ) {
-		$this->reduxInstance->set( $optionName, $value );
+		$this->options[$optionName] = $value;
+		update_option($this->optName, $this->options);
 	}
 
 	/**
 	 * @return array
 	 */
 	public function getAll() {
-		return $this->reduxInstance->options;
-	}
-
-	/**
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	public function setupReduxInstance(){
-		$this->reduxInstance = get_redux_instance( $this->optName );
-//		Dumper::dd($GLOBALS['wp_actions'], $this);
+		return $this->options;
 	}
 
 	/**
@@ -98,8 +88,8 @@ class Options extends Core {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function getDefaults($name = '') {
-		return empty($name) ? $this->defaults : (isset($this->defaults[$name]) ? $this->defaults[$name] : false);
+	public function getDefaults($name = '', $default = null) {
+		return empty($name) ? $this->defaults : (isset($this->defaults[$name]) ? $this->defaults[$name] : $default);
 	}
 
 	/**
