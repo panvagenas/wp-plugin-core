@@ -100,8 +100,6 @@ class Core {
 	public function __call( $method, $args ) {
 		if ( method_exists( $this, $method ) ) {
 			return call_user_func_array( array( $this, $method ), $args );
-		} else if ( method_exists( $this->Plugin, $method ) ) {
-			return call_user_func_array( array( $this->Plugin, $method ), $args );
 		}
 
 		if ( class_exists( $class = $this->_getPluginClassName( $method ) ) ) {

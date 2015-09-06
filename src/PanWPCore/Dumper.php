@@ -17,4 +17,13 @@ class Dumper extends Core{
 		call_user_func_array('dump', func_get_args());
 		die;
 	}
+
+	/**
+	 * @static
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since TODO ${VERSION}
+	 */
+	public static function d(){
+		call_user_func_array('dump', func_get_args());
+	}
 }
