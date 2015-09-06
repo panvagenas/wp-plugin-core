@@ -12,7 +12,7 @@
 namespace PanWPCore;
 
 
-class Initializer extends Core{
+class Initializer extends Core {
 	/**
 	 * @var bool
 	 */
@@ -20,37 +20,72 @@ class Initializer extends Core{
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public final function run(){
+	public final function run() {
 		self::coreInit();
 		$this->_init();
-		$this->init();
 	}
 
 	/**
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	private static final function coreInit(){
-		if(!self::$initialized){
-			add_action( 'admin_menu', function() {
-				remove_submenu_page('tools.php','redux-about');
-			},12 );
+	private static final function coreInit() {
+		if ( ! self::$initialized ) {
+			add_action( 'admin_menu', function () {
+				remove_submenu_page( 'tools.php', 'redux-about' );
+			}, 12 );
 			self::$initialized = true;
 		}
 	}
 
-	private final function _init(){
-		$textDomain = $this->Plugin->getTextDomain();
-		$pluginDir = basename(dirname($this->Plugin->getFilePath())) . $this->Paths->translationsRelDirPath;
-		add_action('plugins_loaded', function() use ($textDomain, $pluginDir){
-			load_plugin_textdomain($textDomain, null, $pluginDir);
-		});
-	}
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	protected function init(){}
+	private final function _init() {
+		$textDomain = $this->Plugin->getTextDomain();
+		if ( ! empty( $textDomain ) ) {
+			$pluginDir = basename( dirname( $this->Plugin->getFilePath() ) ) . $this->Paths->translationsRelDirPath;
+			add_action( 'plugins_loaded', function () use ( $textDomain, $pluginDir ) {
+				load_plugin_textdomain( $textDomain, null, $pluginDir );
+			} );
+		}
+
+		register_activation_hook( $this->Plugin->getBaseName(), array( $this->Installer, 'activation' ) );
+		register_deactivation_hook( $this->Plugin->getBaseName(), array( $this->Installer, 'deactivation' ) );
+		register_uninstall_hook( $this->Plugin->getBaseName(), array( get_class($this->Installer), 'uninstall' ) );
+
+		$optName = $this->Options->getOptName();
+		if ( ! empty( $optName ) ) {
+			add_action( 'plugins_loaded', array( $this->Options, 'setup' ), 10 );
+			add_action( 'redux/construct', array( $this->Options, 'setupReduxInstance' ), 10 );
+		} else {
+			unset( $this->Options );
+		}
+
+		add_action( 'redux/construct', array( $this, 'init' ), 11 );
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 *
+	 * @info   Already runed hooks:
+	 *          "muplugins_loaded"
+	 *          "registered_taxonomy"
+	 *          "registered_post_type"
+	 *          "redux/init"
+	 *          "doing_it_wrong_run"
+	 *          "plugins_loaded"
+	 *          "load_textdomain"
+	 *          "sanitize_comment_cookies"
+	 *          "setup_theme"
+	 *          "unload_textdomain"
+	 *          "after_setup_theme"
+	 *          "redux/construct"
+	 */
+	protected function init() {
+	}
 }
