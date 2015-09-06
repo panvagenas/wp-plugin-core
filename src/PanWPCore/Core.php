@@ -10,44 +10,60 @@ namespace PanWPCore;
 
 /**
  * Class Core
+ *
  * @package PanWPCore
- * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since TODO ${VERSION}
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
  *
- * @property Actions $Actions
- * @method Actions Actions() Actions()
+ * @property Actions                $Actions
+ * @method Actions                  Actions() Actions()
  *
- * @property Dumper $Dumper
- * @method Dumper Dumper() Dumper()
+ * @property Dumper                 $Dumper
+ * @method Dumper                   Dumper() Dumper()
  *
- * @property Filters $Filters
- * @method Filters Filters() Filters()
+ * @property Filters                $Filters
+ * @method Filters                  Filters() Filters()
  *
- * @property Hooks $Hooks
- * @method Hooks Hooks() Hooks()
+ * @property Hooks                  $Hooks
+ * @method Hooks                    Hooks() Hooks()
  *
- * @property I18n $I18n
- * @method I18n I18n() I18n()
+ * @property I18n                   $I18n
+ * @method I18n                     I18n() I18n()
  *
- * @property Initializer $Initializer
- * @method Initializer Initializer() Initializer()
+ * @property Initializer            $Initializer
+ * @method Initializer              Initializer() Initializer()
  *
- * @property Options $Options
- * @method Options Options() Options()
+ * @property Installer              $Installer
+ * @method Installer                Installer() Installer()
  *
- * @property Paths $Paths
- * @method Paths Paths() Paths()
+ * @property Options                $Options
+ * @method Options                  Options() Options()
  *
- * @property Plugin $Plugin
- * @method Plugin Plugin() Plugin( string $baseNamespace, string $filePath, string $name, string $version, string $textDomain, string $slug = '')
+ * @property Paths                  $Paths
+ * @method Paths                    Paths() Paths()
  *
- * @property Redux $Redux
- * @method Redux Redux() Redux(Plugin $plugin, Array $args = array())
+ * @property Plugin                 $Plugin
+ * @method Plugin                   Plugin() Plugin( string $baseNamespace, string $filePath, string $name, string $version, string $textDomain = '', string $slug = '' )
  *
- * @property String $String
- * @method String String() String()
+ * @property Redux                  $Redux
+ * @method Redux                    Redux() Redux( Plugin $plugin, Array $args = array() )
+ *
+ * @property Scripts                $Scripts
+ * @method Scripts                  Scripts() Scripts()
+ *
+ * @property String                 $String
+ * @method String                   String() String()
+ *
+ * @property Templates              $Templates
+ * @method Templates                Templates() Templates()
+ *
+ * @property Log\Logger             $Log__Logger
+ * @method Log\Logger               Log__Logger() Log__Logger()
+ *
+ * @property Log\Handlers\DBHandler $Log__Handlers__DBHandler
+ * @method Log\Handlers\DBHandler   Log__Handlers__DBHandler() Log__Handlers__DBHandler( string $logName, int $level = \Monolog\Logger::DEBUG, bool $bubble = true )
  */
-class Core {
+abstract class Core {
 	protected $Plugin;
 
 	/**
@@ -66,7 +82,7 @@ class Core {
 		$property = (string) $property;
 
 		return isset( $this->{$property} )
-		       || isset($this->Plugin->{$property})
+		       || isset( $this->Plugin->{$property} )
 		       || class_exists( $this->_getCoreClassName( $property ) )
 		       || class_exists( $this->_getPluginClassName( $property ) );
 	}
@@ -83,9 +99,9 @@ class Core {
 		}
 
 		if ( class_exists( $class = $this->_getPluginClassName( $property ) ) ) {
-			return $this->Plugin->{$property} = new $class( $this->Plugin );
+			return $this->Plugin->{$property} = $this->{$property}( $this->Plugin );
 		} elseif ( class_exists( $class = $this->_getCoreClassName( $property ) ) ) {
-			return $this->Plugin->{$property} = new $class( $this->Plugin );
+			return $this->Plugin->{$property} = $this->{$property}( $this->Plugin );
 		} else {
 			throw new \Exception( 'Undefined Class ' . $property );
 		}
@@ -95,7 +111,10 @@ class Core {
 	 * @param $method
 	 * @param $args
 	 *
-	 * @return mixed|null|object
+	 * @return mixed|object
+	 * @throws \Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
 	 */
 	public function __call( $method, $args ) {
 		if ( method_exists( $this, $method ) ) {
@@ -104,15 +123,21 @@ class Core {
 
 		if ( class_exists( $class = $this->_getPluginClassName( $method ) ) ) {
 			$reflection = new \ReflectionClass( $class );
-
-			return $reflection->newInstanceArgs( $args );
 		} elseif ( class_exists( $class = $this->_getCoreClassName( $method ) ) ) {
 			$reflection = new \ReflectionClass( $class );
-
-			return $reflection->newInstanceArgs( $args );
+		} else {
+			$reflection = null;
 		}
 
-		return null;
+		if(!$reflection || !$reflection->isInstantiable()){
+			throw new \Exception( 'Trying to instantiate non-instantiable class ' . $class );
+		}
+
+		if(!isset($args[0]) || !($args[0] instanceof Plugin)){
+			array_unshift($args, $this->Plugin);
+		}
+
+		return $reflection->newInstanceArgs( $args );
 	}
 
 	/**
@@ -121,7 +146,8 @@ class Core {
 	 * @return string
 	 */
 	protected function _getCoreClassName( $class ) {
-		$class = str_replace('__', '\\', $class);
+		$class = str_replace( '__', '\\', $class );
+
 		return '\\' . __NAMESPACE__ . '\\' . $class;
 	}
 
@@ -131,7 +157,8 @@ class Core {
 	 * @return string
 	 */
 	protected function _getPluginClassName( $class ) {
-		$class = str_replace('__', '\\', $class);
+		$class = str_replace( '__', '\\', $class );
+
 		return '\\' . $this->Plugin->baseNamespace . '\\' . $class;
 	}
 }
