@@ -473,7 +473,7 @@
                 <a href="<?php echo 'http://';?>docs.reduxframework.com/" class="docs button button-primary">Docs</a>
                 <a href="<?php echo 'http://';?>wordpress.org/plugins/redux-framework/" class="review-us button button-primary"
                     target="_blank">Review Us</a>
-                <a href="<?php echo 'https://';?>www.paypal.com/cgi-bin/webscr?cmd=admin-folder-xclick&hosted_button_id=MMFMHWUPKHKPW"
+                <a href="<?php echo 'https://';?>www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MMFMHWUPKHKPW"
                     class="review-us button button-primary" target="_blank">Donate</a>
                 <a href="<?php echo 'https://';?>twitter.com/share" class="twitter-share-button" data-url="http://reduxframework.com"
                     data-text="Reduce your dev time! Redux is the most powerful option framework for WordPress on the web"
