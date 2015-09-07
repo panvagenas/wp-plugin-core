@@ -70,14 +70,15 @@ class Scripts extends Core {
 		$media = 'all',
 		$hook = 'wp_enqueue_scripts'
 	) {
-		if ( ! wp_style_is( $handle, 'enqueued' ) ) {
-			if ( ! $ver ) {
-				$ver = $this->Plugin->getVersion();
-			}
-			add_action( $hook, function () use ( $handle, $src, $deps, $ver, $media ) {
+
+		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $media ) {
+			if ( ! wp_style_is( $handle, 'enqueued' ) ) {
+				if ( ! $ver ) {
+					$ver = $this->Plugin->getVersion();
+				}
 				wp_enqueue_style( $handle, $src, $deps, $ver, $media );
-			}, 20 );
-		}
+			}
+		} );
 	}
 
 	/**
@@ -99,14 +100,14 @@ class Scripts extends Core {
 		$inFooter = false,
 		$hook = 'wp_enqueue_scripts'
 	) {
-		if ( ! wp_script_is( $handle, 'enqueued' ) ) {
-			if ( ! $ver ) {
-				$ver = $this->Plugin->getVersion();
-			}
-			add_action( $hook, function () use ( $handle, $src, $deps, $ver, $inFooter ) {
+		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $inFooter ) {
+			if ( ! wp_script_is( $handle, 'enqueued' ) ) {
+				if ( ! $ver ) {
+					$ver = $this->Plugin->getVersion();
+				}
 				wp_enqueue_script( $handle, $src, $deps, $ver, $inFooter );
-			}, 20 );
-		}
+			}
+		} );
 	}
 
 	/**
