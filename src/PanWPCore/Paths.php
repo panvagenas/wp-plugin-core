@@ -15,6 +15,10 @@ class Paths  extends Core{
 	 */
 	public $pluginBaseDir;
 	/**
+	 * @var mixed
+	 */
+	public $pluginBaseDirRel;
+	/**
 	 * @var string
 	 */
 	public $uploadsBaseDir;
@@ -46,6 +50,8 @@ class Paths  extends Core{
 		parent::__construct( $plugin );
 
 		$this->pluginBaseDir = dirname( $plugin->getFilePath() );
+
+		$this->pluginBaseDirRel = preg_replace('/^' . preg_quote(ABSPATH, '/') . '/', '', $this->pluginBaseDir);
 
 		$uploadsData = wp_upload_dir();
 
@@ -87,5 +93,16 @@ class Paths  extends Core{
 		$file = str_replace('../', '', $file);
 		$file = trim($file, DIRECTORY_SEPARATOR.'\\/\t\n\r\0\x0B');
 		return $file;
+	}
+
+	/**
+	 * @param string $path
+	 *
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function pluginDirRel($path = ''){
+		return $this->pluginBaseDirRel . $path;
 	}
 }
