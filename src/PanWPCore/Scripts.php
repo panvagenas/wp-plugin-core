@@ -70,11 +70,11 @@ class Scripts extends Core {
 		$media = 'all',
 		$hook = 'wp_enqueue_scripts'
 	) {
-
-		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $media ) {
+		$pluginVersion = $this->Plugin->getVersion();
+		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $media, $pluginVersion ) {
 			if ( ! wp_style_is( $handle, 'enqueued' ) ) {
 				if ( ! $ver ) {
-					$ver = $this->Plugin->getVersion();
+					$ver = $pluginVersion->Plugin->getVersion();
 				}
 				wp_enqueue_style( $handle, $src, $deps, $ver, $media );
 			}
@@ -100,10 +100,11 @@ class Scripts extends Core {
 		$inFooter = false,
 		$hook = 'wp_enqueue_scripts'
 	) {
-		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $inFooter ) {
+		$pluginVersion = $this->Plugin->getVersion();
+		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $inFooter, $pluginVersion ) {
 			if ( ! wp_script_is( $handle, 'enqueued' ) ) {
 				if ( ! $ver ) {
-					$ver = $this->Plugin->getVersion();
+					$ver = $pluginVersion;
 				}
 				wp_enqueue_script( $handle, $src, $deps, $ver, $inFooter );
 			}
