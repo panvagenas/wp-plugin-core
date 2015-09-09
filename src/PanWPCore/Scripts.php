@@ -74,7 +74,7 @@ class Scripts extends Core {
 		add_action( $hook, function () use ( $handle, $src, $deps, $ver, $media, $pluginVersion ) {
 			if ( ! wp_style_is( $handle, 'enqueued' ) ) {
 				if ( ! $ver ) {
-					$ver = $pluginVersion->Plugin->getVersion();
+					$ver = $pluginVersion;
 				}
 				wp_enqueue_style( $handle, $src, $deps, $ver, $media );
 			}
