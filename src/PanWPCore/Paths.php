@@ -9,7 +9,7 @@
 namespace PanWPCore;
 
 
-class Paths  extends Core{
+class Paths extends Core {
 	/**
 	 * @var string
 	 */
@@ -51,7 +51,7 @@ class Paths  extends Core{
 
 		$this->pluginBaseDir = dirname( $plugin->getFilePath() );
 
-		$this->pluginBaseDirRel = preg_replace('/^' . preg_quote(ABSPATH, '/') . '/', '', $this->pluginBaseDir);
+		$this->pluginBaseDirRel = preg_replace( '/^' . preg_quote( ABSPATH, '/' ) . '/', '', $this->pluginBaseDir );
 
 		$uploadsData = wp_upload_dir();
 
@@ -88,10 +88,12 @@ class Paths  extends Core{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function removeDots($file){
-		$file = (string)$file;
-		$file = str_replace('../', '', $file);
-		$file = trim($file, DIRECTORY_SEPARATOR.'\\/\t\n\r\0\x0B');
+	public function removeDots( $file ) {
+		$file = (string) $file;
+		$file = str_replace( '../', '', $file );
+		$file = trim( $file, '\\/' );
+		$file = trim( $file );
+
 		return $file;
 	}
 
@@ -102,7 +104,7 @@ class Paths  extends Core{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function pluginDirRel($path = ''){
+	public function pluginDirRel( $path = '' ) {
 		return $this->pluginBaseDirRel . $path;
 	}
 }

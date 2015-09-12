@@ -73,7 +73,7 @@ class Initializer extends Core {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 *
-	 * @info   Already runed hooks:
+	 * @info   Already fired hooks:
 	 *          "muplugins_loaded"
 	 *          "registered_taxonomy"
 	 *          "registered_post_type"
