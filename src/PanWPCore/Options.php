@@ -8,15 +8,8 @@
 
 namespace PanWPCore;
 
-
-use Stringy\Stringy;
-
 class Options extends Core {
 	protected $optName = '';
-	/**
-	 * @var \ReduxFramework
-	 */
-	protected $reduxInstance;
 	/**
 	 * @var array
 	 */
@@ -32,26 +25,35 @@ class Options extends Core {
 
 	/**
 	 * @param Plugin $plugin
+	 * @param null   $optionsName
 	 */
-	public function __construct( Plugin $plugin ) {
+	public function __construct( Plugin $plugin, $optionsName = null ) {
 		parent::__construct( $plugin );
-		if($this->optName){
-			$this->options = get_option($this->optName);
+
+		if ( $optionsName ) {
+			$this->optName = $optionsName;
+		}
+		if ( $this->optName ) {
+			$this->options = get_option( $this->optName );
 		}
 	}
 
 	/**
-	 * @return string
+	 * @return null|string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
 	 */
 	public function getOptName() {
 		return $this->optName;
 	}
 
 	/**
-	 * @param $optionName
+	 * @param      $optionName
 	 * @param null $default
 	 *
 	 * @return mixed
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
 	 */
 	public function get( $optionName, $default = null ) {
 		return ( isset ( $this->options[ $optionName ] ) )
@@ -62,14 +64,19 @@ class Options extends Core {
 	/**
 	 * @param $optionName
 	 * @param $value
+	 *
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
 	 */
 	public function set( $optionName, $value ) {
-		$this->options[$optionName] = $value;
-		update_option($this->optName, $this->options);
+		$this->options[ $optionName ] = $value;
+		update_option( $this->optName, $this->options );
 	}
 
 	/**
-	 * @return array
+	 * @return mixed|void
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
 	 */
 	public function getAll() {
 		return $this->options;
@@ -79,7 +86,8 @@ class Options extends Core {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function setup(){}
+	public function setup() {
+	}
 
 	/**
 	 * @param string $name
@@ -88,8 +96,8 @@ class Options extends Core {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function getDefaults($name = '', $default = null) {
-		return empty($name) ? $this->defaults : (isset($this->defaults[$name]) ? $this->defaults[$name] : $default);
+	public function getDefaults( $name = '', $default = null ) {
+		return empty( $name ) ? $this->defaults : ( isset( $this->defaults[ $name ] ) ? $this->defaults[ $name ] : $default );
 	}
 
 	/**
