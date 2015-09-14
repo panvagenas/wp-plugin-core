@@ -45,6 +45,5 @@ class PathsTest extends WP_UnitTestCase {
 			$returned = $plugin->Paths->removeDots( $case['actual'] );
 			$this->assertEquals( $case['expected'], $returned );
 		}
-
 	}
 }
