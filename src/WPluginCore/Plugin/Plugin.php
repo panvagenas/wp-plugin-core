@@ -45,7 +45,8 @@ class Plugin extends AbsSingleton {
 	 */
 	protected $filePath;
 	/**
-	 * Plugin slug for internal core use. Should contain only alpha-numeric chars and underscore.
+	 * Plugin slug. Should contain only alpha-numeric chars and underscore. This also the `global` var
+	 * you can use to reference your plugin class, so it should be unique.
 	 *
 	 * **Optional**: Will be generated from {@link WPluginCore002\Plugin\Plugin::$name}
 	 * based on various string transformation rules.
@@ -95,8 +96,9 @@ class Plugin extends AbsSingleton {
 	 * @param string $name       Plugin name. {@link WPluginCore002\Plugin\Plugin::$name}
 	 * @param string $version    Version of the plugin. {@link WPluginCore002\Plugin\Plugin::$version}
 	 * @param string $filePath   Abs path to plugin file. {@link WPluginCore002\Plugin\Plugin::$filePath}
-	 * @param string $slug       Plugin slug for internal core use. Should contain only alpha-numeric chars and underscore.
-	 *                           {@link WPluginCore002\Plugin\Plugin::$slug}
+	 * @param string $slug       Plugin slug. Should contain only alpha-numeric chars and underscore. All other chars
+	 *                           get replaced with ` `(space) and the {@link Stringy::upperCamelize()} is then
+	 *                           applied. See also {@link WPluginCore002\Plugin\Plugin::$slug}
 	 * @param string $textDomain Text domain of the plugin for localization support. {@link WPluginCore002\Plugin\Plugin::$textDomain}
 	 */
 	public function __construct( $name, $version, $filePath = '', $slug = '', $textDomain = '' ) {
@@ -125,7 +127,7 @@ class Plugin extends AbsSingleton {
 			$baseNameAr = explode('/', plugin_basename( substr( $filePath, 0, - 4 ) ) );
 			$slug = end($baseNameAr);
 		}
-		$slug = preg_replace("/[^A-Za-z0-9 ]/", ' ', $slug);
+		$slug = preg_replace("/[^A-Za-z0-9 _]/", ' ', $slug);
 		$this->slug = $slug = (string) Stringy::create( $slug )->upperCamelize();
 
 		$GLOBALS[$slug] = &$this;
