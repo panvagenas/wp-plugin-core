@@ -53,6 +53,55 @@ class HooksTest extends WP_UnitTestCase {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
+	public function testRemoveAll() {
+		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		global $WpPluginCore;
+
+		$hooksFactory = $WpPluginCore->getHookFactory();
+
+		$filterTag = 'myFilterTag';
+		$actionTag = 'myActionTag';
+
+		$hooksFactory->removeAll( $filterTag );
+		$hooksFactory->removeAll( $actionTag );
+
+		$dumFilFun = function () {
+		};
+		$dumActFun = function () {
+		};
+
+		$dummyFilter = $hooksFactory->filter( $filterTag, $dumFilFun );
+		$dummyAction = $hooksFactory->action( $actionTag, $dumActFun );
+
+		$this->assertFalse( has_filter( $filterTag ) );
+		$this->assertFalse( has_action( $actionTag ) );
+
+		$this->assertFalse( $dummyFilter->has() );
+		$this->assertFalse( $dummyAction->has() );
+
+		$dummyFilter->add();
+		$dummyAction->add();
+
+		$this->assertTrue( has_filter( $filterTag ) );
+		$this->assertTrue( has_action( $actionTag ) );
+
+		$this->assertTrue( $dummyFilter->has() === $dummyFilter->getPriority() );
+		$this->assertTrue( $dummyAction->has() === $dummyAction->getPriority() );
+
+		$hooksFactory->removeAll( $filterTag );
+		$hooksFactory->removeAll( $actionTag );
+
+		$this->assertFalse( has_filter( $filterTag ) );
+		$this->assertFalse( has_action( $actionTag ) );
+
+		$this->assertFalse( $dummyFilter->has() );
+		$this->assertFalse( $dummyAction->has() );
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function testCreateNewAction() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
@@ -102,18 +151,18 @@ class HooksTest extends WP_UnitTestCase {
 		$hooksFactory = $WpPluginCore->getHookFactory();
 		$hooksFactory->removeAll( 'myFilterTag' );
 
-		$that = $this;
-		function dummyFilterB( $var ) {
-			if ( ! $var ) {
-				$var = true;
-			}
-
-			return $var;
-		}
-
 		$var = false;
 
-		$filter = $hooksFactory->filter( 'myFilterTag', 'dummyFilterB' );
+		$filter = $hooksFactory->filter( 'myFilterTag',
+			function ( $var ) {
+				if ( ! $var ) {
+					$var = true;
+				}
+
+				return $var;
+			}
+		);
+
 		$filter->add();
 
 		$this->assertFalse( $var );
@@ -137,12 +186,12 @@ class HooksTest extends WP_UnitTestCase {
 		global $myFancyVar;
 		$myFancyVar = false;
 
-		function dummyActionB() {
-			global $myFancyVar;
-			$myFancyVar = true;
-		}
-
-		$action = $hooksFactory->action( 'myActionTag', 'dummyActionB' );
+		$action = $hooksFactory->action( 'myActionTag',
+			function () {
+				global $myFancyVar;
+				$myFancyVar = true;
+			}
+		);
 		$action->add();
 
 		$this->assertFalse( $myFancyVar );
@@ -150,5 +199,88 @@ class HooksTest extends WP_UnitTestCase {
 		$hooksFactory->action( 'myActionTag', null )->perform();
 
 		$this->assertTrue( $myFancyVar );
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function testWhereStylesMayResideFilter() {
+		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		global $WpPluginCore;
+
+		$hooksFactory = $WpPluginCore->getHookFactory();
+
+		$originalWhereStylesMayResideArray = $WpPluginCore->getFactory()->paths()->getWhereStylesMayReside();
+		$pathToInclude                     = array( '/my/new/path' );
+		$newWhereStylesMayResideArray      = $originalWhereStylesMayResideArray + $pathToInclude;
+
+		$hook = $hooksFactory->getWhereStylesMayResideFilter( $WpPluginCore, function ( $orAr ) use ( $pathToInclude ) {
+			return $orAr + $pathToInclude;
+		} );
+		$hook->add();
+
+		$this->assertEquals( $originalWhereStylesMayResideArray,
+			$WpPluginCore->getFactory()->paths()->getWhereStylesMayReside() );
+
+		$filteredPaths = $hook->apply( $originalWhereStylesMayResideArray );
+
+		$this->assertEquals( $newWhereStylesMayResideArray, $filteredPaths );
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function testWhereScriptsMayResideFilter() {
+		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		global $WpPluginCore;
+
+		$hooksFactory = $WpPluginCore->getHookFactory();
+
+		$originalWhereScriptsMayResideArray = $WpPluginCore->getFactory()->paths()->getWhereScriptsMayReside();
+		$pathToInclude                      = array( '/my/new/path' );
+		$newWhereScriptsMayResideArray      = $originalWhereScriptsMayResideArray + $pathToInclude;
+
+		$hook = $hooksFactory->getWhereScriptsMayResideFilter( $WpPluginCore,
+			function ( $orAr ) use ( $pathToInclude ) {
+				return $orAr + $pathToInclude;
+			} );
+		$hook->add();
+
+		$this->assertEquals( $originalWhereScriptsMayResideArray,
+			$WpPluginCore->getFactory()->paths()->getWhereScriptsMayReside() );
+
+		$filteredPaths = $hook->apply( $originalWhereScriptsMayResideArray );
+
+		$this->assertEquals( $newWhereScriptsMayResideArray, $filteredPaths );
+	}
+
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function testWhereTemplatesMayResideFilter() {
+		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		global $WpPluginCore;
+
+		$hooksFactory = $WpPluginCore->getHookFactory();
+
+		$originalWhereTemplatesMayResideArray = $WpPluginCore->getFactory()->paths()->getWhereTemplatesMayReside();
+		$pathToInclude                        = array( '/my/new/path' );
+		$newWhereTemplatesMayResideArray      = $originalWhereTemplatesMayResideArray + $pathToInclude;
+
+		$hook = $hooksFactory->getWhereTemplatesMayResideFilter( $WpPluginCore,
+			function ( $orAr ) use ( $pathToInclude ) {
+				return $orAr + $pathToInclude;
+			} );
+		$hook->add();
+
+		$this->assertEquals( $originalWhereTemplatesMayResideArray,
+			$WpPluginCore->getFactory()->paths()->getWhereTemplatesMayReside() );
+
+		$filteredPaths = $hook->apply( $originalWhereTemplatesMayResideArray );
+
+		$this->assertEquals( $newWhereTemplatesMayResideArray, $filteredPaths );
 	}
 }
