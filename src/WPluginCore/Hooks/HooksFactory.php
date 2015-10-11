@@ -15,17 +15,24 @@ namespace WPluginCore002\Hooks;
 use WPluginCore002\Abs\AbsFactory;
 use WPluginCore002\Abs\AbsHook;
 use WPluginCore002\Diagnostics\Exception;
+use WPluginCore002\Plugin\Plugin;
 
 class HooksFactory extends AbsFactory {
+	const FILTER = 'Filter';
+	const ACTION = 'Action';
+	const WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX = '/WhereTemplatesMayReside';
+	const WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX = '/WhereScriptsMayReside';
+	const WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX = '/WhereStylesMayReside';
+
 	protected static $pool = array();
 
 	/**
 	 * See {@link WPluginCore002\Hooks\HooksFactory::createOrGetHook()}
 	 *
-	 * @param string $tag
-	 * @param mixed  $callback
-	 * @param int    $priority
-	 * @param int    $acceptedArgs
+	 * @param string              $tag
+	 * @param null|array|callable $callback
+	 * @param int                 $priority
+	 * @param int                 $acceptedArgs
 	 *
 	 * @return Filter
 	 * @throws Exception
@@ -33,16 +40,16 @@ class HooksFactory extends AbsFactory {
 	 * @since  TODO ${VERSION}
 	 */
 	public function filter( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		return $this->createOrGetHook( 'Filter', $tag, $callback, $priority, $acceptedArgs );
+		return $this->createOrGetHook( self::FILTER, $tag, $callback, $priority, $acceptedArgs );
 	}
 
 	/**
 	 * See {@link WPluginCore002\Hooks\HooksFactory::createOrGetHook()}
 	 *
-	 * @param string $tag
-	 * @param mixed  $callback
-	 * @param int    $priority
-	 * @param int    $acceptedArgs
+	 * @param string              $tag
+	 * @param null|array|callable $callback
+	 * @param int                 $priority
+	 * @param int                 $acceptedArgs
 	 *
 	 * @return Action
 	 * @throws Exception
@@ -50,15 +57,15 @@ class HooksFactory extends AbsFactory {
 	 * @since  TODO ${VERSION}
 	 */
 	public function action( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		return $this->createOrGetHook( 'Action', $tag, $callback, $priority, $acceptedArgs );
+		return $this->createOrGetHook( self::ACTION, $tag, $callback, $priority, $acceptedArgs );
 	}
 
 	/**
-	 * @param string $type
-	 * @param string $tag
-	 * @param mixed  $callback
-	 * @param int    $priority
-	 * @param int    $acceptedArgs
+	 * @param string              $type
+	 * @param string              $tag
+	 * @param null|array|callable $callback
+	 * @param int                 $priority
+	 * @param int                 $acceptedArgs
 	 *
 	 * @return Filter|Action
 	 * @throws Exception If unique ID for filter fails. This is depended on {@link _wp_filter_build_unique_id()}
@@ -66,7 +73,7 @@ class HooksFactory extends AbsFactory {
 	 * @since  TODO ${VERSION}
 	 */
 	protected function createOrGetHook( $type, $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		if ( ! in_array( $type, array( 'Filter', 'Action' ) ) ) {
+		if ( ! in_array( $type, array( self::FILTER, self::ACTION ) ) ) {
 			throw new Exception( "Invalid hook type: $type" );
 		}
 
@@ -91,8 +98,8 @@ class HooksFactory extends AbsFactory {
 	}
 
 	/**
-	 * @param $tag
-	 * @param $callback
+	 * @param              $tag
+	 * @param string|array $callback
 	 *
 	 * @return false|string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
@@ -111,7 +118,7 @@ class HooksFactory extends AbsFactory {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function getFromPool( $id, $tag, $priority = 10 ) {
+	protected function getFromPool( $id, $tag, $priority = 10 ) {
 		return isset( self::$pool[ $tag ][ $priority ][ $id ] ) ? self::$pool[ $tag ][ $priority ][ $id ] : false;
 	}
 
@@ -124,7 +131,7 @@ class HooksFactory extends AbsFactory {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function addToPool( $id, AbsHook $hook ) {
+	protected function addToPool( $id, AbsHook $hook ) {
 		if ( ! ( is_int( $id ) || is_string( $id ) ) ) {
 			throw new Exception( "Key: $id is not a valid array key" );
 		}
@@ -158,5 +165,68 @@ class HooksFactory extends AbsFactory {
 		}
 
 		return remove_all_filters( $tag, $priority );
+	}
+
+	/**
+	 * @param Plugin              $plugin
+	 * @param null|array|callable $callback
+	 * @param int                 $priority
+	 * @param int                 $acceptedArgs
+	 *
+	 * @return Filter
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getWhereTemplatesMayResideFilter(
+		Plugin $plugin,
+		$callback = null,
+		$priority = 10,
+		$acceptedArgs = 1
+	) {
+		$hookTag = $plugin->getSlug() . self::WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX;
+
+		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
+	}
+
+	/**
+	 * @param Plugin              $plugin
+	 * @param null|array|callable $callback
+	 * @param int                 $priority
+	 * @param int                 $acceptedArgs
+	 *
+	 * @return Filter
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getWhereScriptsMayResideFilter(
+		Plugin $plugin,
+		$callback = null,
+		$priority = 10,
+		$acceptedArgs = 1
+	) {
+		$hookTag = $plugin->getSlug() . self::WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX;
+
+		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
+	}
+
+	/**
+	 * @param Plugin              $plugin
+	 * @param null|array|callable $callback
+	 * @param int                 $priority
+	 * @param int                 $acceptedArgs
+	 *
+	 * @return Filter
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getWhereStylesMayResideFilter(
+		Plugin $plugin,
+		$callback = null,
+		$priority = 10,
+		$acceptedArgs = 1
+	) {
+		$hookTag = $plugin->getSlug() . self::WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX;
+
+		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
 }

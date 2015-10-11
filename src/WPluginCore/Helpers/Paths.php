@@ -18,7 +18,7 @@ use WPluginCore002\Hooks\Filter;
 use WPluginCore002\Hooks\HooksFactory;
 use WPluginCore002\Plugin\Plugin;
 
-class Paths extends AbsClass{
+class Paths extends AbsClass {
 	/**
 	 * @var string
 	 */
@@ -68,7 +68,7 @@ class Paths extends AbsClass{
 	 * @param Plugin $plugin
 	 */
 	public function __construct( Plugin $plugin ) {
-		parent::__construct($plugin);
+		parent::__construct( $plugin );
 
 		$this->pluginBaseDir = dirname( $plugin->getFilePath() );
 
@@ -92,21 +92,19 @@ class Paths extends AbsClass{
 			$templatePluginSlugDir,
 			$this->pluginBaseDir . '/templates',
 		);
-		$this->whereTemplatesMayResideFilter = $hookFactory->filter( $plugin->getSlug() . '/whereTemplatesMayReside',
-			null );
+		$this->whereTemplatesMayResideFilter = $hookFactory->getWhereTemplatesMayResideFilter($plugin);
 
 		$this->whereScriptsMayReside       = array(
 			$templatePluginSlugDir . '/js',
 			$this->pluginBaseDir . '/assets/js'
 		);
-		$this->whereScriptsMayResideFilter = $hookFactory->filter( $plugin->getSlug() . '/whereScriptsMayReside',
-			null );
+		$this->whereScriptsMayResideFilter = $hookFactory->getWhereScriptsMayResideFilter($plugin);
 
 		$this->whereStylesMayReside       = array(
 			$templatePluginSlugDir . '/css',
 			$this->pluginBaseDir . '/assets/css'
 		);
-		$this->whereStylesMayResideFilter = $hookFactory->filter( $plugin->getSlug() . '/whereStylesMayReside', null );
+		$this->whereStylesMayResideFilter = $hookFactory->getWhereStylesMayResideFilter($plugin, array());
 	}
 
 	/**
