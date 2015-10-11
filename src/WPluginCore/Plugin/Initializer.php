@@ -21,7 +21,7 @@ class Initializer extends AbsSingleton {
 	private static $initialized = false;
 
 	/**
-	 * This is used for core initialization. **DO NOT** override this, use init() instead.
+	 * This is used for core initialization. **DO NOT** override this, use {@link Initializer::init()} instead.
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
@@ -34,7 +34,39 @@ class Initializer extends AbsSingleton {
 			self::$initialized = true;
 		}
 
+		$this->pluginInit();
+	}
+
+	/**
+	 * This is used for plugin initialization. **DO NOT** override this, use {@link Initializer::init()} instead.
+	 *
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	protected function pluginInit(){
 		$this->plugin->getHookFactory()->action( 'after_setup_theme', array( $this, 'init' ) )->add();
+
+		$textDomain = $this->plugin->getTextDomain();
+
+		if ( ! empty( $textDomain ) ) {
+			$pluginDir = basename( dirname( $this->plugin->getFilePath() ) ) . $this->plugin->getFactory()->paths()->getTranslationsRelDirPath();
+
+			$this->plugin->getHookFactory()->action( 'plugins_loaded',
+				function () use ( $textDomain, $pluginDir ) {
+					load_plugin_textdomain( $textDomain, null, $pluginDir );
+				}
+			)->add();
+		}
+
+		register_activation_hook( $this->plugin->getBaseName(), array( $this->plugin->getFactory()->installer(), 'activation' ) );
+		register_deactivation_hook( $this->plugin->getBaseName(), array( $this->plugin->getFactory()->installer(), 'deactivation' ) );
+		register_uninstall_hook( $this->plugin->getBaseName(),
+			array(
+				get_class( $this->plugin->getFactory()->installer() ),
+				'uninstall'
+			)
+		);
+
 	}
 
 	/**

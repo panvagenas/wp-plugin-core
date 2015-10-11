@@ -109,8 +109,11 @@ class Plugin extends AbsSingleton {
 		$this->factory     = new Factory( $this );
 		$this->hookFactory = new HooksFactory();
 
-		$ref                 = new \ReflectionClass( get_class( $this ) );
-		$this->baseNamespace = $ref->getNamespaceName();
+		$ref = new \ReflectionClass( get_class( $this ) );
+		$baseNSStr = $ref->getNamespaceName();
+		$baseNSAr = explode('\\', $baseNSStr);
+
+		$this->baseNamespace = $baseNSAr[0];
 
 		if ( ( ! empty( $filePath ) && ! file_exists( $filePath ) )
 		     || ( empty( $filePath ) && ! file_exists( $filePath = dirname( dirname( dirname( __FILE__ ) ) ) . '/plugin.php' ) )
@@ -139,24 +142,6 @@ class Plugin extends AbsSingleton {
 		$this->textDomain = (string) Stringy::create( $this->textDomain )->underscored();
 
 		$this->factory->initializer()->coreInit();
-
-		if ( ! empty( $this->textDomain ) ) {
-			$pluginDir = basename( dirname( $this->filePath ) ) . $this->factory->paths()->getTranslationsRelDirPath();
-			$this->hookFactory->action( 'plugins_loaded',
-				function () use ( $textDomain, $pluginDir ) {
-					load_plugin_textdomain( $textDomain, null, $pluginDir );
-				}
-			)->add();
-		}
-
-		register_activation_hook( $this->baseName, array( $this->factory->installer(), 'activation' ) );
-		register_deactivation_hook( $this->baseName, array( $this->factory->installer(), 'deactivation' ) );
-		register_uninstall_hook( $this->baseName,
-			array(
-				get_class( $this->factory->installer() ),
-				'uninstall'
-			)
-		);
 	}
 
 	/**
