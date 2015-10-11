@@ -14,6 +14,7 @@ namespace WPluginCore002\Plugin;
 
 use Stringy\Stringy;
 use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Diagnostics\InvalidArgumentException;
 use WPluginCore002\Factory;
 use WPluginCore002\Hooks\HooksFactory;
@@ -100,20 +101,31 @@ class Plugin extends AbsSingleton {
 	 *                           get replaced with ` `(space) and the {@link Stringy::upperCamelize()} is then
 	 *                           applied. See also {@link WPluginCore002\Plugin\Plugin::$slug}
 	 * @param string $textDomain Text domain of the plugin for localization support. {@link WPluginCore002\Plugin\Plugin::$textDomain}
+	 *
+	 * @throws Exception If plugin base namespace isn't set or trying to instantiate core Plugin class
 	 */
 	public function __construct( $name, $version, $filePath = '', $slug = '', $textDomain = '' ) {
-		parent::__construct($this);
+		parent::__construct( $this );
 		$this->name    = $name;
 		$this->version = $version;
 
 		$this->factory     = new Factory( $this );
 		$this->hookFactory = new HooksFactory();
 
-		$ref = new \ReflectionClass( get_class( $this ) );
+		$ref       = new \ReflectionClass( get_class( $this ) );
 		$baseNSStr = $ref->getNamespaceName();
-		$baseNSAr = explode('\\', $baseNSStr);
 
-		$this->baseNamespace = $baseNSAr[0];
+		if($baseNSStr === __NAMESPACE__){
+			throw new Exception('Can\'t instantiate core Plugin class. You should extend it instead.');
+		}
+
+		$baseNSAr  = explode( '\\', $baseNSStr );
+
+		if ( isset( $baseNSAr[0] ) ) {
+			$this->baseNamespace = $baseNSAr[0];
+		} else {
+			throw new Exception('Base namespace not found');
+		}
 
 		if ( ( ! empty( $filePath ) && ! file_exists( $filePath ) )
 		     || ( empty( $filePath ) && ! file_exists( $filePath = dirname( dirname( dirname( __FILE__ ) ) ) . '/plugin.php' ) )
@@ -126,14 +138,14 @@ class Plugin extends AbsSingleton {
 
 		// TODO validate $slug
 
-		if(empty($slug)){
-			$baseNameAr = explode('/', plugin_basename( substr( $filePath, 0, - 4 ) ) );
-			$slug = end($baseNameAr);
+		if ( empty( $slug ) ) {
+			$baseNameAr = explode( '/', plugin_basename( substr( $filePath, 0, - 4 ) ) );
+			$slug       = end( $baseNameAr );
 		}
-		$slug = preg_replace("/[^A-Za-z0-9 _]/", ' ', $slug);
+		$slug       = preg_replace( "/[^A-Za-z0-9 _]/", ' ', $slug );
 		$this->slug = $slug = (string) Stringy::create( $slug )->upperCamelize();
 
-		$GLOBALS[$slug] = &$this;
+		$GLOBALS[ $slug ] = &$this;
 
 		// TODO validate $textDomain
 		$this->textDomain = empty( $textDomain )
