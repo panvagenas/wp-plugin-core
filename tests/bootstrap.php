@@ -16,10 +16,7 @@ if ( ! defined( 'SECURE_AUTH_KEY' ) ) {
 require_once $_tests_dir . '/includes/functions.php';
 
 function _manually_load_plugin() {
-	require_once dirname( dirname( __FILE__ ) ) . '/vendor/autoload.php';
-
-	global $plugin;
-	$plugin = new \PanWPCore\Plugin( __NAMESPACE__, __FILE__, 'Pan WP Plugins Core', '0.0.1-dev', 'pan-core', 'pan_core' );
+	require_once dirname( dirname( __FILE__ ) ) . '/wp-plugin-core.php';
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );

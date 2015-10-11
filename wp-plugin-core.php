@@ -11,11 +11,14 @@
  * License:         GPL-3.0+
  */
 
-namespace PanWPCore;
+namespace WPluginCore002;
+
+
+use WPluginCore002\Plugin\Plugin;
 
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 
-$plugin = new Plugin( __NAMESPACE__, __FILE__, 'Pan WP Plugins Core', '0.0.1-dev', 'pan-core', 'pan_core' );
+new Plugin( 'Pan WP Plugins Core', '0.0.1-dev', __FILE__ );
