@@ -100,7 +100,10 @@ class Plugin extends AbsSingleton {
 	 * @param string $slug       Plugin slug. Should contain only alpha-numeric chars and underscore. All other chars
 	 *                           get replaced with ` `(space) and the {@link Stringy::upperCamelize()} is then
 	 *                           applied. See also {@link WPluginCore002\Plugin\Plugin::$slug}
-	 * @param string $textDomain Text domain of the plugin for localization support. {@link WPluginCore002\Plugin\Plugin::$textDomain}
+	 * @param string $textDomain Text domain of the plugin for localization support.
+	 *                           This should be a lowercase alpha-num string with underscores.
+	 *                           {@link Stringy::underscored()} is applied to this.
+	 *                           See also {@link WPluginCore002\Plugin\Plugin::$textDomain}
 	 *
 	 * @throws Exception If plugin base namespace isn't set or trying to instantiate core Plugin class
 	 */
@@ -115,16 +118,16 @@ class Plugin extends AbsSingleton {
 		$ref       = new \ReflectionClass( get_class( $this ) );
 		$baseNSStr = $ref->getNamespaceName();
 
-		if($baseNSStr === __NAMESPACE__){
-			throw new Exception('Can\'t instantiate core Plugin class. You should extend it instead.');
+		if ( $baseNSStr === __NAMESPACE__ ) {
+			throw new Exception( 'Can\'t instantiate core Plugin class. You should extend it instead.' );
 		}
 
-		$baseNSAr  = explode( '\\', $baseNSStr );
+		$baseNSAr = explode( '\\', $baseNSStr );
 
 		if ( isset( $baseNSAr[0] ) ) {
 			$this->baseNamespace = $baseNSAr[0];
 		} else {
-			throw new Exception('Base namespace not found');
+			throw new Exception( 'Base namespace not found' );
 		}
 
 		if ( ( ! empty( $filePath ) && ! file_exists( $filePath ) )
@@ -136,21 +139,21 @@ class Plugin extends AbsSingleton {
 
 		$this->baseName = plugin_basename( $this->filePath );
 
-		// TODO validate $slug
-
 		if ( empty( $slug ) ) {
 			$baseNameAr = explode( '/', plugin_basename( substr( $filePath, 0, - 4 ) ) );
 			$slug       = end( $baseNameAr );
 		}
-		$slug       = preg_replace( "/[^A-Za-z0-9 _]/", ' ', $slug );
+		$slug = preg_replace( "/[^A-Za-z0-9 _]/", ' ', $slug );
+
 		$this->slug = $slug = (string) Stringy::create( $slug )->upperCamelize();
 
 		$GLOBALS[ $slug ] = &$this;
 
-		// TODO validate $textDomain
 		$this->textDomain = empty( $textDomain )
 			? $this->slug
 			: $textDomain;
+
+		$this->textDomain = preg_replace( "/[^A-Za-z0-9 _]/", ' ', $this->textDomain );
 		$this->textDomain = (string) Stringy::create( $this->textDomain )->underscored();
 
 		$this->factory->initializer()->coreInit();
