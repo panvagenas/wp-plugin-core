@@ -11,6 +11,7 @@
 
 namespace WPluginCore002\Scripts;
 
+use WPluginCore002\Abs\AbsScript;
 use WPluginCore002\Plugin\Plugin;
 
 class Style extends AbsScript {

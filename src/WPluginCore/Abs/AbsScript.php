@@ -9,10 +9,9 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Scripts;
+namespace WPluginCore002\Abs;
 
 
-use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Plugin\Plugin;
 
 abstract class AbsScript extends AbsClass{
