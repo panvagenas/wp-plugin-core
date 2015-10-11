@@ -60,7 +60,7 @@ class Factory extends AbsFactory {
 	public function createOrGet( $className ) {
 		if ( $this->existsInPlugin( $className ) ) {
 			if ( $this->coreClassExists( $className ) && ! $this->isCoreExtension( $className ) ) {
-				throw new Exception( 'Classes that have core name should ALWAYS extend core classes' );
+				throw new Exception( 'Classes that have core name should ALWAYS extend core classes. Class name: ' . $className );
 			}
 			$class = $this->getPluginClassName( $className );
 		} elseif ( $this->coreClassExists( $className ) ) {
