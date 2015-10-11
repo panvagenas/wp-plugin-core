@@ -21,7 +21,7 @@ class PluginTest extends WP_UnitTestCase {
 
 		$newPluginSlug = 'DummyPlugin';
 
-		$newPlugin = new \WPluginCore002\Plugin\Plugin("Dummy Plugin", "0.0-dummy", $WpPluginCore->getFilePath(), $newPluginSlug);
+		$newPlugin = new \WPluginCore\Plugin("Dummy Plugin", "0.0-dummy", $WpPluginCore->getFilePath(), $newPluginSlug);
 
 		$this->assertTrue(isset($GLOBALS[$newPluginSlug]));
 		$this->assertTrue($newPlugin instanceof \WPluginCore002\Plugin\Plugin);
