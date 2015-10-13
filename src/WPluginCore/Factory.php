@@ -153,6 +153,10 @@ class Factory extends AbsFactory {
 		return $this->createOrGet( 'Plugin\\Widget' );
 	}
 
+	public final function options(){
+		return $this->createOrGet('Options\\Options');
+	}
+
 	/**
 	 * Checks if class exists in plugin
 	 *
