@@ -23,6 +23,12 @@ use WPluginCore002\Abs\AbsOptionField;
  */
 class Text extends AbsOptionField {
 	/**
+	 * Value identifying the field type
+	 *
+	 * @var string
+	 */
+	protected $type = 'text';
+	/**
 	 * Sets the input field to be readonly or not
 	 *
 	 * @var bool
@@ -34,21 +40,6 @@ class Text extends AbsOptionField {
 	 * @var string
 	 */
 	protected $placeholder;
-	/**
-	 * Custom message to display upon failure of validation
-	 *
-	 * @var string
-	 */
-	protected $msg;
-
-	/**
-	 * @param $id
-	 * @param $title
-	 * @param $default
-	 */
-	public function __construct($id, $title, $default){
-		parent::__construct('text', $id, $title, $default);
-	}
 
 	/**
 	 * @return boolean
@@ -86,26 +77,6 @@ class Text extends AbsOptionField {
 	 */
 	public function setPlaceholder( $placeholder ) {
 		$this->placeholder = $placeholder;
-
-		return $this;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getMsg() {
-		return $this->msg;
-	}
-
-	/**
-	 * @param $msg
-	 *
-	 * @return $this
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	public function setMsg( $msg ) {
-		$this->msg = $msg;
 
 		return $this;
 	}

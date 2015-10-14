@@ -108,13 +108,11 @@ abstract class AbsOptionField {
 	protected $validators = array();
 
 	/**
-	 * @param $type
 	 * @param $id
 	 * @param $title
 	 * @param $default
 	 */
-	public function __construct( $type, $id, $title, $default ) {
-		$this->type    = $type;
+	public function __construct( $id, $title, $default ) {
 		$this->id      = $id;
 		$this->title   = $title;
 		$this->default = $default;
