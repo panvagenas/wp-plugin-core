@@ -19,6 +19,36 @@ use WPluginCore002\Plugin\Plugin;
 abstract class AbsOptionsPage extends AbsClass {
 	protected $allow_tracking = false;
 	/**
+	 * This is where your data is stored in the database and also becomes your global variable name
+	 *
+	 * @var string
+	 */
+	protected $opt_name;
+	/**
+	 * Name that appears at the top of your panel
+	 *
+	 * @var string
+	 */
+	protected $display_name;
+	/**
+	 * Version that appears at the top of your panel
+	 *
+	 * @var string
+	 */
+	protected $display_version;
+	/**
+	 * Title for WP menu
+	 *
+	 * @var string
+	 */
+	protected $menu_title;
+	/**
+	 * Page title for meta title tag
+	 *
+	 * @var string
+	 */
+	protected $page_title;
+	/**
 	 * Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
 	 *
 	 * @var string
@@ -277,8 +307,22 @@ abstract class AbsOptionsPage extends AbsClass {
 	 */
 	protected $helpSidebar = '';
 
-	public function __construct(Plugin $plugin, $menuType){
-		parent::__construct($plugin);
+	/**
+	 * @param Plugin $plugin
+	 * @param string $menuType
+	 */
+	public function __construct( Plugin $plugin, $menuType ) {
+		parent::__construct( $plugin );
+		$this->opt_name = $plugin->getFactory()->options()->getOptName();
+
+		$this->display_name
+			= $this->page_title
+			= $plugin->getName() . ' ' . __( 'Options', $this->plugin->getTextDomain() );
+
+		$this->display_version = $plugin->getVersion();
+
+		$this->menu_title = $plugin->getName();
+
 		$this->menu_type = $menuType;
 	}
 
@@ -306,7 +350,7 @@ abstract class AbsOptionsPage extends AbsClass {
 
 		foreach ( $this->sections as $section ) {
 			/* @var Section $section */
-			\Redux::setSection($optName, $section->toArray());
+			\Redux::setSection( $optName, $section->toArray() );
 		}
 	}
 
@@ -319,6 +363,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 */
 	public function addSection( Section $section ) {
 		$this->sections[] = $section;
+
 		return $this;
 	}
 
@@ -1079,5 +1124,93 @@ abstract class AbsOptionsPage extends AbsClass {
 		}
 
 		return $out;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getDisplayName() {
+		return $this->display_name;
+	}
+
+	/**
+	 * @param string $display_name
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setDisplayName( $display_name ) {
+		$this->display_name = $display_name;
+
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getDisplayVersion() {
+		return $this->display_version;
+	}
+
+	/**
+	 * @param string $display_version
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setDisplayVersion( $display_version ) {
+		$this->display_version = $display_version;
+
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getMenuTitle() {
+		return $this->menu_title;
+	}
+
+	/**
+	 * @param string $menu_title
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setMenuTitle( $menu_title ) {
+		$this->menu_title = $menu_title;
+
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getPageTitle() {
+		return $this->page_title;
+	}
+
+	/**
+	 * @param string $page_title
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setPageTitle( $page_title ) {
+		$this->page_title = $page_title;
+
+		return $this;
 	}
 }
