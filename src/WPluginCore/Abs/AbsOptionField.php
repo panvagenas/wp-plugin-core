@@ -105,7 +105,7 @@ class AbsOptionField {
 	 * Array of {@link Respect\Validation\Validator}
 	 * @var array
 	 */
-	public $validators = array();
+	protected $validators = array();
 
 	/**
 	 * @param $type
@@ -373,7 +373,7 @@ class AbsOptionField {
 		$out = array();
 
 		$reflect = new \ReflectionClass( $this );
-		$props   = $reflect->getProperties( \ReflectionProperty::IS_PROTECTED );
+		$props   = $reflect->getProperties( \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED );
 
 		foreach ( $props as $prop ) {
 			$out[ $prop->getName() ] = $this->{$prop->getName()};

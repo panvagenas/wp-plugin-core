@@ -133,4 +133,25 @@ class Options extends AbsSingleton {
 	public function save() {
 		return $this->optName ? update_option( $this->optName, $this->options ) : false;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getOptName() {
+		return $this->optName;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getDefaults() {
+		return $this->defaults;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getOptions() {
+		return $this->options;
+	}
 }
