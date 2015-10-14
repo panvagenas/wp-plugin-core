@@ -14,7 +14,7 @@ namespace WPluginCore002;
 
 use WPluginCore002\Options\Options;
 use WPluginCore002\Plugin\Installer;
-use WPluginCore002\Helpers\Paths;
+use WPluginCore002\Plugin\Paths;
 use WPluginCore002\Abs\AbsFactory;
 use WPluginCore002\Abs\AbsSingleton;
 use WPluginCore002\Diagnostics\Exception;
@@ -101,7 +101,7 @@ class Factory extends AbsFactory {
 	 * @since  TODO ${VERSION}
 	 */
 	public final function paths() {
-		return $this->createOrGet( 'Helpers\\Paths' );
+		return $this->createOrGet( 'Plugin\\Paths' );
 	}
 
 	/**

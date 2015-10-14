@@ -51,7 +51,7 @@ class PluginTest extends WP_UnitTestCase {
 
 		$factory = $WpPluginCore->getFactory();
 
-		$this->assertTrue($factory->paths() instanceof \WPluginCore002\Helpers\Paths);
+		$this->assertTrue($factory->paths() instanceof \WPluginCore002\Plugin\Paths);
 		$this->assertTrue($factory->hooksFactory() instanceof \WPluginCore002\Hooks\HooksFactory);
 		$this->assertTrue($factory->initializer() instanceof \WPluginCore002\Plugin\Initializer);
 		$this->assertTrue($factory->installer() instanceof \WPluginCore002\Plugin\Installer);

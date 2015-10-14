@@ -9,14 +9,13 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Helpers;
+namespace WPluginCore002\Plugin;
 
 
 use Stringy\Stringy;
 use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Hooks\Filter;
 use WPluginCore002\Hooks\HooksFactory;
-use WPluginCore002\Plugin\Plugin;
 
 class Paths extends AbsClass {
 	/**
