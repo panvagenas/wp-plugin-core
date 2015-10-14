@@ -11,6 +11,18 @@
 
 namespace WPluginCore002\Diagnostics;
 
+use Whoops\Handler\PrettyPageHandler;
+use Whoops\Run;
 
 class Exception extends \Exception{
+	public function __construct($message = "", $code = 0, Exception $previous = null){
+		parent::__construct($message, $code, $previous);
+
+		if(WP_DEBUG && WP_DEBUG_DISPLAY) {
+			$run     = new Run();
+			$handler = new PrettyPageHandler();
+			$run->pushHandler( $handler );
+			$run->register();
+		}
+	}
 }
