@@ -22,7 +22,7 @@ use Respect\Validation\Validator;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   TODO ${VERSION}
  */
-class AbsOptionField {
+abstract class AbsOptionField {
 	/**
 	 * Value identifying the field type.
 	 *

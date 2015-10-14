@@ -14,6 +14,7 @@ namespace WPluginCore002\Abs;
 
 use WPluginCore002\Options\Components\HelpTab;
 use WPluginCore002\Options\Components\Section;
+use WPluginCore002\Plugin\Plugin;
 
 abstract class AbsOptionsPage extends AbsClass {
 	protected $allow_tracking = false;
@@ -115,12 +116,12 @@ abstract class AbsOptionsPage extends AbsClass {
 	 */
 	protected $page_priority = null;
 	/**
-	 * For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
+	 * For a full list of options, visit: {@link http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters}
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
 	 * @var string
 	 */
-	protected $page_parent = 'options-general.php';
+	protected $page_parent = '';
 	/**
 	 * Permissions needed to access the options panel
 	 *
@@ -275,6 +276,11 @@ abstract class AbsOptionsPage extends AbsClass {
 	 * @var string
 	 */
 	protected $helpSidebar = '';
+
+	public function __construct(Plugin $plugin, $menuType){
+		parent::__construct($plugin);
+		$this->menu_type = $menuType;
+	}
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
@@ -447,19 +453,6 @@ abstract class AbsOptionsPage extends AbsClass {
 	 */
 	public function getMenuType() {
 		return $this->menu_type;
-	}
-
-	/**
-	 * @param $menu_type
-	 *
-	 * @return $this
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	public function setMenuType( $menu_type ) {
-		$this->menu_type = $menu_type;
-
-		return $this;
 	}
 
 	/**
@@ -767,19 +760,6 @@ abstract class AbsOptionsPage extends AbsClass {
 	 */
 	public function getPageParent() {
 		return $this->page_parent;
-	}
-
-	/**
-	 * @param $page_parent
-	 *
-	 * @return $this
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	public function setPageParent( $page_parent ) {
-		$this->page_parent = $page_parent;
-
-		return $this;
 	}
 
 	/**
