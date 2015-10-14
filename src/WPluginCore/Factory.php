@@ -12,6 +12,7 @@
 namespace WPluginCore002;
 
 
+use WPluginCore002\Options\Options;
 use WPluginCore002\Plugin\Installer;
 use WPluginCore002\Helpers\Paths;
 use WPluginCore002\Abs\AbsFactory;
@@ -153,6 +154,12 @@ class Factory extends AbsFactory {
 		return $this->createOrGet( 'Plugin\\Widget' );
 	}
 
+	/**
+	 * @return Options
+	 * @throws Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public final function options(){
 		return $this->createOrGet('Options\\Options');
 	}
