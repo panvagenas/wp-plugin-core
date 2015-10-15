@@ -9,10 +9,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore\Scripts;
-
-
-use WPluginCore002\Scripts\Style;
+namespace WPluginCore002\Scripts;
 
 class LoginStyle extends Style{
 	protected $hook = array('login_enqueue_scripts');

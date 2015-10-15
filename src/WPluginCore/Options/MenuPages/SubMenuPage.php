@@ -9,7 +9,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore\Options\MenuPages;
+namespace WPluginCore002\Options\MenuPages;
 
 
 use WPluginCore002\Abs\AbsOptionsPage;
