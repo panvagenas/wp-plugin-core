@@ -11,7 +11,7 @@
 
 namespace WPluginCore002\Abs;
 
-use Respect\Validation\Exceptions\NestedValidationExceptionInterface;
+use Respect\Validation\Exceptions\ValidationExceptionInterface;
 use Respect\Validation\Validator;
 
 
@@ -136,9 +136,9 @@ abstract class AbsOptionField {
 		foreach ( $this->validators as $validator ) {
 			/* @var Validator $validator */
 			try {
-				$validator->assert($value);
-			} catch( NestedValidationExceptionInterface $exception) {
-				$errors[] = $exception->getFullMessage();
+				$validator->check($value);
+			} catch( ValidationExceptionInterface $exception) {
+				$errors[] = $exception->getMainMessage();
 				$valid = false;
 			}
 		}
@@ -146,7 +146,7 @@ abstract class AbsOptionField {
 		$return['value'] = $valid ? $value : $existing_value;
 
 		if(!$valid){
-			$field['msg'] = implode('<br>', str_replace("\n",'<br>', $errors));
+			$field['msg'] = implode('<br>', $errors);
 			$return['error'] = $field;
 		}
 
