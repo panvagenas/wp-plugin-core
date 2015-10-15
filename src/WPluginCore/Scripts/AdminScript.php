@@ -12,6 +12,6 @@
 namespace WPluginCore002\Scripts;
 
 
-class AdminScript extends Script{
-	protected $hook = array('admin_enqueue_scripts');
+class AdminScript extends Script {
+	protected $hook = array( 'admin_enqueue_scripts' );
 }

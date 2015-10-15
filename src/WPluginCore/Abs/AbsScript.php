@@ -14,7 +14,7 @@ namespace WPluginCore002\Abs;
 
 use WPluginCore002\Plugin\Plugin;
 
-abstract class AbsScript extends AbsClass{
+abstract class AbsScript extends AbsClass {
 	/**
 	 * @var Plugin
 	 */
@@ -34,19 +34,15 @@ abstract class AbsScript extends AbsClass{
 		Array $deps = array(),
 		Array $hook = array( 'wp_enqueue_scripts' )
 	) {
-		parent::__construct($plugin);
+		parent::__construct( $plugin );
 
-		$this->handle = $handle;
+		$this->handle    = $handle;
 		$this->wpRelPath = $wpRelPath ? $this->locate() : $wpRelPath;
-		$this->deps = $deps;
-		$this->hook = $hook;
+		$this->deps      = $deps;
+		$this->hook      = $hook;
 
 		$this->version = $plugin->getVersion();
 	}
-
-	abstract public function enqueue();
-
-	abstract public function register();
 
 	public function locate() {
 		foreach ( $this->whereMayReside as $dir ) {
@@ -57,4 +53,8 @@ abstract class AbsScript extends AbsClass{
 
 		return '';
 	}
+
+	abstract public function enqueue();
+
+	abstract public function register();
 }

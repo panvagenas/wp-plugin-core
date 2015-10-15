@@ -25,6 +25,7 @@ class AceEditor extends AbsOptionField {
 	protected $mode = 'javascript';
 	/**
 	 * Sets the theme of the editor.  Accepts: `chrome` or `monokai`
+	 *
 	 * @var string
 	 */
 	protected $theme = 'monokai';

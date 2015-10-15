@@ -15,11 +15,11 @@ namespace WPluginCore002\Options\MenuPages;
 use WPluginCore002\Abs\AbsOptionsPage;
 use WPluginCore002\Plugin\Plugin;
 
-class MenuPage extends AbsOptionsPage{
+class MenuPage extends AbsOptionsPage {
 	/**
 	 * @param Plugin $plugin
 	 */
-	public function __construct(Plugin $plugin){
-		parent::__construct($plugin, 'menu');
+	public function __construct( Plugin $plugin ) {
+		parent::__construct( $plugin, 'menu' );
 	}
 }

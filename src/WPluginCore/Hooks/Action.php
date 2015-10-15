@@ -14,16 +14,17 @@ namespace WPluginCore002\Hooks;
 
 use WPluginCore002\Abs\AbsHook;
 
-class Action extends AbsHook{
+class Action extends AbsHook {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function perform(){
+	public function perform() {
 		$args = func_get_args();
-		array_unshift($args, $this->tag);
-		return call_user_func_array('do_action', $args);
+		array_unshift( $args, $this->tag );
+
+		return call_user_func_array( 'do_action', $args );
 	}
 
 	/**
@@ -31,7 +32,7 @@ class Action extends AbsHook{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function did(){
-		return did_action($this->tag);
+	public function did() {
+		return did_action( $this->tag );
 	}
 }

@@ -12,6 +12,6 @@
 namespace WPluginCore002\Options\Components;
 
 
-class SubSection extends Section{
+class SubSection extends Section {
 	protected $subsection = true;
 }

@@ -12,6 +12,6 @@
 namespace WPluginCore002\Scripts;
 
 
-class LoginScript extends Script{
-	protected $hook = array('login_enqueue_scripts');
+class LoginScript extends Script {
+	protected $hook = array( 'login_enqueue_scripts' );
 }

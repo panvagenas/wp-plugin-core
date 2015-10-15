@@ -14,7 +14,7 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
-class Radio extends AbsOptionField{
+class Radio extends AbsOptionField {
 	protected $type = 'radio';
 	/**
 	 * Array of key pair values representing the radio buttons.  The key value should be numbers in sequential order,
@@ -33,6 +33,7 @@ class Radio extends AbsOptionField{
 	protected $data;
 	/**
 	 * Array of WordPress arguments for the specific data to be retrieved
+	 *
 	 * @var array
 	 */
 	protected $args;
@@ -51,7 +52,7 @@ class Radio extends AbsOptionField{
 	 */
 	public function __construct( $id, $title, $default, $options = array() ) {
 		parent::__construct( $id, $title, $default );
-		$this->options = (array)$options;
+		$this->options = (array) $options;
 	}
 
 	/**

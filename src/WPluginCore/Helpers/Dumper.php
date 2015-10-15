@@ -14,21 +14,21 @@ namespace WPluginCore002\Helpers;
 
 use WPluginCore002\Abs\AbsSingleton;
 
-class Dumper extends AbsSingleton{
+class Dumper extends AbsSingleton {
 	/**
 	 * Dumps passed arguments and dies
 	 */
-	public static function dd(){
-		call_user_func_array('dump', func_get_args());
+	public static function dd() {
+		call_user_func_array( 'dump', func_get_args() );
 		die;
 	}
 
 	/**
 	 * @static
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public static function d(){
-		call_user_func_array('dump', func_get_args());
+	public static function d() {
+		call_user_func_array( 'dump', func_get_args() );
 	}
 }

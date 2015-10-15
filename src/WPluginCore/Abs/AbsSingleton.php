@@ -25,6 +25,16 @@ abstract class AbsSingleton {
 	protected $plugin;
 
 	/**
+	 * Protected constructor to prevent creating a new instance of the
+	 * *Singleton* via the `new` operator from outside of this class.
+	 *
+	 * @param Plugin $plugin
+	 */
+	protected function __construct( Plugin $plugin ) {
+		$this->plugin = $plugin;
+	}
+
+	/**
 	 * Returns the *Singleton* instance of this class.
 	 *
 	 * @param Plugin $plugin
@@ -43,16 +53,6 @@ abstract class AbsSingleton {
 		}
 
 		return self::$instances[ $plugin->getSlug() ][ $class ];
-	}
-
-	/**
-	 * Protected constructor to prevent creating a new instance of the
-	 * *Singleton* via the `new` operator from outside of this class.
-	 *
-	 * @param Plugin $plugin
-	 */
-	protected function __construct( Plugin $plugin ) {
-		$this->plugin = $plugin;
 	}
 
 	/**

@@ -12,6 +12,6 @@
 namespace WPluginCore002\Options\Fields;
 
 
-class Date extends Text{
+class Date extends Text {
 	protected $type = 'date';
 }

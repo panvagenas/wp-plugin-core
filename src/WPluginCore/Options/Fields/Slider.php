@@ -34,7 +34,7 @@ class Slider extends AbsOptionsNumField {
 	 * Sets the value’s decimal significance. Acceptable values are: `1`, `0.1`, `0.01`, `0.001`, `0.0001`, `0.00001`.
 	 * Any improper value will default to `1`
 	 *
-	 * @var int
+	 * @var int|float
 	 */
 	protected $resolution = 1;
 	/**
@@ -99,7 +99,7 @@ class Slider extends AbsOptionsNumField {
 	}
 
 	/**
-	 * @return int
+	 * @return int|float
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
@@ -108,7 +108,7 @@ class Slider extends AbsOptionsNumField {
 	}
 
 	/**
-	 * @param int $resolution
+	 * @param int|float $resolution
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>

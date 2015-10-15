@@ -90,19 +90,19 @@ class Paths extends AbsClass {
 			$templatePluginSlugDir,
 			$this->pluginBaseDir . '/templates',
 		);
-		$this->whereTemplatesMayResideFilter = $hookFactory->getWhereTemplatesMayResideFilter($plugin);
+		$this->whereTemplatesMayResideFilter = $hookFactory->getWhereTemplatesMayResideFilter( $plugin );
 
 		$this->whereScriptsMayReside       = array(
 			$templatePluginSlugDir . '/js',
 			$this->pluginBaseDir . '/assets/js'
 		);
-		$this->whereScriptsMayResideFilter = $hookFactory->getWhereScriptsMayResideFilter($plugin);
+		$this->whereScriptsMayResideFilter = $hookFactory->getWhereScriptsMayResideFilter( $plugin );
 
 		$this->whereStylesMayReside       = array(
 			$templatePluginSlugDir . '/css',
 			$this->pluginBaseDir . '/assets/css'
 		);
-		$this->whereStylesMayResideFilter = $hookFactory->getWhereStylesMayResideFilter($plugin, array());
+		$this->whereStylesMayResideFilter = $hookFactory->getWhereStylesMayResideFilter( $plugin, array() );
 	}
 
 	/**

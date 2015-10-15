@@ -103,6 +103,7 @@ abstract class AbsOptionField {
 	protected $validate_callback;
 	/**
 	 * Array of {@link Respect\Validation\Validator}
+	 *
 	 * @var array
 	 */
 	protected $validators = array();
@@ -113,10 +114,10 @@ abstract class AbsOptionField {
 	 * @param $default
 	 */
 	public function __construct( $id, $title, $default ) {
-		$this->id      = $id;
-		$this->title   = $title;
-		$this->default = $default;
-		$this->validate_callback = array($this, 'validate');
+		$this->id                = $id;
+		$this->title             = $title;
+		$this->default           = $default;
+		$this->validate_callback = array( $this, 'validate' );
 	}
 
 	/**
@@ -128,25 +129,25 @@ abstract class AbsOptionField {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function validate($field, $value, $existing_value){
-		$valid = true;
+	public function validate( $field, $value, $existing_value ) {
+		$valid  = true;
 		$errors = array();
 		$return = array();
 
 		foreach ( $this->validators as $validator ) {
 			/* @var Validator $validator */
 			try {
-				$validator->check($value);
-			} catch( ValidationExceptionInterface $exception) {
+				$validator->check( $value );
+			} catch ( ValidationExceptionInterface $exception ) {
 				$errors[] = $exception->getMainMessage();
-				$valid = false;
+				$valid    = false;
 			}
 		}
 
 		$return['value'] = $valid ? $value : $existing_value;
 
-		if(!$valid){
-			$field['msg'] = implode('<br>', $errors);
+		if ( ! $valid ) {
+			$field['msg']    = implode( '<br>', $errors );
 			$return['error'] = $field;
 		}
 
@@ -159,7 +160,7 @@ abstract class AbsOptionField {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function addValidator( Validator $validator){
+	public function addValidator( Validator $validator ) {
 		$this->validators[] = $validator;
 	}
 
@@ -179,6 +180,7 @@ abstract class AbsOptionField {
 	 */
 	public function setValidate( $validate ) {
 		$this->validate = $validate;
+
 		return $this;
 	}
 

@@ -14,27 +14,28 @@ namespace WPluginCore002\Translations;
 
 use WPluginCore002\Abs\AbsSingleton;
 
-class I18n extends AbsSingleton{
+class I18n extends AbsSingleton {
 	/**
 	 * @param $text
 	 *
 	 * @return string|void
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public function __($text){
-		$text = (string)$text;
-		return __($text, $this->plugin->getTextDomain());
+	public function __( $text ) {
+		$text = (string) $text;
+
+		return __( $text, $this->plugin->getTextDomain() );
 	}
 
 	/**
 	 * @param $text
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public function _e($text){
-		_e($text, $this->plugin->getTextDomain());
+	public function _e( $text ) {
+		_e( $text, $this->plugin->getTextDomain() );
 	}
 
 	/**
@@ -44,10 +45,10 @@ class I18n extends AbsSingleton{
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public function _n($single, $plural, $number){
-		return _n($single, $plural, $number, $this->plugin->getTextDomain());
+	public function _n( $single, $plural, $number ) {
+		return _n( $single, $plural, $number, $this->plugin->getTextDomain() );
 	}
 
 	/**
@@ -56,10 +57,10 @@ class I18n extends AbsSingleton{
 	 *
 	 * @return string|void
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public function _x( $text, $context ){
-		return _x($text, $context, $this->plugin->getTextDomain());
+	public function _x( $text, $context ) {
+		return _x( $text, $context, $this->plugin->getTextDomain() );
 	}
 
 	/**
@@ -67,9 +68,9 @@ class I18n extends AbsSingleton{
 	 * @param $context
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since TODO ${VERSION}
+	 * @since  TODO ${VERSION}
 	 */
-	public function _ex( $text, $context ){
-		_ex($text, $context, $this->plugin->getTextDomain());
+	public function _ex( $text, $context ) {
+		_ex( $text, $context, $this->plugin->getTextDomain() );
 	}
 }

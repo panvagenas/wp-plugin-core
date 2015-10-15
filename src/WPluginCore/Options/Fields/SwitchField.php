@@ -14,14 +14,16 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
-class SwitchField extends AbsOptionField{
+class SwitchField extends AbsOptionField {
 	/**
 	 * Text display for the true value
+	 *
 	 * @var string
 	 */
 	protected $on = 'On';
 	/**
 	 * Text display for the false value
+	 *
 	 * @var string
 	 */
 	protected $off = 'Off';

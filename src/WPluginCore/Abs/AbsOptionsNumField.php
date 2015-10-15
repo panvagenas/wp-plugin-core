@@ -12,19 +12,22 @@
 namespace WPluginCore002\Abs;
 
 
-abstract class AbsOptionsNumField extends AbsOptionField{
+abstract class AbsOptionsNumField extends AbsOptionField {
 	/**
 	 * Value to set the minimum value
+	 *
 	 * @var int
 	 */
 	protected $min = 0;
 	/**
 	 * Value to set the maximum value
+	 *
 	 * @var int
 	 */
 	protected $max = 1;
 	/**
 	 * Value to set the step value
+	 *
 	 * @var int
 	 */
 	protected $step = 1;

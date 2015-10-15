@@ -14,7 +14,7 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
-class Color extends AbsOptionField{
+class Color extends AbsOptionField {
 	protected $type = 'color';
 	/**
 	 * Array of CSS selectors to dynamically generate CSS
@@ -25,11 +25,13 @@ class Color extends AbsOptionField{
 	protected $output = array();
 	/**
 	 * Flag to set the display of the transparency checkbox
+	 *
 	 * @var bool
 	 */
 	protected $transparent = true;
 	/**
 	 * String value of the validation type to validate.  The only accepted value is `color`
+	 *
 	 * @var string
 	 */
 	protected $validate = 'color';

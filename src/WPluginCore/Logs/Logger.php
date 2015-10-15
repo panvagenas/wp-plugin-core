@@ -12,12 +12,12 @@
 namespace WPluginCore002\Logs;
 
 
+use Monolog\Handler\StreamHandler;
 use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Logs\Handlers\DBHandler;
 use WPluginCore002\Plugin\Plugin;
-use Monolog\Handler\StreamHandler;
 
-class Logger extends AbsClass{
+class Logger extends AbsClass {
 	/**
 	 * @var \Monolog\Logger
 	 */
@@ -31,7 +31,7 @@ class Logger extends AbsClass{
 	 * @param Plugin $plugin
 	 */
 	public function __construct( Plugin $plugin ) {
-		parent::__construct($plugin);
+		parent::__construct( $plugin );
 
 		$this->logger = new \Monolog\Logger( $plugin->getSlug() );
 	}

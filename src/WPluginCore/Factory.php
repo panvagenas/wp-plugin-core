@@ -12,14 +12,14 @@
 namespace WPluginCore002;
 
 
-use WPluginCore002\Options\Options;
-use WPluginCore002\Plugin\Installer;
-use WPluginCore002\Plugin\Paths;
 use WPluginCore002\Abs\AbsFactory;
 use WPluginCore002\Abs\AbsSingleton;
 use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Hooks\HooksFactory;
+use WPluginCore002\Options\Options;
 use WPluginCore002\Plugin\Initializer;
+use WPluginCore002\Plugin\Installer;
+use WPluginCore002\Plugin\Paths;
 use WPluginCore002\Plugin\Plugin;
 use WPluginCore002\Plugin\ShortCode;
 use WPluginCore002\Plugin\Widget;
@@ -81,7 +81,7 @@ class Factory extends AbsFactory {
 
 		if ( $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsSingleton' ) ) ) {
 			/* @var AbsSingleton $class */
-			$instance = $class::getInstance($this->plugin);
+			$instance = $class::getInstance( $this->plugin );
 		} else {
 			if ( $reflection->hasProperty( 'plugin' )
 			     && ( empty( $args ) || ( isset( $args[0] ) && ! ( $args[0] instanceof Plugin ) ) )
@@ -160,8 +160,8 @@ class Factory extends AbsFactory {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public final function options(){
-		return $this->createOrGet('Options\\Options');
+	public final function options() {
+		return $this->createOrGet( 'Options\\Options' );
 	}
 
 	/**

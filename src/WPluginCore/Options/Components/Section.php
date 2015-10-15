@@ -96,8 +96,9 @@ class Section extends AbsClass {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function addField(AbsOptionField $field){
+	public function addField( AbsOptionField $field ) {
 		$this->fields[] = $field;
+
 		return $this;
 	}
 

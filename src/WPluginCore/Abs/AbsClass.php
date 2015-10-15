@@ -23,7 +23,7 @@ class AbsClass {
 	/**
 	 * @param Plugin $plugin
 	 */
-	public function __construct(Plugin $plugin){
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 	}
 

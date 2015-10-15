@@ -28,11 +28,14 @@ class DBHandler extends AbstractProcessingHandler {
 	}
 
 	protected function write( array $record ) {
+		/* @var \DateTime $datetime */
+		$datetime = $record['datetime'];
+
 		$this->logs[] = array(
 			'channel' => $record['channel'],
 			'level'   => $record['level'],
 			'message' => $record['formatted'],
-			'time'    => $record['datetime']->format( 'U' ),
+			'time'    => $datetime->format( 'U' ),
 		);
 		update_option( $this->logName, $this->logs );
 	}

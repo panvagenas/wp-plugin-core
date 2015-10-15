@@ -12,6 +12,6 @@
 namespace WPluginCore002\Options\Fields;
 
 
-class ColorGradient extends Color{
+class ColorGradient extends Color {
 	protected $type = 'color_gradient';
 }

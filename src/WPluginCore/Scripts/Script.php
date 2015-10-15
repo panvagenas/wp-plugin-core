@@ -18,7 +18,7 @@ class Script extends AbsScript {
 	protected $inFooter = true;
 
 	public function __construct( Plugin $plugin, $handle, $wpRelPath = '', Array $deps = array(), $inFooter = true ) {
-		$this->inFooter = $inFooter;
+		$this->inFooter       = $inFooter;
 		$this->whereMayReside = $plugin->getFactory()->paths()->getWhereScriptsMayReside();
 
 		parent::__construct( $plugin, $handle, $wpRelPath, $deps );
@@ -30,20 +30,22 @@ class Script extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! wp_script_is( $that->handle, 'enqueued' ) ) {
-						wp_enqueue_script( $that->handle, $that->wpRelPath, $that->deps, $that->version, $that->inFooter );
+						wp_enqueue_script( $that->handle, $that->wpRelPath, $that->deps, $that->version,
+							$that->inFooter );
 					}
 				}
 			)->add();
 		}
 	}
 
-	public function register(){
+	public function register() {
 		$that = $this;
 		foreach ( $this->hook as $hook ) {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! wp_script_is( $that->handle, 'registered' ) ) {
-						wp_register_script( $that->handle, $that->wpRelPath, $that->deps, $that->version, $that->inFooter );
+						wp_register_script( $that->handle, $that->wpRelPath, $that->deps, $that->version,
+							$that->inFooter );
 					}
 				}
 			)->add();

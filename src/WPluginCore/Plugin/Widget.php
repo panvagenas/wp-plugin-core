@@ -14,6 +14,6 @@ namespace WPluginCore002\Plugin;
 
 use WPluginCore002\Abs\AbsClass;
 
-class Widget extends AbsClass{
+class Widget extends AbsClass {
 
 }

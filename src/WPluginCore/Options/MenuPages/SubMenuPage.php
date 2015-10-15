@@ -15,13 +15,13 @@ namespace WPluginCore002\Options\MenuPages;
 use WPluginCore002\Abs\AbsOptionsPage;
 use WPluginCore002\Plugin\Plugin;
 
-class SubMenuPage extends AbsOptionsPage{
+class SubMenuPage extends AbsOptionsPage {
 	/**
 	 * @param Plugin $plugin
 	 * @param string $pageParent
 	 */
-	public function __construct(Plugin $plugin, $pageParent = 'options-general.php'){
-		parent::__construct($plugin, 'submenu');
+	public function __construct( Plugin $plugin, $pageParent = 'options-general.php' ) {
+		parent::__construct( $plugin, 'submenu' );
 		$this->page_parent = $pageParent;
 	}
 }

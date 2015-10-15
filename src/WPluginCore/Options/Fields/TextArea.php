@@ -12,7 +12,7 @@
 namespace WPluginCore002\Options\Fields;
 
 
-class TextArea extends Text{
+class TextArea extends Text {
 	/**
 	 * @var string
 	 */

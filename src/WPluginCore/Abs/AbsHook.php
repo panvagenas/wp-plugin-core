@@ -38,10 +38,10 @@ abstract class AbsHook {
 	 * @param int $priority
 	 * @param int $acceptedArgs
 	 */
-	public function __construct($tag, $callback, $priority = 10, $acceptedArgs = 1){
-		$this->tag = $tag;
-		$this->callBack = $callback;
-		$this->priority = $priority;
+	public function __construct( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
+		$this->tag          = $tag;
+		$this->callBack     = $callback;
+		$this->priority     = $priority;
 		$this->acceptedArgs = $acceptedArgs;
 	}
 
@@ -50,8 +50,8 @@ abstract class AbsHook {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function add(){
-		return add_filter($this->tag, $this->callBack, $this->priority, $this->acceptedArgs);
+	public function add() {
+		return add_filter( $this->tag, $this->callBack, $this->priority, $this->acceptedArgs );
 	}
 
 	/**
@@ -59,15 +59,15 @@ abstract class AbsHook {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function has(){
-		return has_filter($this->tag, $this->callBack);
+	public function has() {
+		return has_filter( $this->tag, $this->callBack );
 	}
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function remove(){
+	public function remove() {
 		remove_filter( $this->tag, $this->callBack, $this->priority );
 	}
 
@@ -76,9 +76,10 @@ abstract class AbsHook {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function removeAll(){
+	public function removeAll() {
 		$hookFactory = new HooksFactory();
-		return $hookFactory->removeAll($this->tag, $this->priority);
+
+		return $hookFactory->removeAll( $this->tag, $this->priority );
 	}
 
 	/**

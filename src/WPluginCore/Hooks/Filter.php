@@ -14,10 +14,11 @@ namespace WPluginCore002\Hooks;
 
 use WPluginCore002\Abs\AbsHook;
 
-class Filter extends AbsHook{
-	public function apply(){
+class Filter extends AbsHook {
+	public function apply() {
 		$args = func_get_args();
-		array_unshift($args, $this->tag);
-		return call_user_func_array('apply_filters', $args);
+		array_unshift( $args, $this->tag );
+
+		return call_user_func_array( 'apply_filters', $args );
 	}
 }

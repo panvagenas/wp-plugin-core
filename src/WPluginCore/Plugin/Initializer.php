@@ -43,7 +43,7 @@ class Initializer extends AbsSingleton {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	protected function pluginInit(){
+	protected function pluginInit() {
 		$this->plugin->getHookFactory()->action( 'after_setup_theme', array( $this, 'init' ) )->add();
 		/**
 		 * TODO See bellow
@@ -65,8 +65,10 @@ class Initializer extends AbsSingleton {
 			)->add();
 		}
 
-		register_activation_hook( $this->plugin->getBaseName(), array( $this->plugin->getFactory()->installer(), 'activation' ) );
-		register_deactivation_hook( $this->plugin->getBaseName(), array( $this->plugin->getFactory()->installer(), 'deactivation' ) );
+		register_activation_hook( $this->plugin->getBaseName(),
+			array( $this->plugin->getFactory()->installer(), 'activation' ) );
+		register_deactivation_hook( $this->plugin->getBaseName(),
+			array( $this->plugin->getFactory()->installer(), 'deactivation' ) );
 		register_uninstall_hook( $this->plugin->getBaseName(),
 			array(
 				get_class( $this->plugin->getFactory()->installer() ),

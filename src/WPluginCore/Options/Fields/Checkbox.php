@@ -33,6 +33,7 @@ class Checkbox extends AbsOptionField {
 	protected $data;
 	/**
 	 * Array of WordPress arguments for the specific data to be retrieved
+	 *
 	 * @var array
 	 */
 	protected $args;
@@ -51,7 +52,7 @@ class Checkbox extends AbsOptionField {
 	 */
 	public function __construct( $id, $title, $default, $options = array() ) {
 		parent::__construct( $id, $title, $default );
-		$this->options = (array)$options;
+		$this->options = (array) $options;
 	}
 
 	/**

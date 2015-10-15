@@ -11,6 +11,6 @@
 
 namespace WPluginCore002\Scripts;
 
-class LoginStyle extends Style{
-	protected $hook = array('login_enqueue_scripts');
+class LoginStyle extends Style {
+	protected $hook = array( 'login_enqueue_scripts' );
 }

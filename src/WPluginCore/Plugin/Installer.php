@@ -14,16 +14,17 @@ namespace WPluginCore002\Plugin;
 
 use WPluginCore002\Abs\AbsSingleton;
 
-class Installer extends AbsSingleton{
-	public function activation(){
-		return true;
-	}
+class Installer extends AbsSingleton {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function deactivation(){
+	public static function uninstall() {
+		return true;
+	}
+
+	public function activation() {
 		return true;
 	}
 
@@ -32,7 +33,7 @@ class Installer extends AbsSingleton{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public static function uninstall(){
+	public function deactivation() {
 		return true;
 	}
 }

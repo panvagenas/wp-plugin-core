@@ -12,6 +12,6 @@
 namespace WPluginCore002\Scripts;
 
 
-class AdminStyle extends Style{
-	protected $hook = array('admin_enqueue_scripts');
+class AdminStyle extends Style {
+	protected $hook = array( 'admin_enqueue_scripts' );
 }
