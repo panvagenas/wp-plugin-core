@@ -15,7 +15,6 @@ namespace WPluginCore002\Plugin;
 use Stringy\Stringy;
 use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Hooks\Filter;
-use WPluginCore002\Hooks\HooksFactory;
 
 class Paths extends AbsClass {
 	/**
@@ -85,7 +84,7 @@ class Paths extends AbsClass {
 
 		$templatePluginSlugDir = get_template_directory() . '/' . $plugin->getSlug();
 
-		$hookFactory = new HooksFactory();
+		$hookFactory = $this->plugin->getHookFactory();
 
 		$this->whereTemplatesMayReside       = array(
 			$templatePluginSlugDir,
