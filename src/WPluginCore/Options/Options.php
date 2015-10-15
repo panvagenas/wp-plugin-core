@@ -30,10 +30,6 @@ class Options extends AbsSingleton {
 	 */
 	protected $options;
 	/**
-	 * @var array
-	 */
-	protected $reduxArgs;
-	/**
 	 * @var Action
 	 */
 	protected $menuSetupHook;
@@ -67,25 +63,6 @@ class Options extends AbsSingleton {
 	 * @since  TODO ${VERSION}
 	 */
 	public function menuPages() {
-		$this->reduxArgs['opt_name'] = $this->optName;
-
-		$this->reduxArgs['display_name'] = isset( $this->reduxArgs['display_name'] ) && ! empty( $this->reduxArgs['display_name'] )
-			? $this->reduxArgs['display_name']
-			: $this->plugin->getName() . ' ' . __( 'Options', $this->plugin->getTextDomain() );
-
-		$this->reduxArgs['display_version'] = $this->plugin->getVersion();
-
-		$this->reduxArgs['menu_title'] = isset( $this->reduxArgs['menu_title'] ) && ! empty( $this->reduxArgs['menu_title'] )
-			? $this->reduxArgs['menu_title']
-			: $this->plugin->getName();
-
-		$this->reduxArgs['page_title'] = isset( $this->reduxArgs['page_title'] ) && ! empty( $this->reduxArgs['page_title'] )
-			? $this->reduxArgs['page_title']
-			: $this->plugin->getName() . ' ' . __( 'Options', $this->plugin->getTextDomain() );
-
-		$this->reduxArgs = array_merge( Redux::$reduxDefaults, $this->reduxArgs );
-
-		Redux::setArgs( $this->optName, $this->reduxArgs );
 	}
 
 	/**
