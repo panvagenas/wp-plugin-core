@@ -42,12 +42,13 @@ class Factory extends AbsFactory {
 	 * Creates or gets an instance for class with class
 	 *
 	 * *Additional args* can be passed to this method. In this case they will be used to instantiate
-	 * the new class. If new class is instance of {@link AbsPluginSingleton} or {@link AbsCoreSingleton} then additional args will be
-	 * discarded. If class to be instantiated has $plugin property then the plugin instance is added
-	 * to the head of additional args. In that case the class constructor should have `Plugin $plugin`
+	 * the new class. If new class is instance of {@link AbsPluginSingleton} or {@link AbsCoreSingleton}
+	 * then additional args will be discarded. If class to be instantiated has $plugin property then the plugin
+	 * instance is added to the head of additional args. In that case the class constructor should have `Plugin $plugin`
 	 * argument first.
 	 *
-	 * **IMPORTANT** If class is instance of {@link AbsPluginSingleton} or {@link AbsCoreSingleton} then {@link AbsPluginSingleton::getInstance()} or {@link AbsCoreSingleton::getInstance()}
+	 * **IMPORTANT** If class is instance of {@link AbsPluginSingleton} or {@link AbsCoreSingleton} then
+	 * {@link AbsPluginSingleton::getInstance()} or {@link AbsCoreSingleton::getInstance()}
 	 * is used. In that case any additional args will be discarded. If this is not the case then a new
 	 * instance of class is returned.
 	 *
