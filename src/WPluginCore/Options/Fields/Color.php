@@ -11,7 +11,6 @@
 
 namespace WPluginCore002\Options\Fields;
 
-
 use WPluginCore002\Abs\AbsOptionField;
 
 class Color extends AbsOptionField {
