@@ -45,11 +45,12 @@ class Initializer extends AbsPluginSingleton {
 	 */
 	protected function pluginInit() {
 		$this->plugin->getHookFactory()->action( 'after_setup_theme', array( $this, 'init' ) )->add();
+		$pluginFactory = $this->plugin->getFactory();
 
 		$textDomain = $this->plugin->getTextDomain();
 
 		if ( ! empty( $textDomain ) ) {
-			$pluginDir = basename( dirname( $this->plugin->getFilePath() ) ) . $this->plugin->getFactory()->paths()->getTranslationsRelDirPath();
+			$pluginDir = basename( dirname( $this->plugin->getFilePath() ) ) . $pluginFactory->paths()->getTranslationsRelDirPath();
 
 			$this->plugin->getHookFactory()->action( 'plugins_loaded',
 				function () use ( $textDomain, $pluginDir ) {
@@ -58,13 +59,20 @@ class Initializer extends AbsPluginSingleton {
 			)->add();
 		}
 
-		register_activation_hook( $this->plugin->getBaseName(),
-			array( $this->plugin->getFactory()->installer(), 'activation' ) );
-		register_deactivation_hook( $this->plugin->getBaseName(),
-			array( $this->plugin->getFactory()->installer(), 'deactivation' ) );
-		register_uninstall_hook( $this->plugin->getBaseName(),
+		register_activation_hook(
+			$this->plugin->getBaseName(),
+			array( $pluginFactory->installer(), 'activation' )
+		);
+
+		register_deactivation_hook(
+			$this->plugin->getBaseName(),
+			array( $pluginFactory->installer(), 'deactivation' )
+		);
+
+		register_uninstall_hook(
+			$this->plugin->getBaseName(),
 			array(
-				get_class( $this->plugin->getFactory()->installer() ),
+				get_class( $pluginFactory->installer() ),
 				'uninstall'
 			)
 		);

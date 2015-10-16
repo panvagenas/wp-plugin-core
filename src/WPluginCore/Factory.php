@@ -22,7 +22,6 @@ use WPluginCore002\Plugin\Initializer;
 use WPluginCore002\Plugin\Installer;
 use WPluginCore002\Plugin\Paths;
 use WPluginCore002\Plugin\Plugin;
-use WPluginCore002\Plugin\ShortCode;
 use WPluginCore002\Plugin\Widget;
 
 class Factory extends AbsFactory {
