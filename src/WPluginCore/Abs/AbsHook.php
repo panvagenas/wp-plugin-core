@@ -16,7 +16,10 @@ use WPluginCore002\Hooks\HooksFactory;
 
 abstract class AbsHook {
 	/**
-	 * @var
+	 * Hook tag. See {@link https://codex.wordpress.org/Plugin_API/Action_Reference} and
+	 * {@link https://codex.wordpress.org/Plugin_API/Filter_Reference}.
+	 *
+	 * @var string
 	 */
 	protected $tag;
 	/**
