@@ -12,7 +12,7 @@
 namespace WPluginCore002\Abs;
 
 
-class AbsOptionsHtmlField {
+abstract class AbsOptionsHtmlField {
 	/**
 	 * Value identifying the field type.
 	 *
