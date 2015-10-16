@@ -14,6 +14,7 @@ namespace WPluginCore002\Plugin;
 
 use Stringy\Stringy;
 use WPluginCore002\Abs\AbsClass;
+use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Hooks\Filter;
 
 class Paths extends AbsClass {
@@ -103,6 +104,96 @@ class Paths extends AbsClass {
 			$this->pluginBaseDir . '/assets/css'
 		);
 		$this->whereStylesMayResideFilter = $hookFactory->getWhereStylesMayResideFilter( $plugin, array() );
+	}
+
+	/**
+	 * @param        $path
+	 * @param string $under
+	 *
+	 * @return bool
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function verifyPathIsUnder( $path, $under = ABSPATH ) {
+		$path  = self::truePath( (string) $path, true );
+		$under = self::truePath( (string) $under, true );
+
+		return $path && $under && strpos( $path, $under ) === 0;
+	}
+
+	/**
+	 * @param            $path
+	 * @param bool|false $allowFailure
+	 *
+	 * @return string
+	 * @throws Exception
+	 * @static
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public static function truePath( $path, $allowFailure = false ) {
+		// whether $path is unix or not
+		$uniPath = strlen( $path ) == 0 || $path{0} != '/';
+		$unc     = substr( $path, 0, 2 ) == '\\\\' ? true : false;
+
+		// attempts to detect if path is relative in which case, add cwd
+		if ( strpos( $path, ':' ) === false && $uniPath && ! $unc ) {
+			$path = getcwd() . DIRECTORY_SEPARATOR . $path;
+			if ( $path{0} == '/' ) {
+				$uniPath = false;
+			}
+		}
+
+		// resolve path parts (single dot, double dot and double delimiters)
+		$path = str_replace( array( '/', '\\' ), DIRECTORY_SEPARATOR, $path );
+		$path = preg_replace( '/\/+/', DIRECTORY_SEPARATOR, $path );
+
+		if ( $path === null ) {
+			if ( $allowFailure ) {
+				return '';
+			} else {
+				throw new Exception( 'Unresolved path' );
+			}
+		}
+
+		$parts     = array_filter( explode( DIRECTORY_SEPARATOR, $path ), 'strlen' );
+		$absolutes = array();
+
+		foreach ( $parts as $i => $part ) {
+			if ( '.' == $part ) {
+				continue;
+			}
+			if ( '..' == $part ) {
+				if ( array_pop( $absolutes ) === null ) {
+					$slice = array_slice( $parts, $i );
+					array_unshift( $slice, '../' );
+
+					return self::truePath( implode( DIRECTORY_SEPARATOR, $slice ) );
+				}
+			} else {
+				$absolutes[] = $part;
+			}
+		}
+
+		$path = implode( DIRECTORY_SEPARATOR, $absolutes );
+
+		// resolve any symlinks
+		if ( function_exists( 'readlink' ) && file_exists( $path ) && linkinfo( $path ) > 0 ) {
+			$path = readlink( $path );
+			if ( $path === false ) {
+				if ( $allowFailure ) {
+					return '';
+				} else {
+					throw new Exception( 'Unresolved path' );
+				}
+			}
+		}
+
+		// put initial separator that could have been lost
+		$path = ! $uniPath ? '/' . $path : $path;
+		$path = $unc ? '\\\\' . $path : $path;
+
+		return $path;
 	}
 
 	/**
