@@ -18,6 +18,7 @@ use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Diagnostics\InvalidArgumentException;
 use WPluginCore002\Factory;
 use WPluginCore002\Hooks\HooksFactory;
+use WPluginCore002\Options\Options;
 
 class Plugin extends AbsSingleton {
 	/**
@@ -92,6 +93,10 @@ class Plugin extends AbsSingleton {
 	 * @var HooksFactory
 	 */
 	protected $hookFactory;
+	/**
+	 * @var Options
+	 */
+	protected $options;
 
 	/**
 	 * @param string $name       Plugin name. {@link WPluginCore002\Plugin\Plugin::$name}
@@ -155,6 +160,8 @@ class Plugin extends AbsSingleton {
 
 		$this->textDomain = preg_replace( "/[^A-Za-z0-9 _]/", ' ', $this->textDomain );
 		$this->textDomain = (string) Stringy::create( $this->textDomain )->underscored();
+
+		$this->options = $this->factory->options();
 
 		$this->factory->initializer()->coreInit();
 	}

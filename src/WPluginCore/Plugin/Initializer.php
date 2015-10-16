@@ -45,13 +45,6 @@ class Initializer extends AbsSingleton {
 	 */
 	protected function pluginInit() {
 		$this->plugin->getHookFactory()->action( 'after_setup_theme', array( $this, 'init' ) )->add();
-		/**
-		 * TODO See bellow
-		 *
-		 * The following statement will init options obj. This may be better to be done without instantiating
-		 * option obj
-		 */
-		$this->plugin->getFactory()->options();
 
 		$textDomain = $this->plugin->getTextDomain();
 
