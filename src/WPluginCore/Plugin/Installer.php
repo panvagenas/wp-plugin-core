@@ -12,9 +12,9 @@
 namespace WPluginCore002\Plugin;
 
 
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsPluginSingleton;
 
-class Installer extends AbsSingleton {
+class Installer extends AbsPluginSingleton {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>

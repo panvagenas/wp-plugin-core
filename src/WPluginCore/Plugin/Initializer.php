@@ -12,9 +12,9 @@
 namespace WPluginCore002\Plugin;
 
 
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsPluginSingleton;
 
-class Initializer extends AbsSingleton {
+class Initializer extends AbsPluginSingleton {
 	/**
 	 * @var bool
 	 */

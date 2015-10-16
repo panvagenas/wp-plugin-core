@@ -55,7 +55,7 @@ class PluginTest extends WP_UnitTestCase {
 		$this->assertTrue($factory->hooksFactory() instanceof \WPluginCore002\Hooks\HooksFactory);
 		$this->assertTrue($factory->initializer() instanceof \WPluginCore002\Plugin\Initializer);
 		$this->assertTrue($factory->installer() instanceof \WPluginCore002\Plugin\Installer);
-		$this->assertTrue($factory->shortCode() instanceof \WPluginCore002\Plugin\ShortCode);
+		$this->assertTrue($factory->options() instanceof \WPluginCore002\Options\Options);
 		$this->assertTrue($factory->widget() instanceof \WPluginCore002\Plugin\Widget);
 	}
 }

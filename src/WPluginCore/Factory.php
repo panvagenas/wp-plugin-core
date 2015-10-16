@@ -13,7 +13,8 @@ namespace WPluginCore002;
 
 
 use WPluginCore002\Abs\AbsFactory;
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsPluginSingleton;
+use WPluginCore002\Abs\AbsCoreSingleton;
 use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Hooks\HooksFactory;
 use WPluginCore002\Options\Options;
@@ -41,12 +42,12 @@ class Factory extends AbsFactory {
 	 * Creates or gets an instance for class with class
 	 *
 	 * *Additional args* can be passed to this method. In this case they will be used to instantiate
-	 * the new class. If new class is instance of {@link AbsSingleton} then additional args will be
+	 * the new class. If new class is instance of {@link AbsPluginSingleton} or {@link AbsCoreSingleton} then additional args will be
 	 * discarded. If class to be instantiated has $plugin property then the plugin instance is added
 	 * to the head of additional args. In that case the class constructor should have `Plugin $plugin`
 	 * argument first.
 	 *
-	 * **IMPORTANT** If class is instance of {@link AbsSingleton} then {@link AbsSingleton::getInstance()}
+	 * **IMPORTANT** If class is instance of {@link AbsPluginSingleton} or {@link AbsCoreSingleton} then {@link AbsPluginSingleton::getInstance()} or {@link AbsCoreSingleton::getInstance()}
 	 * is used. In that case any additional args will be discarded. If this is not the case then a new
 	 * instance of class is returned.
 	 *
@@ -75,13 +76,27 @@ class Factory extends AbsFactory {
 
 		$reflection = new \ReflectionClass( $class );
 
-		if ( ! $reflection || ( ! $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsSingleton' ) ) && ! $reflection->isInstantiable() ) ) {
+		if ( ! $reflection
+		     ||
+		     (
+			     !(
+				     $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsPluginSingleton' ) )
+				     ||
+				     $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsCoreSingleton' ) )
+			     )
+			     &&
+			     ! $reflection->isInstantiable()
+		     )
+		) {
 			throw new Exception( 'Trying to instantiate non-instantiable class ' . $class );
 		}
 
-		if ( $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsSingleton' ) ) ) {
-			/* @var AbsSingleton $class */
+		if ( $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsPluginSingleton' ) ) ) {
+			/* @var AbsPluginSingleton $class */
 			$instance = $class::getInstance( $this->plugin );
+		} elseif($reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsCoreSingleton' ) )){
+			/* @var AbsCoreSingleton $class */
+			$instance = $class::getInstance();
 		} else {
 			if ( $reflection->hasProperty( 'plugin' )
 			     && ( empty( $args ) || ( isset( $args[0] ) && ! ( $args[0] instanceof Plugin ) ) )
@@ -132,16 +147,6 @@ class Factory extends AbsFactory {
 	 */
 	public final function installer() {
 		return $this->createOrGet( 'Plugin\\Installer' );
-	}
-
-	/**
-	 * @return ShortCode
-	 * @throws Exception
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	public final function shortCode() {
-		return $this->createOrGet( 'Plugin\\ShortCode' );
 	}
 
 	/**

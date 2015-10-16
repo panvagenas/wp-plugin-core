@@ -1,24 +1,23 @@
 <?php
 /**
  * Project: wp-plugins-core.dev
- * File: Singleton.php
+ * File: AbsPluginSingleton.php
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
- * Date: 28/9/2015
- * Time: 11:59 πμ
+ * Date: 16/10/2015
+ * Time: 9:30 πμ
  * Since: TODO ${VERSION}
  * Copyright: 2015 Panagiotis Vagenas
  */
 
 namespace WPluginCore002\Abs;
 
-
 use WPluginCore002\Plugin\Plugin;
 
-abstract class AbsSingleton {
+abstract class AbsPluginSingleton {
 	/**
 	 * @var $this ::class The reference to *Singleton* instance of this class
 	 */
-	protected static $instances = array();
+	private static $instances = array();
 	/**
 	 * @var Plugin
 	 */

@@ -12,11 +12,11 @@
 namespace WPluginCore002\Options;
 
 
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsPluginSingleton;
 use WPluginCore002\Hooks\Action;
 use WPluginCore002\Plugin\Plugin;
 
-class Options extends AbsSingleton {
+class Options extends AbsPluginSingleton {
 	/**
 	 * @var string
 	 */

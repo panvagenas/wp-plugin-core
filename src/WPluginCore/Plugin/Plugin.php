@@ -13,14 +13,14 @@ namespace WPluginCore002\Plugin;
 
 
 use Stringy\Stringy;
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsPluginSingleton;
 use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Diagnostics\InvalidArgumentException;
 use WPluginCore002\Factory;
 use WPluginCore002\Hooks\HooksFactory;
 use WPluginCore002\Options\Options;
 
-class Plugin extends AbsSingleton {
+class Plugin extends AbsPluginSingleton {
 	/**
 	 * Plugin name.
 	 *

@@ -12,9 +12,9 @@
 namespace WPluginCore002\Helpers;
 
 
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsCoreSingleton;
 
-class Dumper extends AbsSingleton {
+class Dumper extends AbsCoreSingleton {
 	/**
 	 * Dumps passed arguments and dies
 	 */

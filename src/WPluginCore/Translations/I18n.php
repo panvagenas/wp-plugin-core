@@ -12,9 +12,9 @@
 namespace WPluginCore002\Translations;
 
 
-use WPluginCore002\Abs\AbsSingleton;
+use WPluginCore002\Abs\AbsPluginSingleton;
 
-class I18n extends AbsSingleton {
+class I18n extends AbsPluginSingleton {
 	/**
 	 * @param $text
 	 *
