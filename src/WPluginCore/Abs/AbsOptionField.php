@@ -139,7 +139,8 @@ abstract class AbsOptionField {
 			try {
 				$validator->check( $value );
 			} catch ( ValidationExceptionInterface $exception ) {
-				$errors[] = $exception->getMainMessage();
+				$error = $exception->getMainMessage();
+				$errors[] = preg_replace('/^("'.$value.'")/', "<em>{$field['title']}</em>", $error);
 				$valid    = false;
 			}
 		}
