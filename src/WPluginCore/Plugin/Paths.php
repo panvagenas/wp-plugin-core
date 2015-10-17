@@ -107,7 +107,7 @@ class Paths extends AbsClass {
 	}
 
 	/**
-	 * @param        $path
+	 * @param string $path
 	 * @param string $under
 	 *
 	 * @return bool
@@ -122,8 +122,8 @@ class Paths extends AbsClass {
 	}
 
 	/**
-	 * @param            $path
-	 * @param bool|false $allowFailure
+	 * @param string $path
+	 * @param bool   $allowFailure
 	 *
 	 * @return string
 	 * @throws Exception

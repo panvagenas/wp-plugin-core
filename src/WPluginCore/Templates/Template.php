@@ -31,16 +31,14 @@ class Template extends AbsClass {
 	 * @since  TODO ${VERSION}
 	 */
 	public function locateTemplate( $templateName ) {
-		$file = Paths::truePath( $templateName );
-
-		if ( ! preg_match( '/.*\.php$/', $file ) ) {
-			$file .= '.php';
+		if ( ! preg_match( '/.*\.php$/', $templateName ) ) {
+			$templateName .= '.php';
 		}
 
 		$pathsObj = $this->plugin->getFactory()->paths();
 
 		foreach ( $pathsObj->getWhereTemplatesMayReside() as $k => $path ) {
-			$templatePath = Paths::truePath( $path . $file, true );
+			$templatePath = Paths::truePath( "{$path}/{$templateName}", true );
 
 			if ( ! $templatePath ) {
 				continue;
