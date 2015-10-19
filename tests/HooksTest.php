@@ -46,6 +46,7 @@ class HooksTest extends WP_UnitTestCase {
 		$filterDummy101a->add();
 
 		$this->assertTrue( has_filter( 'myFilterTag' ) );
+		$this->assertTrue($hooksFactory->alreadySet('myFilterTag', 'dummyFilterA') !== false);
 		$this->assertTrue( $filterDummy101a->has() === $filterDummy101a->getPriority() );
 	}
 
@@ -137,6 +138,7 @@ class HooksTest extends WP_UnitTestCase {
 		$actionDummy101a->add();
 
 		$this->assertTrue( has_action( 'myActionTag' ) );
+		$this->assertTrue($hooksFactory->alreadySet('myActionTag', 'dummyActionA') !== false);
 		$this->assertTrue( $actionDummy101a->has() === $actionDummy101a->getPriority() );
 	}
 
