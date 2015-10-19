@@ -10,6 +10,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 class PathsTest extends WP_UnitTestCase {
+	public function setUp(){}
 	public function testVerifyIsUnder(){
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
@@ -213,6 +214,14 @@ class PathsTest extends WP_UnitTestCase {
 			array(
 				'original' => '//root/dir///subDir/..///',
 				'expected' => '/root/dir'
+			),
+			array(
+				'original' => '://root/dir///subDir/..///',
+				'expected' => '://root/dir'
+			),
+			array(
+				'original' => 'vfs://root/dir///subDir/..///',
+				'expected' => 'vfs://root/dir'
 			),
 		);
 
