@@ -16,6 +16,7 @@ use WPluginCore002\Plugin\Plugin;
 
 class Script extends AbsScript {
 	protected $inFooter = true;
+	protected $fileExtension = 'js';
 
 	public function __construct( Plugin $plugin, $handle, $wpRelPath = '', Array $deps = array(), $inFooter = true ) {
 		$this->inFooter       = $inFooter;

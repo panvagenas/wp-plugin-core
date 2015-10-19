@@ -26,32 +26,27 @@ abstract class AbsScript extends AbsClass {
 	protected $version;
 	protected $hook = array( 'wp_enqueue_scripts' );
 	protected $whereMayReside;
+	protected $fileExtension;
 
 	public function __construct(
 		Plugin $plugin,
 		$handle,
 		$wpRelPath = '',
-		Array $deps = array(),
-		Array $hook = array( 'wp_enqueue_scripts' )
+		Array $deps = array()
 	) {
 		parent::__construct( $plugin );
 
 		$this->handle    = $handle;
 		$this->wpRelPath = $wpRelPath ? $this->locate() : $wpRelPath;
 		$this->deps      = $deps;
-		$this->hook      = $hook;
 
 		$this->version = $plugin->getVersion();
 	}
 
 	public function locate() {
-		foreach ( $this->whereMayReside as $dir ) {
-			if ( file_exists( $path = $dir . DIRECTORY_SEPARATOR . $this->handle . '.js' ) && is_readable( $path ) ) {
-				return $path;
-			}
-		}
+		$fileObj = $this->plugin->getFactory()->file();
 
-		return '';
+		return $fileObj->locate($this->handle, $this->whereMayReside, $this->fileExtension, $this->plugin);
 	}
 
 	abstract public function enqueue();

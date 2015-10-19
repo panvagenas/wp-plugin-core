@@ -16,6 +16,7 @@ use WPluginCore002\Plugin\Plugin;
 
 class Style extends AbsScript {
 	protected $media = 'all';
+	protected $fileExtension = 'css';
 
 	public function __construct( Plugin $plugin, $handle, $wpRelPath = '', Array $deps = array(), $media = 'all' ) {
 		$this->media          = $media;
