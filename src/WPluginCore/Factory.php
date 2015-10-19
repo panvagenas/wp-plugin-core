@@ -16,6 +16,7 @@ use WPluginCore002\Abs\AbsFactory;
 use WPluginCore002\Abs\AbsPluginSingleton;
 use WPluginCore002\Abs\AbsCoreSingleton;
 use WPluginCore002\Diagnostics\Exception;
+use WPluginCore002\Helpers\File;
 use WPluginCore002\Hooks\HooksFactory;
 use WPluginCore002\Options\Options;
 use WPluginCore002\Plugin\Initializer;
@@ -167,6 +168,16 @@ class Factory extends AbsFactory {
 	 */
 	public final function options() {
 		return $this->createOrGet( 'Options\\Options' );
+	}
+
+	/**
+	 * @return File
+	 * @throws Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public final function file(){
+		return $this->createOrGet('Helpers\\File');
 	}
 
 	/**
