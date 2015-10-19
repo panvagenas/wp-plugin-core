@@ -30,30 +30,11 @@ class Template extends AbsClass {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function locateTemplate( $templateName ) {
-		if ( ! preg_match( '/.*\.php$/', $templateName ) ) {
-			$templateName .= '.php';
-		}
-
+	public function locate( $templateName ) {
+		$fileObj = $this->plugin->getFactory()->file();
 		$pathsObj = $this->plugin->getFactory()->paths();
 
-		foreach ( $pathsObj->getWhereTemplatesMayReside() as $k => $path ) {
-			$templatePath = Paths::truePath( "{$path}/{$templateName}", true );
-
-			if ( ! $templatePath ) {
-				continue;
-			}
-
-			if (
-				$pathsObj->verifyPathIsUnder( $templatePath, $path )
-				&& file_exists( $templatePath )
-				&& is_readable( $templatePath )
-			) {
-				return $templatePath;
-			}
-		}
-
-		return '';
+		return $fileObj->locate($templateName, $pathsObj->getWhereTemplatesMayReside(), 'php', $this->plugin);
 	}
 
 	/**
