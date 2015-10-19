@@ -199,6 +199,8 @@ class HooksTest extends WP_UnitTestCase {
 		$hooksFactory->action( 'myActionTag', null )->perform();
 
 		$this->assertTrue( $myFancyVar );
+
+		$this->assertTrue($action->did());
 	}
 
 	/**
