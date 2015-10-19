@@ -12,9 +12,9 @@
 namespace WPluginCore002;
 
 
+use WPluginCore002\Abs\AbsCoreSingleton;
 use WPluginCore002\Abs\AbsFactory;
 use WPluginCore002\Abs\AbsPluginSingleton;
-use WPluginCore002\Abs\AbsCoreSingleton;
 use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Helpers\File;
 use WPluginCore002\Hooks\HooksFactory;
@@ -80,7 +80,7 @@ class Factory extends AbsFactory {
 		if ( ! $reflection
 		     ||
 		     (
-			     !(
+			     ! (
 				     $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsPluginSingleton' ) )
 				     ||
 				     $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsCoreSingleton' ) )
@@ -95,7 +95,7 @@ class Factory extends AbsFactory {
 		if ( $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsPluginSingleton' ) ) ) {
 			/* @var AbsPluginSingleton $class */
 			$instance = $class::getInstance( $this->plugin );
-		} elseif($reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsCoreSingleton' ) )){
+		} elseif ( $reflection->isSubclassOf( $this->getCoreClassName( 'Abs\\AbsCoreSingleton' ) ) ) {
 			/* @var AbsCoreSingleton $class */
 			$instance = $class::getInstance();
 		} else {
@@ -176,8 +176,8 @@ class Factory extends AbsFactory {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public final function file(){
-		return $this->createOrGet('Helpers\\File');
+	public final function file() {
+		return $this->createOrGet( 'Helpers\\File' );
 	}
 
 	/**

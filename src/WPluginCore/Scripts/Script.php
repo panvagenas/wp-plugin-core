@@ -31,7 +31,8 @@ class Script extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! $that->isEnqueued() ) {
-						wp_enqueue_script( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(), $that->getVersion(),
+						wp_enqueue_script( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(),
+							$that->getVersion(),
 							$that->isInFooter() );
 					}
 				}
@@ -45,7 +46,8 @@ class Script extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! $that->isRegistered() ) {
-						wp_register_script( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(), $that->getVersion(),
+						wp_register_script( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(),
+							$that->getVersion(),
 							$that->isInFooter() );
 					}
 				}
@@ -53,20 +55,20 @@ class Script extends AbsScript {
 		}
 	}
 
-	public function dequeue(){
-		wp_dequeue_script($this->handle);
+	public function dequeue() {
+		wp_dequeue_script( $this->handle );
 	}
 
-	public function deRegister(){
-		wp_deregister_script($this->handle);
+	public function deRegister() {
+		wp_deregister_script( $this->handle );
 	}
 
-	public function isEnqueued(){
-		return wp_script_is($this->handle, 'enqueued');
+	public function isEnqueued() {
+		return wp_script_is( $this->handle, 'enqueued' );
 	}
 
-	public function isRegistered(){
-		return wp_script_is($this->handle, 'registered');
+	public function isRegistered() {
+		return wp_script_is( $this->handle, 'registered' );
 	}
 
 	/**

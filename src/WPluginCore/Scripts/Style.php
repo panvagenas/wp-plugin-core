@@ -31,7 +31,8 @@ class Style extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! $that->isEnqueued() ) {
-						wp_enqueue_style( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(), $that->getVersion(), $that->getMedia() );
+						wp_enqueue_style( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(),
+							$that->getVersion(), $that->getMedia() );
 					}
 				}
 			)->add();
@@ -44,27 +45,28 @@ class Style extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! $that->isRegistered() ) {
-						wp_register_style( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(), $that->getVersion(), $that->getMedia() );
+						wp_register_style( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(),
+							$that->getVersion(), $that->getMedia() );
 					}
 				}
 			)->add();
 		}
 	}
 
-	public function dequeue(){
-		wp_dequeue_style($this->handle);
+	public function dequeue() {
+		wp_dequeue_style( $this->handle );
 	}
 
-	public function deRegister(){
-		wp_deregister_style($this->handle);
+	public function deRegister() {
+		wp_deregister_style( $this->handle );
 	}
 
-	public function isEnqueued(){
-		return wp_style_is($this->handle, 'enqueued');
+	public function isEnqueued() {
+		return wp_style_is( $this->handle, 'enqueued' );
 	}
 
-	public function isRegistered(){
-		return wp_style_is($this->handle, 'registered');
+	public function isRegistered() {
+		return wp_style_is( $this->handle, 'registered' );
 	}
 
 	/**

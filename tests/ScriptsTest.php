@@ -28,6 +28,22 @@ class ScriptsTest extends WP_UnitTestCase {
 		$this->scriptTest( $style, $this->wp_enqueue_scripts );
 	}
 
+	protected function scriptTest( \WPluginCore002\Abs\AbsScript $script, $hook ) {
+		$this->assertFalse( $script->isRegistered() );
+
+		$script->register();
+		$script->enqueue();
+		do_action( $hook );
+		$this->assertTrue( $script->isRegistered() );
+		$this->assertTrue( $script->isEnqueued() );
+
+		$script->dequeue();
+		$this->assertFalse( $script->isEnqueued() );
+
+		$script->deRegister();
+		$this->assertFalse( $script->isRegistered() );
+	}
+
 	public function testAdminStyleEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
@@ -38,7 +54,6 @@ class ScriptsTest extends WP_UnitTestCase {
 		$style = new \WPluginCore002\Scripts\AdminStyle( $WpPluginCore, $handle, $wpRelPathToStyle );
 		$this->scriptTest( $style, $this->admin_enqueue_scripts );
 	}
-
 
 	public function testLoginStyleEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -72,7 +87,6 @@ class ScriptsTest extends WP_UnitTestCase {
 		$script = new \WPluginCore002\Scripts\AdminScript( $WpPluginCore, $handle, $wpRelPathToScript );
 		$this->scriptTest( $script, $this->admin_enqueue_scripts );
 	}
-
 
 	public function testLoginScriptEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -143,26 +157,10 @@ class ScriptsTest extends WP_UnitTestCase {
 		$this->assertTrue( strlen( $script->locate() ) > 0 );
 		$this->assertTrue( strlen( $style->locate() ) > 0 );
 
-		$nonExistentScript = new \WPluginCore002\Scripts\Script($WpPluginCore, 'nonExistentScript');
-		$nonExistentStyle = new \WPluginCore002\Scripts\Style($WpPluginCore, 'nonExistentStyle');
+		$nonExistentScript = new \WPluginCore002\Scripts\Script( $WpPluginCore, 'nonExistentScript' );
+		$nonExistentStyle  = new \WPluginCore002\Scripts\Style( $WpPluginCore, 'nonExistentStyle' );
 
-		$this->assertFalse(strlen($nonExistentScript->locate()) > 0);
-		$this->assertFalse(strlen($nonExistentStyle->locate()) > 0);
-	}
-
-	protected function scriptTest( \WPluginCore002\Abs\AbsScript $script, $hook ) {
-		$this->assertFalse( $script->isRegistered() );
-
-		$script->register();
-		$script->enqueue();
-		do_action( $hook );
-		$this->assertTrue( $script->isRegistered() );
-		$this->assertTrue( $script->isEnqueued() );
-
-		$script->dequeue();
-		$this->assertFalse( $script->isEnqueued() );
-
-		$script->deRegister();
-		$this->assertFalse( $script->isRegistered() );
+		$this->assertFalse( strlen( $nonExistentScript->locate() ) > 0 );
+		$this->assertFalse( strlen( $nonExistentStyle->locate() ) > 0 );
 	}
 }

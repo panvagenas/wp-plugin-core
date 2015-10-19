@@ -11,8 +11,6 @@
 
 namespace WPluginCore002\Abs;
 
-use WPluginCore002\Plugin\Plugin;
-
 abstract class AbsCoreSingleton {
 
 	/**

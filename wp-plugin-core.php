@@ -18,6 +18,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 
-class Plugin extends \WPluginCore002\Plugin\Plugin{}
+class Plugin extends \WPluginCore002\Plugin\Plugin {
+}
 
 new Plugin( 'Pan WP Plugins Core', '0.0.1-dev', __FILE__ );

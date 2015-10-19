@@ -13,7 +13,6 @@ namespace WPluginCore002\Templates;
 
 
 use WPluginCore002\Abs\AbsClass;
-use WPluginCore002\Plugin\Paths;
 
 /**
  * Class Template
@@ -31,10 +30,10 @@ class Template extends AbsClass {
 	 * @since  TODO ${VERSION}
 	 */
 	public function locate( $templateName ) {
-		$fileObj = $this->plugin->getFactory()->file();
+		$fileObj  = $this->plugin->getFactory()->file();
 		$pathsObj = $this->plugin->getFactory()->paths();
 
-		return $fileObj->locate($templateName, $pathsObj->getWhereTemplatesMayReside(), 'php', $this->plugin);
+		return $fileObj->locate( $templateName, $pathsObj->getWhereTemplatesMayReside(), 'php', $this->plugin );
 	}
 
 	/**

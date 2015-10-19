@@ -152,10 +152,10 @@ class Paths extends AbsClass {
 		$path = str_replace( array( '/', '\\' ), DIRECTORY_SEPARATOR, $path );
 
 		$pre = '';
-		if ( strpos($path, '://') !== false ) {
-			$pre = substr($path, 0, strpos($path,'://')+3);
-			$subPathSuf = substr($path, strpos($path,'://')+3);
-			$path = '/' . preg_replace( '#/+#', DIRECTORY_SEPARATOR, $subPathSuf );
+		if ( strpos( $path, '://' ) !== false ) {
+			$pre        = substr( $path, 0, strpos( $path, '://' ) + 3 );
+			$subPathSuf = substr( $path, strpos( $path, '://' ) + 3 );
+			$path       = '/' . preg_replace( '#/+#', DIRECTORY_SEPARATOR, $subPathSuf );
 		} else {
 			$path = preg_replace( '#/+#', DIRECTORY_SEPARATOR, $path );
 		}
@@ -189,7 +189,7 @@ class Paths extends AbsClass {
 
 		$path = implode( DIRECTORY_SEPARATOR, $absolutes );
 
-		if($pre){
+		if ( $pre ) {
 			$path = $pre . $path;
 		}
 
