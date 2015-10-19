@@ -31,8 +31,8 @@ class Script extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! $that->isEnqueued() ) {
-						wp_enqueue_script( $that->handle, $that->wpRelPath, $that->deps, $that->version,
-							$that->inFooter );
+						wp_enqueue_script( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(), $that->getVersion(),
+							$that->isInFooter() );
 					}
 				}
 			)->add();
@@ -45,8 +45,8 @@ class Script extends AbsScript {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
 					if ( ! $that->isRegistered() ) {
-						wp_register_script( $that->handle, $that->wpRelPath, $that->deps, $that->version,
-							$that->inFooter );
+						wp_register_script( $that->getHandle(), $that->getWpRelPath(), $that->getDeps(), $that->getVersion(),
+							$that->isInFooter() );
 					}
 				}
 			)->add();
@@ -67,5 +67,86 @@ class Script extends AbsScript {
 
 	public function isRegistered(){
 		return wp_script_is($this->handle, 'registered');
+	}
+
+	/**
+	 * @return mixed
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getHandle() {
+		return $this->handle;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getWpRelPath() {
+		return $this->wpRelPath;
+	}
+
+	/**
+	 * @return mixed
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getUrl() {
+		return $this->url;
+	}
+
+	/**
+	 * @return array
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getDeps() {
+		return $this->deps;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getVersion() {
+		return $this->version;
+	}
+
+	/**
+	 * @return array
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getHook() {
+		return $this->hook;
+	}
+
+	/**
+	 * @return mixed
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getWhereMayReside() {
+		return $this->whereMayReside;
+	}
+
+	/**
+	 * @return boolean
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function isInFooter() {
+		return $this->inFooter;
+	}
+
+	/**
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getFileExtension() {
+		return $this->fileExtension;
 	}
 }
