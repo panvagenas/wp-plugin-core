@@ -26,7 +26,8 @@
     },
     "require-dev": {
         "symfony/var-dumper": "2.7.*",
-        "devster/ubench": "1.*"
+        "devster/ubench": "1.*",
+        "mikey179/vfsStream": "~1"
     },
     "config": {
         "optimize-autoloader": true
