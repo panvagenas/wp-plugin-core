@@ -29,3 +29,6 @@ before_script:
 script:
   - phpunit -c ./tests/phpunit.xml
   - phpunit -c ./tests/phpunit-multisite.xml
+
+after_script:
+  - php vendor/bin/codacycoverage clover path/to/clover.xml
