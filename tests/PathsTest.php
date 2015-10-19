@@ -251,6 +251,13 @@ class PathsTest extends WP_UnitTestCase {
 			),
 		);
 
+		$rootDir = new vfs\vfsStreamDirectory('root');
+		$rdDir = new vfs\vfsStreamDirectory('dir');
+		$rdSubDir = new vfs\vfsStreamDirectory('subDir');
+
+		$rootDir->addChild($rdDir);
+		$rdDir->addChild($rdSubDir);
+
 		foreach ( $cases as $i => $case ) {
 			$this->assertSame( $case['expected'], \WPluginCore002\Plugin\Paths::truePath( $case['original'] ),
 				'Failure on case ' . ( $i + 1 ) . ' ---> "' . implode( '" => "', $case ) . '"'
