@@ -29,7 +29,7 @@ class Style extends AbsScript {
 		foreach ( $this->hook as $hook ) {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
-					if ( ! wp_style_is( $that->handle, 'enqueued' ) ) {
+					if ( ! $that->isEnqueued() ) {
 						wp_enqueue_style( $that->handle, $that->wpRelPath, $that->deps, $that->version, $that->media );
 					}
 				}
@@ -42,11 +42,27 @@ class Style extends AbsScript {
 		foreach ( $this->hook as $hook ) {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
-					if ( ! wp_style_is( $that->handle, 'registered' ) ) {
+					if ( ! $that->isRegistered() ) {
 						wp_register_style( $that->handle, $that->wpRelPath, $that->deps, $that->version, $that->media );
 					}
 				}
 			)->add();
 		}
+	}
+
+	public function dequeue(){
+		wp_dequeue_style($this->handle);
+	}
+
+	public function deRegister(){
+		wp_deregister_style($this->handle);
+	}
+
+	public function isEnqueued(){
+		return wp_style_is($this->handle, 'enqueued');
+	}
+
+	public function isRegistered(){
+		return wp_style_is($this->handle, 'registered');
 	}
 }

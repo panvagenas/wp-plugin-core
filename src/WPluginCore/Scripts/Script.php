@@ -29,7 +29,7 @@ class Script extends AbsScript {
 		foreach ( $this->hook as $hook ) {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
-					if ( ! wp_script_is( $that->handle, 'enqueued' ) ) {
+					if ( ! $that->isEnqueued() ) {
 						wp_enqueue_script( $that->handle, $that->wpRelPath, $that->deps, $that->version,
 							$that->inFooter );
 					}
@@ -43,12 +43,28 @@ class Script extends AbsScript {
 		foreach ( $this->hook as $hook ) {
 			$this->plugin->getHookFactory()->action( $hook,
 				function () use ( $that ) {
-					if ( ! wp_script_is( $that->handle, 'registered' ) ) {
+					if ( ! $that->isRegistered() ) {
 						wp_register_script( $that->handle, $that->wpRelPath, $that->deps, $that->version,
 							$that->inFooter );
 					}
 				}
 			)->add();
 		}
+	}
+
+	public function dequeue(){
+		wp_dequeue_script($this->handle);
+	}
+
+	public function deRegister(){
+		wp_deregister_script($this->handle);
+	}
+
+	public function isEnqueued(){
+		return wp_script_is($this->handle, 'enqueued');
+	}
+
+	public function isRegistered(){
+		return wp_script_is($this->handle, 'registered');
 	}
 }
