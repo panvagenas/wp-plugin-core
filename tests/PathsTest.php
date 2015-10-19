@@ -9,8 +9,12 @@
  * Since: TODO ${VERSION}
  * Copyright: 2015 Panagiotis Vagenas
  */
+
+use org\bovigo\vfs;
+
 class PathsTest extends WP_UnitTestCase {
 	public function setUp() {
+		vfs\vfsStreamWrapper::register();
 	}
 
 	public function testVerifyIsUnder() {
@@ -18,6 +22,27 @@ class PathsTest extends WP_UnitTestCase {
 		global $WpPluginCore;
 
 		$paths = $WpPluginCore->getFactory()->paths();
+
+		$rootDir = new vfs\vfsStreamDirectory( 'rootDir' );
+		vfs\vfsStreamWrapper::setRoot( $rootDir );
+
+		$dirA = new vfs\vfsStreamDirectory( 'a' );
+		$dirB = new vfs\vfsStreamDirectory( 'b' );
+		$dirC = new vfs\vfsStreamDirectory( 'c' );
+
+		$rootDir->addChild( $dirA );
+		$dirA->addChild( $dirB );
+		$dirB->addChild( $dirC );
+
+
+		$this->assertTrue( $paths->verifyPathIsUnder( $dirC->url(), $rootDir->url() ) );
+		$this->assertTrue( $paths->verifyPathIsUnder( $dirB->url(), $rootDir->url() ) );
+		$this->assertTrue( $paths->verifyPathIsUnder( $dirA->url(), $rootDir->url() ) );
+		$this->assertTrue( $paths->verifyPathIsUnder( $rootDir->url(), $rootDir->url() ) );
+
+		$this->assertFalse( $paths->verifyPathIsUnder( $rootDir->url(), $dirC->url() ) );
+		$this->assertFalse( $paths->verifyPathIsUnder( $rootDir->url(), $dirB->url() ) );
+		$this->assertFalse( $paths->verifyPathIsUnder( $rootDir->url(), $dirA->url() ) );
 
 		$casesTrue = array(
 			array(
