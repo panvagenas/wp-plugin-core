@@ -48,7 +48,7 @@ class Template extends AbsClass {
 	public function view( $templateName, $viewData = array(), $echo = false ) {
 		$viewData && extract( $viewData );
 
-		$templatePath = $this->locateTemplate( $templateName );
+		$templatePath = $this->locate( $templateName );
 
 		$content = '';
 		if ( $templatePath ) {
