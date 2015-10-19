@@ -2,7 +2,7 @@
 
 /**
  * Project: wp-plugins-core.dev
- * File: test-paths.php
+ * File: PathsTest.php
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 16/10/2015
  * Time: 2:13 μμ
