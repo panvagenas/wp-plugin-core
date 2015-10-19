@@ -16,6 +16,7 @@ use Stringy\Stringy;
 use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Hooks\Filter;
+use WPluginCore002\Hooks\HooksFactory;
 
 class Paths extends AbsClass {
 	/**
@@ -85,6 +86,7 @@ class Paths extends AbsClass {
 
 		$templatePluginSlugDir = get_template_directory() . '/' . $plugin->getSlug();
 
+		/* @var HooksFactory $hookFactory */
 		$hookFactory = $this->plugin->getHookFactory();
 
 		$this->whereTemplatesMayReside       = array(
@@ -132,9 +134,11 @@ class Paths extends AbsClass {
 	 * @since  TODO ${VERSION}
 	 */
 	public static function truePath( $path, $allowFailure = false ) {
+		$path = trim( $path );
 		// whether $path is unix or not
 		$uniPath = strlen( $path ) == 0 || $path{0} != '/';
-		$unc     = substr( $path, 0, 2 ) == '\\\\' ? true : false;
+
+		$unc = substr( $path, 0, 2 ) == '\\\\' ? true : false;
 
 		// attempts to detect if path is relative in which case, add cwd
 		if ( strpos( $path, ':' ) === false && $uniPath && ! $unc ) {
@@ -146,7 +150,15 @@ class Paths extends AbsClass {
 
 		// resolve path parts (single dot, double dot and double delimiters)
 		$path = str_replace( array( '/', '\\' ), DIRECTORY_SEPARATOR, $path );
-		$path = preg_replace( '/\/+/', DIRECTORY_SEPARATOR, $path );
+
+		$pre = '';
+		if ( strpos($path, '://') !== false ) {
+			$pre = substr($path, 0, strpos($path,'://')+3);
+			$subPathSuf = substr($path, strpos($path,'://')+3);
+			$path = '/' . preg_replace( '#/+#', DIRECTORY_SEPARATOR, $subPathSuf );
+		} else {
+			$path = preg_replace( '#/+#', DIRECTORY_SEPARATOR, $path );
+		}
 
 		if ( $path === null ) {
 			if ( $allowFailure ) {
@@ -177,8 +189,12 @@ class Paths extends AbsClass {
 
 		$path = implode( DIRECTORY_SEPARATOR, $absolutes );
 
+		if($pre){
+			$path = $pre . $path;
+		}
+
 		// resolve any symlinks
-		if ( function_exists( 'readlink' ) && file_exists( $path ) && linkinfo( $path ) > 0 ) {
+		if ( $pre !== 'vfs://' && function_exists( 'readlink' ) && file_exists( $path ) && linkinfo( $path ) > 0 ) {
 			$path = readlink( $path );
 			if ( $path === false ) {
 				if ( $allowFailure ) {
