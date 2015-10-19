@@ -193,8 +193,12 @@ class Paths extends AbsClass {
 			$path = $pre . $path;
 		}
 
+		// put initial separator that could have been lost
+		$path = ! $uniPath ? '/' . $path : $path;
+		$path = $unc ? '\\\\' . $path : $path;
+
 		// resolve any symlinks
-		if ( $pre !== 'vfs://' && function_exists( 'readlink' ) && file_exists( $path ) && linkinfo( $path ) > 0 ) {
+		if ( is_link( $path ) && function_exists( 'readlink' ) && file_exists( $path ) && linkinfo( $path ) > 0 ) {
 			$path = readlink( $path );
 			if ( $path === false ) {
 				if ( $allowFailure ) {
@@ -204,10 +208,6 @@ class Paths extends AbsClass {
 				}
 			}
 		}
-
-		// put initial separator that could have been lost
-		$path = ! $uniPath ? '/' . $path : $path;
-		$path = $unc ? '\\\\' . $path : $path;
 
 		return $path;
 	}
