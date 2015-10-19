@@ -52,4 +52,12 @@ abstract class AbsScript extends AbsClass {
 	abstract public function enqueue();
 
 	abstract public function register();
+
+	abstract public function deRegister();
+
+	abstract public function dequeue();
+
+	abstract public function isRegistered();
+
+	abstract public function isEnqueued();
 }
