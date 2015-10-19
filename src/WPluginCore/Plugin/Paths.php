@@ -198,7 +198,7 @@ class Paths extends AbsClass {
 		$path = $unc ? '\\\\' . $path : $path;
 
 		// resolve any symlinks
-		if ( is_link( $path ) && function_exists( 'readlink' ) && file_exists( $path ) && linkinfo( $path ) > 0 ) {
+		if ( function_exists( 'readlink' ) && file_exists( $path ) && is_link( $path ) && linkinfo( $path ) > 0 ) {
 			$path = readlink( $path );
 			if ( $path === false ) {
 				if ( $allowFailure ) {
