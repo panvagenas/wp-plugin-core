@@ -200,7 +200,7 @@ class HooksTest extends WP_UnitTestCase {
 
 		$this->assertTrue( $myFancyVar );
 
-		$this->assertTrue($action->did());
+		$this->assertTrue((bool)$action->did());
 	}
 
 	/**
