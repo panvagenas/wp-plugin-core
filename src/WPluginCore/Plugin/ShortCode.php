@@ -14,6 +14,7 @@ namespace WPluginCore002\Plugin;
 
 use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Diagnostics\Exception;
+use WPluginCore002\Diagnostics\InvalidArgumentException;
 
 /**
  * Class ShortCode
@@ -44,6 +45,10 @@ class ShortCode extends AbsClass {
 	 * @var string
 	 */
 	protected $tag;
+	/**
+	 * @var callable
+	 */
+	protected $callBack;
 
 	/**
 	 * @param Plugin     $plugin
@@ -54,13 +59,18 @@ class ShortCode extends AbsClass {
 	 *
 	 * @throws Exception
 	 */
-	public function __construct( Plugin $plugin, $tag, $atts = array(), $types = array(), $enclosing = false ) {
+	public function __construct( Plugin $plugin, $tag, $callBack, $atts = array(), $types = array(), $enclosing = false ) {
 		parent::__construct( $plugin );
+
+		if(!is_callable($callBack)){
+			throw new InvalidArgumentException('Not a callable function was provided in Shortcode instantiation');
+		}
 
 		$this->tag       = (string) $tag;
 		$this->atts      = (array) $atts;
 		$this->types     = (array) $types;
 		$this->enclosing = (bool) $enclosing;
+		$this->callBack = $callBack;
 
 		if ( array_diff_key( $atts, $types ) ) {
 			throw new Exception( 'Doing it wrong. Array keys don\'t match' );
@@ -85,18 +95,6 @@ class ShortCode extends AbsClass {
 			settype( $atts[ $attrName ], $attrType );
 		}
 
-		return $this->output( $atts, $content );
-	}
-
-	/**
-	 * @param      $atts
-	 * @param null $content
-	 *
-	 * @return string
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	protected function output( $atts, $content = null ) {
-		return '';
+		return call_user_func($this->callBack, $atts, $content);
 	}
 }
