@@ -22,7 +22,7 @@ class File extends AbsCoreSingleton {
 			$name .= ".$ext";
 		}
 
-		foreach ( (array) $searchIn as $k => $path ) {
+		foreach ( (array) $searchIn as $path ) {
 			$filePath = Paths::truePath( "{$path}/{$name}", true );
 
 			if ( ! $filePath ) {

@@ -396,7 +396,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	/**
 	 * Add custom links in the admin bar menu as external items
 	 *
-	 * @param string $id
+	 * @param string $linkId
 	 * @param string $href
 	 * @param string $title
 	 *
@@ -404,9 +404,9 @@ abstract class AbsOptionsPage extends AbsClass {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function addAdminBarLink( $id, $href, $title ) {
+	public function addAdminBarLink( $linkId, $href, $title ) {
 		$this->admin_bar_links[] = array(
-			'id'    => $id,
+			'id'    => $linkId,
 			'href'  => $href,
 			'title' => $title,
 		);

@@ -78,11 +78,11 @@ class HooksFactory extends AbsFactory {
 		}
 
 		if ( $callback ) {
-			$id = $this->alreadySet( $tag, $callback );
-			if ( $id && ( $exists = $this->getFromPool( $id, $tag, $priority ) ) ) {
+			$hookId = $this->alreadySet( $tag, $callback );
+			if ( $hookId && ( $exists = $this->getFromPool( $hookId, $tag, $priority ) ) ) {
 				return $exists;
 			}
-			if ( $id === false ) {
+			if ( $hookId === false ) {
 				throw new Exception( 'Could\'t create new hook. ID generation failed.' );
 			}
 		}
@@ -90,8 +90,8 @@ class HooksFactory extends AbsFactory {
 		$class   = __NAMESPACE__ . '\\' . $type;
 		$newHook = new $class( $tag, $callback, $priority, $acceptedArgs );
 
-		if ( isset( $id ) && $id && $callback ) {
-			$this->addToPool( $id, $newHook );
+		if ( isset( $hookId ) && $hookId && $callback ) {
+			$this->addToPool( $hookId, $newHook );
 		}
 
 		return $newHook;
@@ -110,20 +110,20 @@ class HooksFactory extends AbsFactory {
 	}
 
 	/**
-	 * @param string $id
+	 * @param string $hookId
 	 * @param string $tag
 	 * @param int    $priority
 	 *
-	 * @return bool
+	 * @return AbsHook|false
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	protected function getFromPool( $id, $tag, $priority = 10 ) {
-		return isset( self::$pool[ $tag ][ $priority ][ $id ] ) ? self::$pool[ $tag ][ $priority ][ $id ] : false;
+	protected function getFromPool( $hookId, $tag, $priority = 10 ) {
+		return isset( self::$pool[ $tag ][ $priority ][ $hookId ] ) ? self::$pool[ $tag ][ $priority ][ $hookId ] : false;
 	}
 
 	/**
-	 * @param string|int $id
+	 * @param string|int $hookId
 	 * @param AbsHook    $hook
 	 *
 	 * @return AbsHook
@@ -131,9 +131,9 @@ class HooksFactory extends AbsFactory {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	protected function addToPool( $id, AbsHook $hook ) {
-		if ( ! ( is_int( $id ) || is_string( $id ) ) ) {
-			throw new Exception( "Key: $id is not a valid array key" );
+	protected function addToPool( $hookId, AbsHook $hook ) {
+		if ( ! ( is_int( $hookId ) || is_string( $hookId ) ) ) {
+			throw new Exception( "Key: $hookId is not a valid array key" );
 		}
 
 		if ( ! isset( self::$pool[ $hook->getTag() ] ) ) {
@@ -144,7 +144,7 @@ class HooksFactory extends AbsFactory {
 			self::$pool[ $hook->getTag() ][ $hook->getPriority() ] = array();
 		}
 
-		return self::$pool[ $hook->getTag() ][ $hook->getPriority() ][ $id ] = $hook;
+		return self::$pool[ $hook->getTag() ][ $hook->getPriority() ][ $hookId ] = $hook;
 	}
 
 	/**

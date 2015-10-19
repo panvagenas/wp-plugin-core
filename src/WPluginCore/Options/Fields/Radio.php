@@ -45,13 +45,13 @@ class Radio extends AbsOptionField {
 	protected $default;
 
 	/**
-	 * @param       $id
+	 * @param       $fieldId
 	 * @param       $title
 	 * @param       $default
 	 * @param array $options
 	 */
-	public function __construct( $id, $title, $default, $options = array() ) {
-		parent::__construct( $id, $title, $default );
+	public function __construct( $fieldId, $title, $default, $options = array() ) {
+		parent::__construct( $fieldId, $title, $default );
 		$this->options = (array) $options;
 	}
 

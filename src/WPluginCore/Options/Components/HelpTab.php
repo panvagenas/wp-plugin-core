@@ -21,11 +21,11 @@ class HelpTab extends AbsClass {
 	protected $title;
 	protected $content;
 
-	public function __construct( Plugin $plugin, $title, $content, $id = '' ) {
+	public function __construct( Plugin $plugin, $title, $content, $tabId = '' ) {
 		parent::__construct( $plugin );
 		$this->title   = $title;
 		$this->content = $content;
-		$this->id      = $id ? $id : Random::lowStrengthRandomString( 10 );
+		$this->id      = $tabId ? $tabId : Random::lowStrengthRandomString( 10 );
 	}
 
 	/**

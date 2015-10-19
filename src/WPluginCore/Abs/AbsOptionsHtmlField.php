@@ -58,10 +58,10 @@ abstract class AbsOptionsHtmlField {
 	protected $required;
 
 	/**
-	 * @param $id
+	 * @param $fieldId
 	 */
-	public function __construct( $id ) {
-		$this->id = $id;
+	public function __construct( $fieldId ) {
+		$this->id = $fieldId;
 	}
 
 	/**
