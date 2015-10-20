@@ -38,7 +38,8 @@
     "autoload": {
         "files": [
             "resources/includes/redux/redux-framework/framework.php",
-            "resources/includes/redux/redux-extensions/extensions-init.php"
+            "resources/includes/redux/redux-extensions/extensions-init.php",
+            "resources/includes/cmb2/init.php"
         ],
         "psr-4": {
             "WPluginCore002\\": "src/WPluginCore"
