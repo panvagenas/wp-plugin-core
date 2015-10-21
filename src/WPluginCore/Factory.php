@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 2/10/2015
  * Time: 9:49 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -30,7 +30,7 @@ use WPluginCore002\Plugin\Widget;
  *
  * @package WPluginCore002
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Factory extends AbsFactory {
 	/**
@@ -65,7 +65,7 @@ class Factory extends AbsFactory {
 	 * @throws Exception If class not found or isn't instantiable or is plugin class has same name as one in core and
 	 *                   doesn't extend this core class.
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function createOrGet( $className ) {
 		if ( $this->existsInPlugin( $className ) ) {
@@ -121,7 +121,7 @@ class Factory extends AbsFactory {
 	 * @return Paths
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function paths() {
 		return $this->createOrGet( 'Plugin\\Paths' );
@@ -131,7 +131,7 @@ class Factory extends AbsFactory {
 	 * @return HooksFactory
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function hooksFactory() {
 		return $this->createOrGet( 'Hooks\\HooksFactory' );
@@ -141,7 +141,7 @@ class Factory extends AbsFactory {
 	 * @return Initializer
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function initializer() {
 		return $this->createOrGet( 'Plugin\\Initializer' );
@@ -151,7 +151,7 @@ class Factory extends AbsFactory {
 	 * @return Installer
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function installer() {
 		return $this->createOrGet( 'Plugin\\Installer' );
@@ -161,7 +161,7 @@ class Factory extends AbsFactory {
 	 * @return Widget
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function widget() {
 		return $this->createOrGet( 'Plugin\\Widget' );
@@ -171,7 +171,7 @@ class Factory extends AbsFactory {
 	 * @return Options
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function options() {
 		return $this->createOrGet( 'Options\\Options' );
@@ -181,7 +181,7 @@ class Factory extends AbsFactory {
 	 * @return File
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function file() {
 		return $this->createOrGet( 'Helpers\\File' );
@@ -194,7 +194,7 @@ class Factory extends AbsFactory {
 	 *
 	 * @return bool True iff class exists in plugin
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function existsInPlugin( $coreClassName ) {
 		return class_exists( $this->getPluginClassName( $coreClassName ) );
@@ -207,7 +207,7 @@ class Factory extends AbsFactory {
 	 *
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isCoreExtension( $className ) {
 		$reflection = new \ReflectionClass( $this->getPluginClassName( $className ) );
@@ -222,7 +222,7 @@ class Factory extends AbsFactory {
 	 *
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function coreClassExists( $className ) {
 		return class_exists( $this->getCoreClassName( $className ) );
@@ -237,7 +237,7 @@ class Factory extends AbsFactory {
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function getCoreClassName( $className ) {
 		return '\\' . __NAMESPACE__ . '\\' . $className;
@@ -252,7 +252,7 @@ class Factory extends AbsFactory {
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function getPluginClassName( $className ) {
 		return '\\' . $this->plugin->getBaseNamespace() . '\\' . $className;

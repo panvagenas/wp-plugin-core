@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 5/10/2015
  * Time: 8:50 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsCoreSingleton;
  *
  * @package WPluginCore002\Helpers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Dumper extends AbsCoreSingleton {
 	/**
@@ -33,7 +33,7 @@ class Dumper extends AbsCoreSingleton {
 	/**
 	 * @static
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public static function d() {
 		call_user_func_array( 'dump', func_get_args() );

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 15/10/2015
  * Time: 9:03 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -18,7 +18,7 @@ use WPluginCore002\Abs\AbsOptionField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Color extends AbsOptionField {
 	/**
@@ -48,7 +48,7 @@ class Color extends AbsOptionField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getOutput() {
 		return $this->output;
@@ -59,7 +59,7 @@ class Color extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setOutput( $output ) {
 		$this->output = $output;
@@ -70,7 +70,7 @@ class Color extends AbsOptionField {
 	/**
 	 * @return boolean
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isTransparent() {
 		return $this->transparent;
@@ -81,7 +81,7 @@ class Color extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setTransparent( $transparent ) {
 		$this->transparent = $transparent;

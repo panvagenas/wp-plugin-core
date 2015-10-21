@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:47 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -20,7 +20,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Options\MenuPages
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class MenuPage extends AbsOptionsPage {
 	/**

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 6:58 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 

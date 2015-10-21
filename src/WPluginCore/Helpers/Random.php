@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 3:23 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use SecurityLib\Strength;
  *
  * @package WPluginCore002\Helpers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Random {
 	/**
@@ -115,7 +115,7 @@ class Random {
 	 *
 	 * @return string
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public static function lowStrengthRandomString( $length, $chars = self::CHAR_ALPHA ) {
 		return self::randomString( $length, $chars, self::LOW_STRENGTH );
@@ -128,7 +128,7 @@ class Random {
 	 *
 	 * @return string
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public static function randomString( $length, $chars, $strength ) {
 		return self::getRandomGenerator( $strength )->generateString( $length, $chars );
@@ -139,7 +139,7 @@ class Random {
 	 *
 	 * @return Generator
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected static function getRandomGenerator( $strength ) {
 		$factory = new Factory();
@@ -154,7 +154,7 @@ class Random {
 	/**
 	 * @return Strength
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected static function lowStrength() {
 		return new Strength( self::LOW_STRENGTH );
@@ -163,7 +163,7 @@ class Random {
 	/**
 	 * @return Strength
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected static function medStrength() {
 		return new Strength( self::MEDIUM_STRENGTH );
@@ -172,7 +172,7 @@ class Random {
 	/**
 	 * @return Strength
 	 * @static * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected static function highStrength() {
 		return new Strength( self::HIGH_STRENGTH );

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 13/10/2015
  * Time: 10:02 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -20,7 +20,7 @@ use Respect\Validation\Validator;
  *
  * @package WPluginCore002\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 abstract class AbsOptionField {
 	/**
@@ -127,7 +127,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function validate( $field, $value, $existing_value ) {
 		$valid  = true;
@@ -159,7 +159,7 @@ abstract class AbsOptionField {
 	 * @param Validator $validator
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function addValidator( Validator $validator ) {
 		$this->validators[] = $validator;
@@ -177,7 +177,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setValidate( $validate ) {
 		$this->validate = $validate;
@@ -197,7 +197,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
@@ -217,7 +217,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setSubtitle( $subtitle ) {
 		$this->subtitle = $subtitle;
@@ -237,7 +237,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDesc( $desc ) {
 		$this->desc = $desc;
@@ -257,7 +257,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setClass( $class ) {
 		$this->class = $class;
@@ -277,7 +277,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setCompiler( $compiler ) {
 		$this->compiler = $compiler;
@@ -297,7 +297,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setRequired( $required ) {
 		$this->required = $required;
@@ -317,7 +317,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDefault( $default ) {
 		$this->default = $default;
@@ -337,7 +337,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPermissions( $permissions ) {
 		$this->permissions = $permissions;
@@ -357,7 +357,7 @@ abstract class AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setHint( $hint ) {
 		$this->hint = $hint;
@@ -368,7 +368,7 @@ abstract class AbsOptionField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function toArray() {
 		$out = array();

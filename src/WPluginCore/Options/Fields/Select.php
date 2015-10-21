@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:14 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsOptionField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Select extends AbsOptionField {
 	/**
@@ -77,7 +77,7 @@ class Select extends AbsOptionField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getData() {
 		return $this->data;
@@ -88,7 +88,7 @@ class Select extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setData( $data ) {
 		$this->data = $data;
@@ -99,7 +99,7 @@ class Select extends AbsOptionField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getArgs() {
 		return $this->args;
@@ -110,7 +110,7 @@ class Select extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setArgs( $args ) {
 		$this->args = $args;
@@ -121,7 +121,7 @@ class Select extends AbsOptionField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWidth() {
 		return $this->width;
@@ -132,7 +132,7 @@ class Select extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setWidth( $width ) {
 		$this->width = $width;
@@ -143,7 +143,7 @@ class Select extends AbsOptionField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getPlaceholder() {
 		return $this->placeholder;
@@ -154,7 +154,7 @@ class Select extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPlaceholder( $placeholder ) {
 		$this->placeholder = $placeholder;
@@ -165,7 +165,7 @@ class Select extends AbsOptionField {
 	/**
 	 * @return boolean
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isSortable() {
 		return $this->sortable;
@@ -176,7 +176,7 @@ class Select extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setSortable( $sortable ) {
 		$this->sortable = $sortable;
@@ -187,7 +187,7 @@ class Select extends AbsOptionField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getSelect2() {
 		return $this->select2;
@@ -198,7 +198,7 @@ class Select extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setSelect2( $select2 ) {
 		$this->select2 = $select2;

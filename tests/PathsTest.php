@@ -6,7 +6,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 16/10/2015
  * Time: 2:13 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -16,13 +16,13 @@ use org\bovigo\vfs;
  * Class PathsTest
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since  TODO ${VERSION}
+ * @since  0.0.2
  */
 class PathsTest extends WP_UnitTestCase {
 	/**
 	 * @throws vfs\vfsStreamException
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setUp() {
 		vfs\vfsStreamWrapper::register();
@@ -30,7 +30,7 @@ class PathsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testVerifyIsUnder() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -181,7 +181,7 @@ class PathsTest extends WP_UnitTestCase {
 	/**
 	 * @throws \WPluginCore002\Diagnostics\Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testTruePath() {
 		$cases = array(

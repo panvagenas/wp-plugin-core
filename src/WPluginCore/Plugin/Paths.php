@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 3/10/2015
  * Time: 5:46 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -23,7 +23,7 @@ use WPluginCore002\Hooks\HooksFactory;
  *
  * @package WPluginCore002\Plugin
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Paths extends AbsClass {
 	/**
@@ -121,7 +121,7 @@ class Paths extends AbsClass {
 	 *
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function verifyPathIsUnder( $path, $under = ABSPATH ) {
 		$path  = self::truePath( (string) $path, true );
@@ -138,7 +138,7 @@ class Paths extends AbsClass {
 	 * @throws Exception
 	 * @static
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public static function truePath( $path, $allowFailure = false ) {
 		$path = trim( $path );

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 8:42 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 abstract class AbsOptionsPage extends AbsClass {
 	/**
@@ -338,7 +338,7 @@ abstract class AbsOptionsPage extends AbsClass {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setUpPage() {
 		$optName = $this->plugin->getFactory()->options()->getOptName();
@@ -369,7 +369,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function addSection( Section $section ) {
 		$this->sections[] = $section;
@@ -382,7 +382,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function addHelpTab( HelpTab $helpTab ) {
 		$this->helpTabs[] = $helpTab;
@@ -395,7 +395,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setHelpSidebar( $content ) {
 		$this->helpSidebar = $content;
@@ -412,7 +412,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function addAdminBarLink( $linkId, $href, $title ) {
 		$this->admin_bar_links[] = array(
@@ -431,7 +431,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function addShareIcon( $url, $title, $icon ) {
 		$this->share_icons[] = array(
@@ -455,7 +455,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setIntroText( $intro_text ) {
 		$this->intro_text = $intro_text;
@@ -475,7 +475,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setFooterText( $footer_text ) {
 		$this->footer_text = $footer_text;
@@ -495,7 +495,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setAllowTracking( $allow_tracking ) {
 		$this->allow_tracking = $allow_tracking;
@@ -522,7 +522,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setAllowSubMenu( $allow_sub_menu ) {
 		$this->allow_sub_menu = $allow_sub_menu;
@@ -542,7 +542,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setGoogleApiKey( $google_api_key ) {
 		$this->google_api_key = $google_api_key;
@@ -562,7 +562,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setGoogleUpdateWeekly( $google_update_weekly ) {
 		$this->google_update_weekly = $google_update_weekly;
@@ -582,7 +582,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setAsyncTypography( $async_typography ) {
 		$this->async_typography = $async_typography;
@@ -602,7 +602,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDisableGoogleFontsLink( $disable_google_fonts_link ) {
 		$this->disable_google_fonts_link = $disable_google_fonts_link;
@@ -622,7 +622,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setAdminBar( $admin_bar ) {
 		$this->admin_bar = $admin_bar;
@@ -642,7 +642,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setAdminBarIcon( $admin_bar_icon ) {
 		$this->admin_bar_icon = $admin_bar_icon;
@@ -662,7 +662,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setAdminBarPriority( $admin_bar_priority ) {
 		$this->admin_bar_priority = $admin_bar_priority;
@@ -682,7 +682,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setGlobalVariable( $global_variable ) {
 		$this->global_variable = $global_variable;
@@ -702,7 +702,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDevMode( $dev_mode ) {
 		$this->dev_mode = $dev_mode;
@@ -722,7 +722,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setUpdateNotice( $update_notice ) {
 		$this->update_notice = $update_notice;
@@ -742,7 +742,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setCustomizer( $customizer ) {
 		$this->customizer = $customizer;
@@ -762,7 +762,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setOpenExpanded( $open_expanded ) {
 		$this->open_expanded = $open_expanded;
@@ -782,7 +782,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDisableSaveWarn( $disable_save_warn ) {
 		$this->disable_save_warn = $disable_save_warn;
@@ -802,7 +802,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPagePriority( $page_priority ) {
 		$this->page_priority = $page_priority;
@@ -829,7 +829,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPagePermissions( $page_permissions ) {
 		$this->page_permissions = $page_permissions;
@@ -849,7 +849,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setMenuIcon( $menu_icon ) {
 		$this->menu_icon = $menu_icon;
@@ -869,7 +869,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setLastTab( $last_tab ) {
 		$this->last_tab = $last_tab;
@@ -889,7 +889,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPageIcon( $page_icon ) {
 		$this->page_icon = $page_icon;
@@ -909,7 +909,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPageSlug( $page_slug ) {
 		$this->page_slug = $page_slug;
@@ -929,7 +929,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setSaveDefaults( $save_defaults ) {
 		$this->save_defaults = $save_defaults;
@@ -949,7 +949,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDefaultShow( $default_show ) {
 		$this->default_show = $default_show;
@@ -969,7 +969,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDefaultMark( $default_mark ) {
 		$this->default_mark = $default_mark;
@@ -989,7 +989,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setShowImportExport( $show_import_export ) {
 		$this->show_import_export = $show_import_export;
@@ -1009,7 +1009,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setTransientTime( $transient_time ) {
 		$this->transient_time = $transient_time;
@@ -1029,7 +1029,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setOutput( $output ) {
 		$this->output = $output;
@@ -1049,7 +1049,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setOutputTag( $output_tag ) {
 		$this->output_tag = $output_tag;
@@ -1069,7 +1069,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setFooterCredit( $footer_credit ) {
 		$this->footer_credit = $footer_credit;
@@ -1089,7 +1089,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setUseCdn( $use_cdn ) {
 		$this->use_cdn = $use_cdn;
@@ -1109,7 +1109,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setHints( $hints ) {
 		$this->hints = $hints;
@@ -1121,7 +1121,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function toArray() {
 		$out = array();
@@ -1139,7 +1139,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getDisplayName() {
 		return $this->display_name;
@@ -1150,7 +1150,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDisplayName( $display_name ) {
 		$this->display_name = $display_name;
@@ -1161,7 +1161,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getDisplayVersion() {
 		return $this->display_version;
@@ -1172,7 +1172,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDisplayVersion( $display_version ) {
 		$this->display_version = $display_version;
@@ -1183,7 +1183,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getMenuTitle() {
 		return $this->menu_title;
@@ -1194,7 +1194,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setMenuTitle( $menu_title ) {
 		$this->menu_title = $menu_title;
@@ -1205,7 +1205,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getPageTitle() {
 		return $this->page_title;
@@ -1216,7 +1216,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPageTitle( $page_title ) {
 		$this->page_title = $page_title;

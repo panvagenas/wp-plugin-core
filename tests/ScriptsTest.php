@@ -6,7 +6,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 19/10/2015
  * Time: 8:41 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -16,7 +16,7 @@ use org\bovigo\vfs;
  * Class ScriptsTest
  *
  * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since  TODO ${VERSION}
+ * @since  0.0.2
  */
 class ScriptsTest extends WP_UnitTestCase {
 	/**
@@ -34,7 +34,7 @@ class ScriptsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testStyleEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -52,7 +52,7 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @param                               $hook
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected function scriptTest( \WPluginCore002\Abs\AbsScript $script, $hook ) {
 		$this->assertFalse( $script->isRegistered() );
@@ -72,7 +72,7 @@ class ScriptsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testAdminStyleEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -87,7 +87,7 @@ class ScriptsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testLoginStyleEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -102,7 +102,7 @@ class ScriptsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testScriptEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -117,7 +117,7 @@ class ScriptsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testAdminScriptEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -132,7 +132,7 @@ class ScriptsTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testLoginScriptEnqueue() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -148,7 +148,7 @@ class ScriptsTest extends WP_UnitTestCase {
 	/**
 	 * @throws vfs\vfsStreamException
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testLocateScripts() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */

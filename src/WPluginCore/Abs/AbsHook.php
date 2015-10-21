@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 7:41 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Hooks\HooksFactory;
  *
  * @package WPluginCore002\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 abstract class AbsHook {
 	/**
@@ -58,7 +58,7 @@ abstract class AbsHook {
 	/**
 	 * @return true|void
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function add() {
 		return add_filter( $this->tag, $this->callBack, $this->priority, $this->acceptedArgs );
@@ -67,7 +67,7 @@ abstract class AbsHook {
 	/**
 	 * @return false|int
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function has() {
 		return has_filter( $this->tag, $this->callBack );
@@ -75,7 +75,7 @@ abstract class AbsHook {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function remove() {
 		remove_filter( $this->tag, $this->callBack, $this->priority );
@@ -84,7 +84,7 @@ abstract class AbsHook {
 	/**
 	 * @return true
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function removeAll() {
 		$hookFactory = new HooksFactory();

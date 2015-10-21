@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 5/10/2015
  * Time: 8:51 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsPluginSingleton;
  *
  * @package WPluginCore002\Translations
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class I18n extends AbsPluginSingleton {
 	/**
@@ -27,7 +27,7 @@ class I18n extends AbsPluginSingleton {
 	 *
 	 * @return string|void
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function __( $text ) {
 		$text = (string) $text;
@@ -39,7 +39,7 @@ class I18n extends AbsPluginSingleton {
 	 * @param $text
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function _e( $text ) {
 		_e( $text, $this->plugin->getTextDomain() );
@@ -52,7 +52,7 @@ class I18n extends AbsPluginSingleton {
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function _n( $single, $plural, $number ) {
 		return _n( $single, $plural, $number, $this->plugin->getTextDomain() );
@@ -64,7 +64,7 @@ class I18n extends AbsPluginSingleton {
 	 *
 	 * @return string|void
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function _x( $text, $context ) {
 		return _x( $text, $context, $this->plugin->getTextDomain() );
@@ -75,7 +75,7 @@ class I18n extends AbsPluginSingleton {
 	 * @param $context
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function _ex( $text, $context ) {
 		_ex( $text, $context, $this->plugin->getTextDomain() );

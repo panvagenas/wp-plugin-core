@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:41 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsOptionsHtmlField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Raw extends AbsOptionsHtmlField {
 	/**
@@ -61,7 +61,7 @@ class Raw extends AbsOptionsHtmlField {
 	/**
 	 * @return boolean
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isFullWidth() {
 		return $this->full_width;
@@ -72,7 +72,7 @@ class Raw extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setFullWidth( $full_width ) {
 		$this->full_width = $full_width;
@@ -83,7 +83,7 @@ class Raw extends AbsOptionsHtmlField {
 	/**
 	 * @return boolean
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isMarkdown() {
 		return $this->markdown;
@@ -94,7 +94,7 @@ class Raw extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setMarkdown( $markdown ) {
 		$this->markdown = $markdown;
@@ -105,7 +105,7 @@ class Raw extends AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getContent() {
 		return $this->content;
@@ -116,7 +116,7 @@ class Raw extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setContent( $content ) {
 		$this->content = $content;
@@ -127,7 +127,7 @@ class Raw extends AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getContentPath() {
 		return $this->content_path;
@@ -138,7 +138,7 @@ class Raw extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setContentPath( $content_path ) {
 		$this->content_path = $content_path;
@@ -149,7 +149,7 @@ class Raw extends AbsOptionsHtmlField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getHint() {
 		return $this->hint;
@@ -160,7 +160,7 @@ class Raw extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setHint( $hint ) {
 		$this->hint = $hint;

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:45 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsOptionsHtmlField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Info extends AbsOptionsHtmlField {
 	/**
@@ -56,7 +56,7 @@ class Info extends AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getStyle() {
 		return $this->style;
@@ -67,7 +67,7 @@ class Info extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setStyle( $style ) {
 		$this->style = $style;
@@ -78,7 +78,7 @@ class Info extends AbsOptionsHtmlField {
 	/**
 	 * @return boolean
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isNotice() {
 		return $this->notice;
@@ -89,7 +89,7 @@ class Info extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setNotice( $notice ) {
 		$this->notice = $notice;
@@ -100,7 +100,7 @@ class Info extends AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getColor() {
 		return $this->color;
@@ -111,7 +111,7 @@ class Info extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setColor( $color ) {
 		$this->color = $color;
@@ -122,7 +122,7 @@ class Info extends AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getIcon() {
 		return $this->icon;
@@ -133,7 +133,7 @@ class Info extends AbsOptionsHtmlField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setIcon( $icon ) {
 		$this->icon = $icon;

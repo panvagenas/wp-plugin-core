@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 13/10/2015
  * Time: 10:00 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsOptionField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Text extends AbsOptionField {
 	/**
@@ -53,7 +53,7 @@ class Text extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setReadonly( $readonly ) {
 		$this->readonly = $readonly;
@@ -73,7 +73,7 @@ class Text extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPlaceholder( $placeholder ) {
 		$this->placeholder = $placeholder;

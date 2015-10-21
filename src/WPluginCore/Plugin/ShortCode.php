@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 2/10/2015
  * Time: 9:47 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use WPluginCore002\Diagnostics\InvalidArgumentException;
  *
  * @package WPluginCore002\Plugin
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class ShortCode extends AbsClass {
 	/**
@@ -92,7 +92,7 @@ class ShortCode extends AbsClass {
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function prepare( $atts, $content = null ) {
 		$atts = array_intersect_key( $atts, $this->atts );

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 9:54 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsOptionField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Radio extends AbsOptionField {
 	/**
@@ -68,7 +68,7 @@ class Radio extends AbsOptionField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getOptions() {
 		return $this->options;
@@ -78,7 +78,7 @@ class Radio extends AbsOptionField {
 	 * @param array $options
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setOptions( $options ) {
 		$this->options = $options;
@@ -87,7 +87,7 @@ class Radio extends AbsOptionField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getData() {
 		return $this->data;
@@ -97,7 +97,7 @@ class Radio extends AbsOptionField {
 	 * @param string $data
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setData( $data ) {
 		$this->data = $data;
@@ -106,7 +106,7 @@ class Radio extends AbsOptionField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getArgs() {
 		return $this->args;
@@ -116,7 +116,7 @@ class Radio extends AbsOptionField {
 	 * @param array $args
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setArgs( $args ) {
 		$this->args = $args;

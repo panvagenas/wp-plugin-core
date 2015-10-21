@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:03 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -17,7 +17,7 @@ namespace WPluginCore002\Abs;
  *
  * @package WPluginCore002\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 abstract class AbsOptionsNumField extends AbsOptionField {
 	/**
@@ -42,7 +42,7 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 	/**
 	 * @return int
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getMin() {
 		return $this->min;
@@ -53,7 +53,7 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setMin( $min ) {
 		$this->min = $min;
@@ -64,7 +64,7 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 	/**
 	 * @return int
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getMax() {
 		return $this->max;
@@ -75,7 +75,7 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setMax( $max ) {
 		$this->max = $max;
@@ -86,7 +86,7 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 	/**
 	 * @return int
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getStep() {
 		return $this->step;
@@ -97,7 +97,7 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setStep( $step ) {
 		$this->step = $step;

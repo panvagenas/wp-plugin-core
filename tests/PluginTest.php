@@ -9,7 +9,7 @@
 class PluginTest extends WP_UnitTestCase {
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testGlobalPluginInstance() {
 		$this->assertTrue( isset( $GLOBALS['WpPluginCore'] ) );
@@ -30,7 +30,7 @@ class PluginTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testPluginFactory() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -44,7 +44,7 @@ class PluginTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testClassInstantiationFactory() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */

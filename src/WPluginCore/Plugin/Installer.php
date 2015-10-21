@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 12:06 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,13 +19,13 @@ use WPluginCore002\Abs\AbsPluginSingleton;
  *
  * @package WPluginCore002\Plugin
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Installer extends AbsPluginSingleton {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public static function uninstall() {
 		return true;
@@ -34,7 +34,7 @@ class Installer extends AbsPluginSingleton {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function activation() {
 		return true;
@@ -43,7 +43,7 @@ class Installer extends AbsPluginSingleton {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function deactivation() {
 		return true;

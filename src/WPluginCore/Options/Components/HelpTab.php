@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 9:36 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Options\Components
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class HelpTab extends AbsClass {
 	/**
@@ -53,7 +53,7 @@ class HelpTab extends AbsClass {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function toArray() {
 		$out = array();
@@ -71,7 +71,7 @@ class HelpTab extends AbsClass {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getTitle() {
 		return $this->title;
@@ -82,7 +82,7 @@ class HelpTab extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
@@ -93,7 +93,7 @@ class HelpTab extends AbsClass {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getContent() {
 		return $this->content;
@@ -104,7 +104,7 @@ class HelpTab extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setContent( $content ) {
 		$this->content = $content;

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 5/10/2015
  * Time: 9:01 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Scripts
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Style extends AbsScript {
 	/**
@@ -47,7 +47,7 @@ class Style extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function enqueue() {
 		$that = $this;
@@ -65,7 +65,7 @@ class Style extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function register() {
 		$that = $this;
@@ -83,7 +83,7 @@ class Style extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function dequeue() {
 		wp_dequeue_style( $this->handle );
@@ -91,7 +91,7 @@ class Style extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function deRegister() {
 		wp_deregister_style( $this->handle );
@@ -100,7 +100,7 @@ class Style extends AbsScript {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isEnqueued() {
 		return wp_style_is( $this->handle, 'enqueued' );
@@ -109,7 +109,7 @@ class Style extends AbsScript {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isRegistered() {
 		return wp_style_is( $this->handle, 'registered' );
@@ -118,7 +118,7 @@ class Style extends AbsScript {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getHandle() {
 		return $this->handle;
@@ -127,7 +127,7 @@ class Style extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWpRelPath() {
 		return $this->wpRelPath;
@@ -136,7 +136,7 @@ class Style extends AbsScript {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getUrl() {
 		return $this->url;
@@ -145,7 +145,7 @@ class Style extends AbsScript {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getDeps() {
 		return $this->deps;
@@ -154,7 +154,7 @@ class Style extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getVersion() {
 		return $this->version;
@@ -163,7 +163,7 @@ class Style extends AbsScript {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getHook() {
 		return $this->hook;
@@ -172,7 +172,7 @@ class Style extends AbsScript {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWhereMayReside() {
 		return $this->whereMayReside;
@@ -181,7 +181,7 @@ class Style extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getMedia() {
 		return $this->media;
@@ -190,7 +190,7 @@ class Style extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getFileExtension() {
 		return $this->fileExtension;

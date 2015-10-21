@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:06 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsOptionsNumField;
  *
  * @package WPluginCore002\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Slider extends AbsOptionsNumField {
 	/**
@@ -67,7 +67,7 @@ class Slider extends AbsOptionsNumField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getSelect2() {
 		return $this->select2;
@@ -78,7 +78,7 @@ class Slider extends AbsOptionsNumField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setSelect2( $select2 ) {
 		$this->select2 = $select2;
@@ -89,7 +89,7 @@ class Slider extends AbsOptionsNumField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getFloatMark() {
 		return $this->float_mark;
@@ -100,7 +100,7 @@ class Slider extends AbsOptionsNumField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setFloatMark( $float_mark ) {
 		$this->float_mark = $float_mark;
@@ -111,7 +111,7 @@ class Slider extends AbsOptionsNumField {
 	/**
 	 * @return int|float
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getResolution() {
 		return $this->resolution;
@@ -122,7 +122,7 @@ class Slider extends AbsOptionsNumField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setResolution( $resolution ) {
 		$this->resolution = $resolution;
@@ -133,7 +133,7 @@ class Slider extends AbsOptionsNumField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getDisplayValue() {
 		return $this->display_value;
@@ -144,7 +144,7 @@ class Slider extends AbsOptionsNumField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDisplayValue( $display_value ) {
 		$this->display_value = $display_value;
@@ -155,7 +155,7 @@ class Slider extends AbsOptionsNumField {
 	/**
 	 * @return int
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getHandles() {
 		return $this->handles;
@@ -166,7 +166,7 @@ class Slider extends AbsOptionsNumField {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setHandles( $handles ) {
 		$this->handles = $handles;

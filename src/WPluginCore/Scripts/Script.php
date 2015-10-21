@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 5/10/2015
  * Time: 8:58 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Scripts
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Script extends AbsScript {
 	/**
@@ -47,7 +47,7 @@ class Script extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function enqueue() {
 		$that = $this;
@@ -66,7 +66,7 @@ class Script extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function register() {
 		$that = $this;
@@ -85,7 +85,7 @@ class Script extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function dequeue() {
 		wp_dequeue_script( $this->handle );
@@ -93,7 +93,7 @@ class Script extends AbsScript {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function deRegister() {
 		wp_deregister_script( $this->handle );
@@ -102,7 +102,7 @@ class Script extends AbsScript {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isEnqueued() {
 		return wp_script_is( $this->handle, 'enqueued' );
@@ -111,7 +111,7 @@ class Script extends AbsScript {
 	/**
 	 * @return bool
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isRegistered() {
 		return wp_script_is( $this->handle, 'registered' );
@@ -120,7 +120,7 @@ class Script extends AbsScript {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getHandle() {
 		return $this->handle;
@@ -129,7 +129,7 @@ class Script extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWpRelPath() {
 		return $this->wpRelPath;
@@ -138,7 +138,7 @@ class Script extends AbsScript {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getUrl() {
 		return $this->url;
@@ -147,7 +147,7 @@ class Script extends AbsScript {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getDeps() {
 		return $this->deps;
@@ -156,7 +156,7 @@ class Script extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getVersion() {
 		return $this->version;
@@ -165,7 +165,7 @@ class Script extends AbsScript {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getHook() {
 		return $this->hook;
@@ -174,7 +174,7 @@ class Script extends AbsScript {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWhereMayReside() {
 		return $this->whereMayReside;
@@ -183,7 +183,7 @@ class Script extends AbsScript {
 	/**
 	 * @return boolean
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function isInFooter() {
 		return $this->inFooter;
@@ -192,7 +192,7 @@ class Script extends AbsScript {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getFileExtension() {
 		return $this->fileExtension;

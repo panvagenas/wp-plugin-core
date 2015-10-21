@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 7/10/2015
  * Time: 10:46 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Options
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Options extends AbsPluginSingleton {
 	/**
@@ -67,7 +67,7 @@ class Options extends AbsPluginSingleton {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function menuPages() {
 	}
@@ -78,7 +78,7 @@ class Options extends AbsPluginSingleton {
 	 *
 	 * @return array|null
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function get( $name, $defaultValue ) {
 		return isset( $this->options[ $name ] )
@@ -91,7 +91,7 @@ class Options extends AbsPluginSingleton {
 	 * @param mixed  $value
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function set( $name, $value ) {
 		$this->options[ $name ] = $value;
@@ -104,7 +104,7 @@ class Options extends AbsPluginSingleton {
 	 *
 	 * @return array|null
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function def( $name, $defaultValue = null ) {
 		return empty( $name ) ? $this->defaults : ( isset( $this->defaults[ $name ] ) ? $this->defaults[ $name ] : $defaultValue );
@@ -112,7 +112,7 @@ class Options extends AbsPluginSingleton {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function save() {
 		return $this->optName ? update_option( $this->optName, $this->options ) : false;

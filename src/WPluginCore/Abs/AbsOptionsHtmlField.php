@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 14/10/2015
  * Time: 10:32 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -17,7 +17,7 @@ namespace WPluginCore002\Abs;
  *
  * @package WPluginCore002\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 abstract class AbsOptionsHtmlField {
 	/**
@@ -74,7 +74,7 @@ abstract class AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getTitle() {
 		return $this->title;
@@ -84,7 +84,7 @@ abstract class AbsOptionsHtmlField {
 	 * @param string $title
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setTitle( $title ) {
 		$this->title = $title;
@@ -93,7 +93,7 @@ abstract class AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getSubtitle() {
 		return $this->subtitle;
@@ -103,7 +103,7 @@ abstract class AbsOptionsHtmlField {
 	 * @param string $subtitle
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setSubtitle( $subtitle ) {
 		$this->subtitle = $subtitle;
@@ -112,7 +112,7 @@ abstract class AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getDesc() {
 		return $this->desc;
@@ -122,7 +122,7 @@ abstract class AbsOptionsHtmlField {
 	 * @param string $desc
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDesc( $desc ) {
 		$this->desc = $desc;
@@ -131,7 +131,7 @@ abstract class AbsOptionsHtmlField {
 	/**
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getClass() {
 		return $this->class;
@@ -141,7 +141,7 @@ abstract class AbsOptionsHtmlField {
 	 * @param string $class
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setClass( $class ) {
 		$this->class = $class;
@@ -150,7 +150,7 @@ abstract class AbsOptionsHtmlField {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getRequired() {
 		return $this->required;
@@ -160,7 +160,7 @@ abstract class AbsOptionsHtmlField {
 	 * @param array $required
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setRequired( $required ) {
 		$this->required = $required;

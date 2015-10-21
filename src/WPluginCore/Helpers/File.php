@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 19/10/2015
  * Time: 10:10 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Helpers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class File extends AbsCoreSingleton {
 	/**
@@ -33,7 +33,7 @@ class File extends AbsCoreSingleton {
 	 * @return string
 	 * @throws \WPluginCore002\Diagnostics\Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function locate( $name, $searchIn, $ext, Plugin $plugin ) {
 		if ( ! preg_match( '/.*\.' . $ext . '$/', $name ) ) {

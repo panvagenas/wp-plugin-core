@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 16/10/2015
  * Time: 2:07 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsClass;
  *
  * @package WPluginCore002\Templates
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Template extends AbsClass {
 	/**
@@ -29,7 +29,7 @@ class Template extends AbsClass {
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function view( $templateName, $viewData = array(), $echo = false ) {
 		$viewData && extract( $viewData );
@@ -55,7 +55,7 @@ class Template extends AbsClass {
 	 *
 	 * @return string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function locate( $templateName ) {
 		$fileObj  = $this->plugin->getFactory()->file();

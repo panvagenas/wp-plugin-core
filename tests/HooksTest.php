@@ -9,7 +9,7 @@
 class HooksTest extends WP_UnitTestCase {
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testCreateNewFilter() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -57,7 +57,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testRemoveAll() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -110,7 +110,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testCreateNewAction() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -153,7 +153,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testApplyFilter() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -187,7 +187,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testPerformAction() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -218,7 +218,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testWhereStylesMayResideFilter() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -249,7 +249,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testWhereScriptsMayResideFilter() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
@@ -280,7 +280,7 @@ class HooksTest extends WP_UnitTestCase {
 
 	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function testWhereTemplatesMayResideFilter() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */

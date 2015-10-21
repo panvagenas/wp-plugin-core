@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 12:06 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use WPluginCore002\Abs\AbsPluginSingleton;
  *
  * @package WPluginCore002\Plugin
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Initializer extends AbsPluginSingleton {
 	/**
@@ -31,7 +31,7 @@ class Initializer extends AbsPluginSingleton {
 	 * This is used for core initialization. **DO NOT** override this, use {@link Initializer::init()} instead.
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public final function coreInit() {
 		if ( ! self::$initialized ) {
@@ -48,7 +48,7 @@ class Initializer extends AbsPluginSingleton {
 	 * This is used for plugin initialization. **DO NOT** override this, use {@link Initializer::init()} instead.
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected function pluginInit() {
 		$this->plugin->getHookFactory()->action( 'after_setup_theme', array( $this, 'init' ) )->add();
@@ -91,7 +91,7 @@ class Initializer extends AbsPluginSingleton {
 	 * **IMPORTANT** - Always call parent init() if extending.
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function init() {
 	}

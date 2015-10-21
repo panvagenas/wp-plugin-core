@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 5/10/2015
  * Time: 8:47 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,7 +19,7 @@ use Monolog\Logger;
  *
  * @package WPluginCore002\Logs\Handlers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class DBHandler extends AbstractProcessingHandler {
 	/**
@@ -49,7 +49,7 @@ class DBHandler extends AbstractProcessingHandler {
 	 * @param array $record
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected function write( array $record ) {
 		/* @var \DateTime $datetime */

@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 7:41 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -19,13 +19,13 @@ use WPluginCore002\Abs\AbsHook;
  *
  * @package WPluginCore002\Hooks
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Action extends AbsHook {
 	/**
 	 * @return mixed
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function perform() {
 		$args = func_get_args();
@@ -37,7 +37,7 @@ class Action extends AbsHook {
 	/**
 	 * @return int|void
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function did() {
 		return did_action( $this->tag );

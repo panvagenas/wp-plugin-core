@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 7:41 μμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -22,7 +22,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Hooks
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class HooksFactory extends AbsFactory {
 	/**
@@ -62,7 +62,7 @@ class HooksFactory extends AbsFactory {
 	 * @return Filter
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function filter( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
 		return $this->createOrGetHook( self::FILTER, $tag, $callback, $priority, $acceptedArgs );
@@ -79,7 +79,7 @@ class HooksFactory extends AbsFactory {
 	 * @return Action
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function action( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
 		return $this->createOrGetHook( self::ACTION, $tag, $callback, $priority, $acceptedArgs );
@@ -95,7 +95,7 @@ class HooksFactory extends AbsFactory {
 	 * @return Filter|Action
 	 * @throws Exception If unique ID for filter fails. This is depended on {@link _wp_filter_build_unique_id()}
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected function createOrGetHook( $type, $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
 		if ( ! in_array( $type, array( self::FILTER, self::ACTION ) ) ) {
@@ -128,7 +128,7 @@ class HooksFactory extends AbsFactory {
 	 *
 	 * @return false|string
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function alreadySet( $tag, $callback ) {
 		return _wp_filter_build_unique_id( $tag, $callback, false );
@@ -141,7 +141,7 @@ class HooksFactory extends AbsFactory {
 	 *
 	 * @return AbsHook|false
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected function getFromPool( $hookId, $tag, $priority = 10 ) {
 		return isset( self::$pool[ $tag ][ $priority ][ $hookId ] ) ? self::$pool[ $tag ][ $priority ][ $hookId ] : false;
@@ -154,7 +154,7 @@ class HooksFactory extends AbsFactory {
 	 * @return AbsHook
 	 * @throws Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	protected function addToPool( $hookId, AbsHook $hook ) {
 		if ( ! ( is_int( $hookId ) || is_string( $hookId ) ) ) {
@@ -178,7 +178,7 @@ class HooksFactory extends AbsFactory {
 	 *
 	 * @return true
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function removeAll( $tag, $priority = - 1 ) {
 		$priority = $priority < 0 ? false : $priority;
@@ -200,7 +200,7 @@ class HooksFactory extends AbsFactory {
 	 *
 	 * @return Filter
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWhereTemplatesMayResideFilter(
 		Plugin $plugin,
@@ -221,7 +221,7 @@ class HooksFactory extends AbsFactory {
 	 *
 	 * @return Filter
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWhereScriptsMayResideFilter(
 		Plugin $plugin,
@@ -242,7 +242,7 @@ class HooksFactory extends AbsFactory {
 	 *
 	 * @return Filter
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function getWhereStylesMayResideFilter(
 		Plugin $plugin,

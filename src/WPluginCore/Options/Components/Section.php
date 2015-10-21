@@ -5,7 +5,7 @@
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 13/10/2015
  * Time: 10:00 πμ
- * Since: TODO ${VERSION}
+ * Since: 0.0.2
  * Copyright: 2015 Panagiotis Vagenas
  */
 
@@ -21,7 +21,7 @@ use WPluginCore002\Plugin\Plugin;
  *
  * @package WPluginCore002\Options\Components
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
- * @since   TODO ${VERSION}
+ * @since   0.0.2
  */
 class Section extends AbsClass {
 	/**
@@ -101,7 +101,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function addField( AbsOptionField $field ) {
 		$this->fields[] = $field;
@@ -121,7 +121,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setDesc( $desc ) {
 		$this->desc = $desc;
@@ -141,7 +141,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setClass( $class ) {
 		$this->class = $class;
@@ -161,7 +161,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setIcon( $icon ) {
 		$this->icon = $icon;
@@ -181,7 +181,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setIconType( $icon_type ) {
 		$this->icon_type = $icon_type;
@@ -201,7 +201,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setHeading( $heading ) {
 		$this->heading = $heading;
@@ -221,7 +221,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setPermissions( $permissions ) {
 		$this->permissions = $permissions;
@@ -241,7 +241,7 @@ class Section extends AbsClass {
 	 *
 	 * @return $this
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function setCustomizerOnly( $customizer_only ) {
 		$this->customizer_only = $customizer_only;
@@ -252,7 +252,7 @@ class Section extends AbsClass {
 	/**
 	 * @return array
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
+	 * @since  0.0.2
 	 */
 	public function toArray() {
 		$out = array();
