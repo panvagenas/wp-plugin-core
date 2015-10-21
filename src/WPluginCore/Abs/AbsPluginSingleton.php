@@ -13,6 +13,13 @@ namespace WPluginCore002\Abs;
 
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class AbsPluginSingleton
+ *
+ * @package WPluginCore002\Abs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 abstract class AbsPluginSingleton {
 	/**
 	 * @var $this ::class The reference to *Singleton* instance of this class

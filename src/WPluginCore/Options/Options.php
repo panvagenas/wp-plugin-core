@@ -16,6 +16,13 @@ use WPluginCore002\Abs\AbsPluginSingleton;
 use WPluginCore002\Hooks\Action;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class Options
+ *
+ * @package WPluginCore002\Options
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Options extends AbsPluginSingleton {
 	/**
 	 * @var string

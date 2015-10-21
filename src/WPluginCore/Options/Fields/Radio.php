@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
+/**
+ * Class Radio
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Radio extends AbsOptionField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'radio';
 	/**
 	 * Array of key pair values representing the radio buttons.  The key value should be numbers in sequential order,

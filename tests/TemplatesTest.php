@@ -12,6 +12,12 @@
 
 use org\bovigo\vfs;
 
+/**
+ * Class TemplatesTest
+ *
+ * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since  TODO ${VERSION}
+ */
 class TemplatesTest extends WP_UnitTestCase {
 	/**
 	 * @var vfs\vfsStreamDirectory
@@ -22,9 +28,21 @@ class TemplatesTest extends WP_UnitTestCase {
 	 */
 	protected static $WpPluginCore;
 
+	/**
+	 * @var
+	 */
 	protected static $templateBaseName;
+	/**
+	 * @var
+	 */
 	protected static $templateName;
+	/**
+	 * @var
+	 */
 	protected static $misTemplateBaseName;
+	/**
+	 * @var
+	 */
 	protected static $misTemplateName;
 	/**
 	 * @var vfs\vfsStreamFile
@@ -35,6 +53,13 @@ class TemplatesTest extends WP_UnitTestCase {
 	 */
 	protected static $templateObj;
 
+	/**
+	 * @throws \WPluginCore002\Diagnostics\Exception
+	 * @throws vfs\vfsStreamException
+	 * @static
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public static function setUpBeforeClass() {
 		global $WpPluginCore;
 		self::$WpPluginCore = $WpPluginCore;
@@ -58,6 +83,12 @@ class TemplatesTest extends WP_UnitTestCase {
 		self::$templateObj = self::$WpPluginCore->getFactory()->createOrGet( 'Templates\\Template' );
 	}
 
+	/**
+	 * @throws vfs\vfsStreamException
+	 * @static
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public static function tearDownAfterClass() {
 		self::$WpPluginCore->getHookFactory()->getWhereTemplatesMayResideFilter( self::$WpPluginCore )->removeAll();
 
@@ -73,6 +104,10 @@ class TemplatesTest extends WP_UnitTestCase {
 		vfs\vfsStreamWrapper::unregister();
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function testLocate() {
 		$rootDirPath = self::$rootDir->url();
 
@@ -95,6 +130,10 @@ class TemplatesTest extends WP_UnitTestCase {
 		$filter->remove();
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function testView() {
 		$rootDirPath = self::$rootDir->url();
 

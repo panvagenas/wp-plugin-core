@@ -16,6 +16,13 @@ use RandomLib\Factory;
 use RandomLib\Generator;
 use SecurityLib\Strength;
 
+/**
+ * Class Random
+ *
+ * @package WPluginCore002\Helpers
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Random {
 	/**
 	 * This represents Non-Cryptographic strengths.  It should not be used any time

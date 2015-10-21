@@ -14,6 +14,13 @@ namespace WPluginCore002\Plugin;
 
 use WPluginCore002\Abs\AbsPluginSingleton;
 
+/**
+ * Class Installer
+ *
+ * @package WPluginCore002\Plugin
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Installer extends AbsPluginSingleton {
 	/**
 	 * @return bool
@@ -24,6 +31,11 @@ class Installer extends AbsPluginSingleton {
 		return true;
 	}
 
+	/**
+	 * @return bool
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function activation() {
 		return true;
 	}

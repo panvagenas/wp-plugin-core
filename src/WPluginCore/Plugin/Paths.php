@@ -18,6 +18,13 @@ use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Hooks\Filter;
 use WPluginCore002\Hooks\HooksFactory;
 
+/**
+ * Class Paths
+ *
+ * @package WPluginCore002\Plugin
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Paths extends AbsClass {
 	/**
 	 * @var string

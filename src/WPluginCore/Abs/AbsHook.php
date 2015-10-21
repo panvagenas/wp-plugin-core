@@ -14,6 +14,13 @@ namespace WPluginCore002\Abs;
 
 use WPluginCore002\Hooks\HooksFactory;
 
+/**
+ * Class AbsHook
+ *
+ * @package WPluginCore002\Abs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 abstract class AbsHook {
 	/**
 	 * Hook tag. See {@link https://codex.wordpress.org/Plugin_API/Action_Reference} and

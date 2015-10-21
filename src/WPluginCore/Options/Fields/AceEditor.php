@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
+/**
+ * Class AceEditor
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class AceEditor extends AbsOptionField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'ace_editor';
 	/**
 	 * Sets the language mode of the editor.  Accepts:  `css`, `html`, `javascript`,  `json`, `less`, `markdown`,

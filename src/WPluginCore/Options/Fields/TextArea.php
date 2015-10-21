@@ -12,6 +12,13 @@
 namespace WPluginCore002\Options\Fields;
 
 
+/**
+ * Class TextArea
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class TextArea extends Text {
 	/**
 	 * @var string

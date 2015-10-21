@@ -12,6 +12,13 @@
 namespace WPluginCore002\Options\Fields;
 
 
+/**
+ * Class MultiSelect
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class MultiSelect extends Select {
 	/**
 	 * Flag to set the multi-select variation of the field

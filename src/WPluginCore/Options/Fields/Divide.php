@@ -15,5 +15,8 @@ namespace WPluginCore002\Options\Fields;
 use WPluginCore002\Abs\AbsOptionsHtmlField;
 
 class Divide extends AbsOptionsHtmlField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'divide';
 }

@@ -12,6 +12,16 @@
 namespace WPluginCore002\Options\Fields;
 
 
+/**
+ * Class ColorGradient
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class ColorGradient extends Color {
+	/**
+	 * @var string
+	 */
 	protected $type = 'color_gradient';
 }

@@ -14,6 +14,16 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionsNumField;
 
+/**
+ * Class Spinner
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Spinner extends AbsOptionsNumField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'spinner';
 }

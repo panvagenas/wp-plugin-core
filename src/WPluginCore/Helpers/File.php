@@ -16,7 +16,25 @@ use WPluginCore002\Abs\AbsCoreSingleton;
 use WPluginCore002\Plugin\Paths;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class File
+ *
+ * @package WPluginCore002\Helpers
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class File extends AbsCoreSingleton {
+	/**
+	 * @param        $name
+	 * @param        $searchIn
+	 * @param        $ext
+	 * @param Plugin $plugin
+	 *
+	 * @return string
+	 * @throws \WPluginCore002\Diagnostics\Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function locate( $name, $searchIn, $ext, Plugin $plugin ) {
 		if ( ! preg_match( '/.*\.' . $ext . '$/', $name ) ) {
 			$name .= ".$ext";

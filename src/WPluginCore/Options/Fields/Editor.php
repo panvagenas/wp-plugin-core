@@ -15,6 +15,9 @@ namespace WPluginCore002\Options\Fields;
 use WPluginCore002\Abs\AbsOptionField;
 
 class Editor extends AbsOptionField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'editor';
 	/**
 	 * Sets the default WordPress editor arguments

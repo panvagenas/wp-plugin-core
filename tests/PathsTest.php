@@ -12,11 +12,26 @@
 
 use org\bovigo\vfs;
 
+/**
+ * Class PathsTest
+ *
+ * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since  TODO ${VERSION}
+ */
 class PathsTest extends WP_UnitTestCase {
+	/**
+	 * @throws vfs\vfsStreamException
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function setUp() {
 		vfs\vfsStreamWrapper::register();
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function testVerifyIsUnder() {
 		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
@@ -163,6 +178,11 @@ class PathsTest extends WP_UnitTestCase {
 		}
 	}
 
+	/**
+	 * @throws \WPluginCore002\Diagnostics\Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function testTruePath() {
 		$cases = array(
 			array(

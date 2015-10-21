@@ -16,11 +16,33 @@ use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Helpers\Random;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class HelpTab
+ *
+ * @package WPluginCore002\Options\Components
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class HelpTab extends AbsClass {
+	/**
+	 * @var string
+	 */
 	protected $id;
+	/**
+	 * @var
+	 */
 	protected $title;
+	/**
+	 * @var
+	 */
 	protected $content;
 
+	/**
+	 * @param Plugin $plugin
+	 * @param        $title
+	 * @param        $content
+	 * @param string $tabId
+	 */
 	public function __construct( Plugin $plugin, $title, $content, $tabId = '' ) {
 		parent::__construct( $plugin );
 		$this->title   = $title;

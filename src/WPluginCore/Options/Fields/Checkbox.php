@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
+/**
+ * Class Checkbox
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Checkbox extends AbsOptionField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'checkbox';
 	/**
 	 * Array of key pair values representing the individual check boxes.

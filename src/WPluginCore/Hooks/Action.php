@@ -14,6 +14,13 @@ namespace WPluginCore002\Hooks;
 
 use WPluginCore002\Abs\AbsHook;
 
+/**
+ * Class Action
+ *
+ * @package WPluginCore002\Hooks
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Action extends AbsHook {
 	/**
 	 * @return mixed

@@ -15,6 +15,13 @@ namespace WPluginCore002\Options\MenuPages;
 use WPluginCore002\Abs\AbsOptionsPage;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class SubMenuPage
+ *
+ * @package WPluginCore002\Options\MenuPages
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class SubMenuPage extends AbsOptionsPage {
 	/**
 	 * @param Plugin $plugin

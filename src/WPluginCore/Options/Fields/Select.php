@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
+/**
+ * Class Select
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Select extends AbsOptionField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'select';
 	/**
 	 * Value to populate the selector with WordPress values.

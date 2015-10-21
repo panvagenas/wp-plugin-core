@@ -14,6 +14,13 @@ namespace WPluginCore002\Translations;
 
 use WPluginCore002\Abs\AbsPluginSingleton;
 
+/**
+ * Class I18n
+ *
+ * @package WPluginCore002\Translations
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class I18n extends AbsPluginSingleton {
 	/**
 	 * @param $text

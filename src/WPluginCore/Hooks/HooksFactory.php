@@ -17,13 +17,38 @@ use WPluginCore002\Abs\AbsHook;
 use WPluginCore002\Diagnostics\Exception;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class HooksFactory
+ *
+ * @package WPluginCore002\Hooks
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class HooksFactory extends AbsFactory {
+	/**
+	 *
+	 */
 	const FILTER = 'Filter';
+	/**
+	 *
+	 */
 	const ACTION = 'Action';
+	/**
+	 *
+	 */
 	const WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX = '/WhereTemplatesMayReside';
+	/**
+	 *
+	 */
 	const WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX = '/WhereScriptsMayReside';
+	/**
+	 *
+	 */
 	const WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX = '/WhereStylesMayReside';
 
+	/**
+	 * @var array
+	 */
 	protected static $pool = array();
 
 	/**

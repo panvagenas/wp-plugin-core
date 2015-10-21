@@ -16,7 +16,17 @@ use WPluginCore002\Options\Components\HelpTab;
 use WPluginCore002\Options\Components\Section;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class AbsOptionsPage
+ *
+ * @package WPluginCore002\Abs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 abstract class AbsOptionsPage extends AbsClass {
+	/**
+	 * @var bool
+	 */
 	protected $allow_tracking = false;
 	/**
 	 * This is where your data is stored in the database and also becomes your global variable name

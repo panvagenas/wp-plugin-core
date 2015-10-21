@@ -11,6 +11,13 @@
 
 namespace WPluginCore002\Abs;
 
+/**
+ * Class AbsCoreSingleton
+ *
+ * @package WPluginCore002\Abs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 abstract class AbsCoreSingleton {
 
 	/**

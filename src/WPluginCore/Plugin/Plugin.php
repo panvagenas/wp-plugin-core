@@ -20,6 +20,13 @@ use WPluginCore002\Factory;
 use WPluginCore002\Hooks\HooksFactory;
 use WPluginCore002\Options\Options;
 
+/**
+ * Class Plugin
+ *
+ * @package WPluginCore002\Plugin
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Plugin extends AbsPluginSingleton {
 	/**
 	 * Plugin name.

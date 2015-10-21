@@ -14,6 +14,13 @@ namespace WPluginCore002\Abs;
 
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class AbsClass
+ *
+ * @package WPluginCore002\Abs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 abstract class AbsClass {
 	/**
 	 * @var Plugin

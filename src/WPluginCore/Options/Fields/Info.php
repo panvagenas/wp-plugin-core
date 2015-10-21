@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionsHtmlField;
 
+/**
+ * Class Info
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Info extends AbsOptionsHtmlField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'info';
 	/**
 	 * Sets the mode of the info box.  Accepts:  `normal`, `info`, `warning`, `success`, `critical`, or `custom`,

@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionsNumField;
 
+/**
+ * Class Slider
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Slider extends AbsOptionsNumField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'slider';
 	/**
 	 * Sets the number of slider handles, either `1` or `2`. Any other value will default to `1`

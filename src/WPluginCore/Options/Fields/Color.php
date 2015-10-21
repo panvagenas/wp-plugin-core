@@ -13,7 +13,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionField;
 
+/**
+ * Class Color
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Color extends AbsOptionField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'color';
 	/**
 	 * Array of CSS selectors to dynamically generate CSS

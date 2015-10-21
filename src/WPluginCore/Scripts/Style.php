@@ -14,10 +14,30 @@ namespace WPluginCore002\Scripts;
 use WPluginCore002\Abs\AbsScript;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class Style
+ *
+ * @package WPluginCore002\Scripts
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Style extends AbsScript {
+	/**
+	 * @var string
+	 */
 	protected $media = 'all';
+	/**
+	 * @var string
+	 */
 	protected $fileExtension = 'css';
 
+	/**
+	 * @param Plugin $plugin
+	 * @param        $handle
+	 * @param string $wpRelPath
+	 * @param array  $deps
+	 * @param string $media
+	 */
 	public function __construct( Plugin $plugin, $handle, $wpRelPath = '', Array $deps = array(), $media = 'all' ) {
 		$this->media          = $media;
 		$this->whereMayReside = $plugin->getFactory()->paths()->getWhereStylesMayReside();
@@ -25,6 +45,10 @@ class Style extends AbsScript {
 		parent::__construct( $plugin, $handle, $wpRelPath, $deps );
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function enqueue() {
 		$that = $this;
 		foreach ( $this->hook as $hook ) {
@@ -39,6 +63,10 @@ class Style extends AbsScript {
 		}
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function register() {
 		$that = $this;
 		foreach ( $this->hook as $hook ) {
@@ -53,18 +81,36 @@ class Style extends AbsScript {
 		}
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function dequeue() {
 		wp_dequeue_style( $this->handle );
 	}
 
+	/**
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function deRegister() {
 		wp_deregister_style( $this->handle );
 	}
 
+	/**
+	 * @return bool
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function isEnqueued() {
 		return wp_style_is( $this->handle, 'enqueued' );
 	}
 
+	/**
+	 * @return bool
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function isRegistered() {
 		return wp_style_is( $this->handle, 'registered' );
 	}

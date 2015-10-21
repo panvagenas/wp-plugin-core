@@ -25,6 +25,13 @@ use WPluginCore002\Plugin\Paths;
 use WPluginCore002\Plugin\Plugin;
 use WPluginCore002\Plugin\Widget;
 
+/**
+ * Class Factory
+ *
+ * @package WPluginCore002
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Factory extends AbsFactory {
 	/**
 	 * @var Plugin

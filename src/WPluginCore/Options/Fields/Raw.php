@@ -14,7 +14,17 @@ namespace WPluginCore002\Options\Fields;
 
 use WPluginCore002\Abs\AbsOptionsHtmlField;
 
+/**
+ * Class Raw
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Raw extends AbsOptionsHtmlField {
+	/**
+	 * @var string
+	 */
 	protected $type = 'raw';
 	/**
 	 * Flag to set denote if the field is full width or sectioned

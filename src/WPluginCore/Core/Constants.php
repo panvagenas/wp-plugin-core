@@ -12,12 +12,40 @@
 namespace WPluginCore002\Core;
 
 
+/**
+ * Class Constants
+ *
+ * @package WPluginCore002\Core
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Constants {
+	/**
+	 *
+	 */
 	const TYPE_BOOLEAN = 'bool';
+	/**
+	 *
+	 */
 	const TYPE_STRING = 'string';
+	/**
+	 *
+	 */
 	const TYPE_INTEGER = 'int';
+	/**
+	 *
+	 */
 	const TYPE_FLOAT = 'float';
+	/**
+	 *
+	 */
 	const TYPE_ARRAY = 'array';
+	/**
+	 *
+	 */
 	const TYPE_OBJECT = 'object';
+	/**
+	 *
+	 */
 	const TYPE_NULL = 'null';
 }

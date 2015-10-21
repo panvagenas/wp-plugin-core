@@ -12,6 +12,16 @@
 namespace WPluginCore002\Scripts;
 
 
+/**
+ * Class AdminStyle
+ *
+ * @package WPluginCore002\Scripts
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class AdminStyle extends Style {
+	/**
+	 * @var array
+	 */
 	protected $hook = array( 'admin_enqueue_scripts' );
 }

@@ -12,6 +12,13 @@
 namespace WPluginCore002\Helpers;
 
 
+/**
+ * Class String
+ *
+ * @package WPluginCore002\Helpers
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class String {
 
 }

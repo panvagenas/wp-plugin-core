@@ -14,7 +14,19 @@ namespace WPluginCore002\Hooks;
 
 use WPluginCore002\Abs\AbsHook;
 
+/**
+ * Class Filter
+ *
+ * @package WPluginCore002\Hooks
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Filter extends AbsHook {
+	/**
+	 * @return mixed
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
 	public function apply() {
 		$args = func_get_args();
 		array_unshift( $args, $this->tag );

@@ -17,6 +17,13 @@ use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Logs\Handlers\DBHandler;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class Logger
+ *
+ * @package WPluginCore002\Logs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Logger extends AbsClass {
 	/**
 	 * @var \Monolog\Logger

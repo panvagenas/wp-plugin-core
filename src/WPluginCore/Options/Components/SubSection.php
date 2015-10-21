@@ -12,6 +12,16 @@
 namespace WPluginCore002\Options\Components;
 
 
+/**
+ * Class SubSection
+ *
+ * @package WPluginCore002\Options\Components
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class SubSection extends Section {
+	/**
+	 * @var bool
+	 */
 	protected $subsection = true;
 }

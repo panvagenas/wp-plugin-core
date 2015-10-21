@@ -16,6 +16,13 @@ use WPluginCore002\Abs\AbsClass;
 use WPluginCore002\Abs\AbsOptionField;
 use WPluginCore002\Plugin\Plugin;
 
+/**
+ * Class Section
+ *
+ * @package WPluginCore002\Options\Components
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Section extends AbsClass {
 	/**
 	 * The icon to be displayed next to the section title. This could be a preset Elusive Icon

@@ -12,6 +12,16 @@
 namespace WPluginCore002\Options\Fields;
 
 
+/**
+ * Class Date
+ *
+ * @package WPluginCore002\Options\Fields
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Date extends Text {
+	/**
+	 * @var string
+	 */
 	protected $type = 'date';
 }

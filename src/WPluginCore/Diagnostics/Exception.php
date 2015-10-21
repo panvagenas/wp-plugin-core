@@ -14,7 +14,19 @@ namespace WPluginCore002\Diagnostics;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
+/**
+ * Class Exception
+ *
+ * @package WPluginCore002\Diagnostics
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class Exception extends \Exception {
+	/**
+	 * @param string         $message
+	 * @param int            $code
+	 * @param Exception|null $previous
+	 */
 	public function __construct( $message = "", $code = 0, Exception $previous = null ) {
 		parent::__construct( $message, $code, $previous );
 

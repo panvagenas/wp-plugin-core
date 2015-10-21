@@ -11,6 +11,16 @@
 
 namespace WPluginCore002\Scripts;
 
+/**
+ * Class LoginStyle
+ *
+ * @package WPluginCore002\Scripts
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 class LoginStyle extends Style {
+	/**
+	 * @var array
+	 */
 	protected $hook = array( 'login_enqueue_scripts' );
 }

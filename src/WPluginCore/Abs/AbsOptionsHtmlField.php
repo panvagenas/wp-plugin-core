@@ -12,6 +12,13 @@
 namespace WPluginCore002\Abs;
 
 
+/**
+ * Class AbsOptionsHtmlField
+ *
+ * @package WPluginCore002\Abs
+ * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
+ * @since   TODO ${VERSION}
+ */
 abstract class AbsOptionsHtmlField {
 	/**
 	 * Value identifying the field type.
