@@ -129,22 +129,23 @@ class ScriptsTest extends WP_UnitTestCase {
 		$scriptsRootDir->addChild( $stylesDir );
 		$scriptsRootDir->addChild( $scriptsDir );
 
-		$hooksFactoryObj->getWhereScriptsMayResideFilter( $WpPluginCore,
+		$scriptsFilter = $hooksFactoryObj->getWhereScriptsMayResideFilter( $WpPluginCore,
 			function ( $paths ) use ( $scriptsDir ) {
 				$paths[] = $scriptsDir->url();
 
 				return $paths;
 			}
-		)->add();
+		);
+		$scriptsFilter->add();
 
-		$hooksFactoryObj->getWhereStylesMayResideFilter( $WpPluginCore,
+		$stylesFilter = $hooksFactoryObj->getWhereStylesMayResideFilter( $WpPluginCore,
 			function ( $paths ) use ( $stylesDir ) {
 				$paths[] = $stylesDir->url();
 
 				return $paths;
 			}
-		)->add();
-
+		);
+		$stylesFilter->add();
 
 		$this->assertTrue( in_array( $stylesDir->url(), $pathsObj->getWhereStylesMayReside() ) );
 		$this->assertTrue( in_array( $scriptsDir->url(), $pathsObj->getWhereScriptsMayReside() ) );
@@ -162,5 +163,8 @@ class ScriptsTest extends WP_UnitTestCase {
 
 		$this->assertFalse( strlen( $nonExistentScript->locate() ) > 0 );
 		$this->assertFalse( strlen( $nonExistentStyle->locate() ) > 0 );
+
+		$scriptsFilter->remove();
+		$stylesFilter->remove();
 	}
 }

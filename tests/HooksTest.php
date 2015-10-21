@@ -46,8 +46,13 @@ class HooksTest extends WP_UnitTestCase {
 		$filterDummy101a->add();
 
 		$this->assertTrue( has_filter( 'myFilterTag' ) );
-		$this->assertTrue($hooksFactory->alreadySet('myFilterTag', 'dummyFilterA') !== false);
+		$this->assertTrue( $hooksFactory->alreadySet( 'myFilterTag', 'dummyFilterA' ) !== false );
 		$this->assertTrue( $filterDummy101a->has() === $filterDummy101a->getPriority() );
+
+		$filterDummy101a->remove();
+
+		$this->assertFalse( has_filter( 'myFilterTag' ) );
+		$this->assertFalse( $filterDummy101a->has());
 	}
 
 	/**
@@ -90,6 +95,10 @@ class HooksTest extends WP_UnitTestCase {
 		$this->assertTrue( $dummyAction->has() === $dummyAction->getPriority() );
 
 		$hooksFactory->removeAll( $filterTag );
+
+		$this->assertTrue( has_action( $actionTag ) );
+		$this->assertTrue( $dummyAction->has() === $dummyAction->getPriority() );
+
 		$hooksFactory->removeAll( $actionTag );
 
 		$this->assertFalse( has_filter( $filterTag ) );
@@ -138,7 +147,7 @@ class HooksTest extends WP_UnitTestCase {
 		$actionDummy101a->add();
 
 		$this->assertTrue( has_action( 'myActionTag' ) );
-		$this->assertTrue($hooksFactory->alreadySet('myActionTag', 'dummyActionA') !== false);
+		$this->assertTrue( $hooksFactory->alreadySet( 'myActionTag', 'dummyActionA' ) !== false );
 		$this->assertTrue( $actionDummy101a->has() === $actionDummy101a->getPriority() );
 	}
 
@@ -172,6 +181,8 @@ class HooksTest extends WP_UnitTestCase {
 		$var = $hooksFactory->filter( 'myFilterTag', null )->apply( $var );
 
 		$this->assertTrue( $var );
+
+		$filter->remove();
 	}
 
 	/**
@@ -202,7 +213,7 @@ class HooksTest extends WP_UnitTestCase {
 
 		$this->assertTrue( $myFancyVar );
 
-		$this->assertTrue((bool)$action->did());
+		$this->assertTrue( (bool) $action->did() );
 	}
 
 	/**
@@ -219,9 +230,11 @@ class HooksTest extends WP_UnitTestCase {
 		$pathToInclude                     = array( '/my/new/path' );
 		$newWhereStylesMayResideArray      = $originalWhereStylesMayResideArray + $pathToInclude;
 
-		$hook = $hooksFactory->getWhereStylesMayResideFilter( $WpPluginCore, function ( $orAr ) use ( $pathToInclude ) {
-			return $orAr + $pathToInclude;
-		} );
+		$hook = $hooksFactory->getWhereStylesMayResideFilter( $WpPluginCore,
+			function ( $orAr ) use ( $pathToInclude ) {
+				return $orAr + $pathToInclude;
+			}
+		);
 		$hook->add();
 
 		$this->assertEquals( $originalWhereStylesMayResideArray,
@@ -230,6 +243,8 @@ class HooksTest extends WP_UnitTestCase {
 		$filteredPaths = $hook->apply( $originalWhereStylesMayResideArray );
 
 		$this->assertEquals( $newWhereStylesMayResideArray, $filteredPaths );
+
+		$hook->remove();
 	}
 
 	/**
@@ -249,7 +264,8 @@ class HooksTest extends WP_UnitTestCase {
 		$hook = $hooksFactory->getWhereScriptsMayResideFilter( $WpPluginCore,
 			function ( $orAr ) use ( $pathToInclude ) {
 				return $orAr + $pathToInclude;
-			} );
+			}
+		);
 		$hook->add();
 
 		$this->assertEquals( $originalWhereScriptsMayResideArray,
@@ -258,6 +274,8 @@ class HooksTest extends WP_UnitTestCase {
 		$filteredPaths = $hook->apply( $originalWhereScriptsMayResideArray );
 
 		$this->assertEquals( $newWhereScriptsMayResideArray, $filteredPaths );
+
+		$hook->remove();
 	}
 
 	/**
@@ -277,7 +295,8 @@ class HooksTest extends WP_UnitTestCase {
 		$hook = $hooksFactory->getWhereTemplatesMayResideFilter( $WpPluginCore,
 			function ( $orAr ) use ( $pathToInclude ) {
 				return $orAr + $pathToInclude;
-			} );
+			}
+		);
 		$hook->add();
 
 		$this->assertEquals( $originalWhereTemplatesMayResideArray,
@@ -286,5 +305,7 @@ class HooksTest extends WP_UnitTestCase {
 		$filteredPaths = $hook->apply( $originalWhereTemplatesMayResideArray );
 
 		$this->assertEquals( $newWhereTemplatesMayResideArray, $filteredPaths );
+
+		$hook->remove();
 	}
 }
