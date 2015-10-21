@@ -48,4 +48,8 @@ class Constants {
 	 *
 	 */
 	const TYPE_NULL = 'null';
+	/**
+	 *
+	 */
+	const CORE_BASE_NS = 'WPluginCore003';
 }
