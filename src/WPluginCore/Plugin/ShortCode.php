@@ -59,18 +59,25 @@ class ShortCode extends AbsClass {
 	 *
 	 * @throws Exception
 	 */
-	public function __construct( Plugin $plugin, $tag, $callBack, $atts = array(), $types = array(), $enclosing = false ) {
+	public function __construct(
+		Plugin $plugin,
+		$tag,
+		$callBack,
+		$atts = array(),
+		$types = array(),
+		$enclosing = false
+	) {
 		parent::__construct( $plugin );
 
-		if(!is_callable($callBack)){
-			throw new InvalidArgumentException('Not a callable function was provided in Shortcode instantiation');
+		if ( ! is_callable( $callBack ) ) {
+			throw new InvalidArgumentException( 'Not a callable function was provided in Shortcode instantiation' );
 		}
 
 		$this->tag       = (string) $tag;
 		$this->atts      = (array) $atts;
 		$this->types     = (array) $types;
 		$this->enclosing = (bool) $enclosing;
-		$this->callBack = $callBack;
+		$this->callBack  = $callBack;
 
 		if ( array_diff_key( $atts, $types ) ) {
 			throw new Exception( 'Doing it wrong. Array keys don\'t match' );
@@ -95,6 +102,6 @@ class ShortCode extends AbsClass {
 			settype( $atts[ $attrName ], $attrType );
 		}
 
-		return call_user_func($this->callBack, $atts, $content);
+		return call_user_func( $this->callBack, $atts, $content );
 	}
 }

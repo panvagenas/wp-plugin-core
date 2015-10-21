@@ -23,20 +23,6 @@ use WPluginCore002\Abs\AbsClass;
  */
 class Template extends AbsClass {
 	/**
-	 * @param $templateName
-	 *
-	 * @return string
-	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
-	 * @since  TODO ${VERSION}
-	 */
-	public function locate( $templateName ) {
-		$fileObj  = $this->plugin->getFactory()->file();
-		$pathsObj = $this->plugin->getFactory()->paths();
-
-		return $fileObj->locate( $templateName, $pathsObj->getWhereTemplatesMayReside(), 'php', $this->plugin );
-	}
-
-	/**
 	 * @param string $templateName
 	 * @param array  $viewData
 	 * @param bool   $echo
@@ -62,5 +48,19 @@ class Template extends AbsClass {
 		}
 
 		return $content;
+	}
+
+	/**
+	 * @param $templateName
+	 *
+	 * @return string
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function locate( $templateName ) {
+		$fileObj  = $this->plugin->getFactory()->file();
+		$pathsObj = $this->plugin->getFactory()->paths();
+
+		return $fileObj->locate( $templateName, $pathsObj->getWhereTemplatesMayReside(), 'php', $this->plugin );
 	}
 }
