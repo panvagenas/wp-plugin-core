@@ -9,17 +9,17 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Options;
+namespace WPluginCore003\Options;
 
 
-use WPluginCore002\Abs\AbsPluginSingleton;
-use WPluginCore002\Hooks\Action;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsPluginSingleton;
+use WPluginCore003\Hooks\Action;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class Options
  *
- * @package WPluginCore002\Options
+ * @package WPluginCore003\Options
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

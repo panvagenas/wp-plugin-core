@@ -9,15 +9,15 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Scripts;
+namespace WPluginCore003\Scripts;
 
-use WPluginCore002\Abs\AbsScript;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsScript;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class Script
  *
- * @package WPluginCore002\Scripts
+ * @package WPluginCore003\Scripts
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

@@ -9,13 +9,13 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Core;
+namespace WPluginCore003\Core;
 
 
 /**
  * Class Constants
  *
- * @package WPluginCore002\Core
+ * @package WPluginCore003\Core
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

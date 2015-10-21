@@ -9,15 +9,15 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Translations;
+namespace WPluginCore003\Translations;
 
 
-use WPluginCore002\Abs\AbsPluginSingleton;
+use WPluginCore003\Abs\AbsPluginSingleton;
 
 /**
  * Class I18n
  *
- * @package WPluginCore002\Translations
+ * @package WPluginCore003\Translations
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

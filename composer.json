@@ -41,7 +41,7 @@
             "resources/includes/redux/redux-extensions/extensions-init.php"
         ],
         "psr-4": {
-            "WPluginCore002\\": "src/WPluginCore"
+            "WPluginCore003\\": "src/WPluginCore"
         }
     },
     "archive": {

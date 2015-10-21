@@ -9,15 +9,15 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Templates;
+namespace WPluginCore003\Templates;
 
 
-use WPluginCore002\Abs\AbsClass;
+use WPluginCore003\Abs\AbsClass;
 
 /**
  * Class Template
  *
- * @package WPluginCore002\Templates
+ * @package WPluginCore003\Templates
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

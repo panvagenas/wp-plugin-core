@@ -37,24 +37,24 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testStyleEnqueue() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$handle           = uniqid();
 		$wpRelPathToStyle = "path/to/{$handle}.css";
 
-		$style = new \WPluginCore002\Scripts\Style( $WpPluginCore, $handle, $wpRelPathToStyle );
+		$style = new \WPluginCore003\Scripts\Style( $WpPluginCore, $handle, $wpRelPathToStyle );
 		$this->scriptTest( $style, $this->wp_enqueue_scripts );
 	}
 
 	/**
-	 * @param \WPluginCore002\Abs\AbsScript $script
+	 * @param \WPluginCore003\Abs\AbsScript $script
 	 * @param                               $hook
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  0.0.2
 	 */
-	protected function scriptTest( \WPluginCore002\Abs\AbsScript $script, $hook ) {
+	protected function scriptTest( \WPluginCore003\Abs\AbsScript $script, $hook ) {
 		$this->assertFalse( $script->isRegistered() );
 
 		$script->register();
@@ -75,13 +75,13 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testAdminStyleEnqueue() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$handle           = uniqid();
 		$wpRelPathToStyle = "path/to/{$handle}.css";
 
-		$style = new \WPluginCore002\Scripts\AdminStyle( $WpPluginCore, $handle, $wpRelPathToStyle );
+		$style = new \WPluginCore003\Scripts\AdminStyle( $WpPluginCore, $handle, $wpRelPathToStyle );
 		$this->scriptTest( $style, $this->admin_enqueue_scripts );
 	}
 
@@ -90,13 +90,13 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testLoginStyleEnqueue() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$handle           = uniqid();
 		$wpRelPathToStyle = "path/to/{$handle}.css";
 
-		$style = new \WPluginCore002\Scripts\LoginStyle( $WpPluginCore, $handle, $wpRelPathToStyle );
+		$style = new \WPluginCore003\Scripts\LoginStyle( $WpPluginCore, $handle, $wpRelPathToStyle );
 		$this->scriptTest( $style, $this->login_enqueue_scripts );
 	}
 
@@ -105,13 +105,13 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testScriptEnqueue() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$handle            = uniqid();
 		$wpRelPathToScript = "path/to/{$handle}.js";
 
-		$script = new \WPluginCore002\Scripts\Script( $WpPluginCore, $handle, $wpRelPathToScript );
+		$script = new \WPluginCore003\Scripts\Script( $WpPluginCore, $handle, $wpRelPathToScript );
 		$this->scriptTest( $script, $this->wp_enqueue_scripts );
 	}
 
@@ -120,13 +120,13 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testAdminScriptEnqueue() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$handle            = uniqid();
 		$wpRelPathToScript = "path/to/{$handle}.js";
 
-		$script = new \WPluginCore002\Scripts\AdminScript( $WpPluginCore, $handle, $wpRelPathToScript );
+		$script = new \WPluginCore003\Scripts\AdminScript( $WpPluginCore, $handle, $wpRelPathToScript );
 		$this->scriptTest( $script, $this->admin_enqueue_scripts );
 	}
 
@@ -135,13 +135,13 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testLoginScriptEnqueue() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$handle            = uniqid();
 		$wpRelPathToScript = "path/to/{$handle}.css";
 
-		$script = new \WPluginCore002\Scripts\LoginScript( $WpPluginCore, $handle, $wpRelPathToScript );
+		$script = new \WPluginCore003\Scripts\LoginScript( $WpPluginCore, $handle, $wpRelPathToScript );
 		$this->scriptTest( $script, $this->login_enqueue_scripts );
 	}
 
@@ -151,7 +151,7 @@ class ScriptsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testLocateScripts() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$scriptHandle = 'myScript';
@@ -203,14 +203,14 @@ class ScriptsTest extends WP_UnitTestCase {
 
 		$this->assertTrue( file_exists( $scriptFile->url() ), is_readable( $scriptFile->url() ) );
 
-		$script = new \WPluginCore002\Scripts\Script( $WpPluginCore, $scriptHandle );
-		$style  = new \WPluginCore002\Scripts\Style( $WpPluginCore, $styleHandle );
+		$script = new \WPluginCore003\Scripts\Script( $WpPluginCore, $scriptHandle );
+		$style  = new \WPluginCore003\Scripts\Style( $WpPluginCore, $styleHandle );
 
 		$this->assertTrue( strlen( $script->locate() ) > 0 );
 		$this->assertTrue( strlen( $style->locate() ) > 0 );
 
-		$nonExistentScript = new \WPluginCore002\Scripts\Script( $WpPluginCore, 'nonExistentScript' );
-		$nonExistentStyle  = new \WPluginCore002\Scripts\Style( $WpPluginCore, 'nonExistentStyle' );
+		$nonExistentScript = new \WPluginCore003\Scripts\Script( $WpPluginCore, 'nonExistentScript' );
+		$nonExistentStyle  = new \WPluginCore003\Scripts\Style( $WpPluginCore, 'nonExistentStyle' );
 
 		$this->assertFalse( strlen( $nonExistentScript->locate() ) > 0 );
 		$this->assertFalse( strlen( $nonExistentStyle->locate() ) > 0 );

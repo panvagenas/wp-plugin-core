@@ -9,14 +9,14 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Options\Fields;
+namespace WPluginCore003\Options\Fields;
 
-use WPluginCore002\Abs\AbsOptionField;
+use WPluginCore003\Abs\AbsOptionField;
 
 /**
  * Class Color
  *
- * @package WPluginCore002\Options\Fields
+ * @package WPluginCore003\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

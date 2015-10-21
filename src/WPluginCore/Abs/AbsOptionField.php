@@ -9,7 +9,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Abs;
+namespace WPluginCore003\Abs;
 
 use Respect\Validation\Exceptions\ValidationExceptionInterface;
 use Respect\Validation\Validator;
@@ -18,7 +18,7 @@ use Respect\Validation\Validator;
 /**
  * Class AbsOptionField
  *
- * @package WPluginCore002\Abs
+ * @package WPluginCore003\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

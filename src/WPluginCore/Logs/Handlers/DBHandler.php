@@ -9,7 +9,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Logs\Handlers;
+namespace WPluginCore003\Logs\Handlers;
 
 use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Logger;
@@ -17,7 +17,7 @@ use Monolog\Logger;
 /**
  * Class DBHandler
  *
- * @package WPluginCore002\Logs\Handlers
+ * @package WPluginCore003\Logs\Handlers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

@@ -9,12 +9,12 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Abs;
+namespace WPluginCore003\Abs;
 
 /**
  * Class AbsCoreSingleton
  *
- * @package WPluginCore002\Abs
+ * @package WPluginCore003\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

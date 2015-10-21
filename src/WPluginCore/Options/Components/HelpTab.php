@@ -9,17 +9,17 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Options\Components;
+namespace WPluginCore003\Options\Components;
 
 
-use WPluginCore002\Abs\AbsClass;
-use WPluginCore002\Helpers\Random;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsClass;
+use WPluginCore003\Helpers\Random;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class HelpTab
  *
- * @package WPluginCore002\Options\Components
+ * @package WPluginCore003\Options\Components
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

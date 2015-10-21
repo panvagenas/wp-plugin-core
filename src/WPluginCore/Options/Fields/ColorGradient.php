@@ -9,13 +9,13 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Options\Fields;
+namespace WPluginCore003\Options\Fields;
 
 
 /**
  * Class ColorGradient
  *
- * @package WPluginCore002\Options\Fields
+ * @package WPluginCore003\Options\Fields
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

@@ -9,18 +9,18 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Logs;
+namespace WPluginCore003\Logs;
 
 
 use Monolog\Handler\StreamHandler;
-use WPluginCore002\Abs\AbsClass;
-use WPluginCore002\Logs\Handlers\DBHandler;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsClass;
+use WPluginCore003\Logs\Handlers\DBHandler;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class Logger
  *
- * @package WPluginCore002\Logs
+ * @package WPluginCore003\Logs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

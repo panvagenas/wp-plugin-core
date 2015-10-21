@@ -9,15 +9,15 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Helpers;
+namespace WPluginCore003\Helpers;
 
 
-use WPluginCore002\Abs\AbsCoreSingleton;
+use WPluginCore003\Abs\AbsCoreSingleton;
 
 /**
  * Class Dumper
  *
- * @package WPluginCore002\Helpers
+ * @package WPluginCore003\Helpers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

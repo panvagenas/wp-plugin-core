@@ -12,14 +12,14 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testCreateNewFilter() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
 
 		$filter = $hooksFactory->filter( 'myFilterTag', null );
 
-		$this->assertTrue( $filter instanceof \WPluginCore002\Hooks\Filter );
+		$this->assertTrue( $filter instanceof \WPluginCore003\Hooks\Filter );
 
 		function dummyFilterA() {
 		}
@@ -27,13 +27,13 @@ class HooksTest extends WP_UnitTestCase {
 		$filterDummy101a = $hooksFactory->filter( 'myFilterTag', 'dummyFilterA' );
 		$filterDummy101b = $hooksFactory->filter( 'myFilterTag', 'dummyFilterA' );
 
-		$this->assertTrue( $filterDummy101a instanceof \WPluginCore002\Hooks\Filter );
-		$this->assertTrue( $filterDummy101b instanceof \WPluginCore002\Hooks\Filter );
+		$this->assertTrue( $filterDummy101a instanceof \WPluginCore003\Hooks\Filter );
+		$this->assertTrue( $filterDummy101b instanceof \WPluginCore003\Hooks\Filter );
 		$this->assertEquals( $filterDummy101a, $filterDummy101b );
 
 		$filterDummy101c = $hooksFactory->filter( 'myFilterTag', 'dummyFilterA', 15 );
 
-		$this->assertTrue( $filterDummy101c instanceof \WPluginCore002\Hooks\Filter );
+		$this->assertTrue( $filterDummy101c instanceof \WPluginCore003\Hooks\Filter );
 		$this->assertNotEquals( $filterDummy101a, $filterDummy101c );
 
 
@@ -60,7 +60,7 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testRemoveAll() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
@@ -113,14 +113,14 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testCreateNewAction() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
 
 		$action = $hooksFactory->action( 'myActionTag', null );
 
-		$this->assertTrue( $action instanceof \WPluginCore002\Hooks\Action );
+		$this->assertTrue( $action instanceof \WPluginCore003\Hooks\Action );
 
 		function dummyActionA() {
 		}
@@ -128,13 +128,13 @@ class HooksTest extends WP_UnitTestCase {
 		$actionDummy101a = $hooksFactory->action( 'myActionTag', 'dummyActionA' );
 		$actionDummy101b = $hooksFactory->action( 'myActionTag', 'dummyActionA' );
 
-		$this->assertTrue( $actionDummy101a instanceof \WPluginCore002\Hooks\Action );
-		$this->assertTrue( $actionDummy101b instanceof \WPluginCore002\Hooks\Action );
+		$this->assertTrue( $actionDummy101a instanceof \WPluginCore003\Hooks\Action );
+		$this->assertTrue( $actionDummy101b instanceof \WPluginCore003\Hooks\Action );
 		$this->assertEquals( $actionDummy101a, $actionDummy101b );
 
 		$actionDummy101c = $hooksFactory->action( 'myActionTag', 'dummyActionA', 15 );
 
-		$this->assertTrue( $actionDummy101c instanceof \WPluginCore002\Hooks\Action );
+		$this->assertTrue( $actionDummy101c instanceof \WPluginCore003\Hooks\Action );
 		$this->assertNotEquals( $actionDummy101a, $actionDummy101c );
 
 
@@ -156,7 +156,7 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testApplyFilter() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
@@ -190,7 +190,7 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testPerformAction() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
@@ -221,7 +221,7 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testWhereStylesMayResideFilter() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
@@ -252,7 +252,7 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testWhereScriptsMayResideFilter() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
@@ -283,7 +283,7 @@ class HooksTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testWhereTemplatesMayResideFilter() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$hooksFactory = $WpPluginCore->getHookFactory();

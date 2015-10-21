@@ -9,16 +9,16 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Options\MenuPages;
+namespace WPluginCore003\Options\MenuPages;
 
 
-use WPluginCore002\Abs\AbsOptionsPage;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsOptionsPage;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class SubMenuPage
  *
- * @package WPluginCore002\Options\MenuPages
+ * @package WPluginCore003\Options\MenuPages
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

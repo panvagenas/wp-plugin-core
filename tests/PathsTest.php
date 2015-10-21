@@ -33,7 +33,7 @@ class PathsTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testVerifyIsUnder() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$paths = $WpPluginCore->getFactory()->paths();
@@ -179,7 +179,7 @@ class PathsTest extends WP_UnitTestCase {
 	}
 
 	/**
-	 * @throws \WPluginCore002\Diagnostics\Exception
+	 * @throws \WPluginCore003\Diagnostics\Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  0.0.2
 	 */
@@ -281,7 +281,7 @@ class PathsTest extends WP_UnitTestCase {
 		vfs\vfsStreamWrapper::setRoot($rootDir);
 
 		foreach ( $cases as $i => $case ) {
-			$this->assertSame( $case['expected'], \WPluginCore002\Plugin\Paths::truePath( $case['original'] ),
+			$this->assertSame( $case['expected'], \WPluginCore003\Plugin\Paths::truePath( $case['original'] ),
 				'Failure on case ' . ( $i + 1 ) . ' ---> "' . implode( '" => "', $case ) . '"'
 			);
 		}

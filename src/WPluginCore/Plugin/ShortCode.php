@@ -9,17 +9,17 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Plugin;
+namespace WPluginCore003\Plugin;
 
 
-use WPluginCore002\Abs\AbsClass;
-use WPluginCore002\Diagnostics\Exception;
-use WPluginCore002\Diagnostics\InvalidArgumentException;
+use WPluginCore003\Abs\AbsClass;
+use WPluginCore003\Diagnostics\Exception;
+use WPluginCore003\Diagnostics\InvalidArgumentException;
 
 /**
  * Class ShortCode
  *
- * @package WPluginCore002\Plugin
+ * @package WPluginCore003\Plugin
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

@@ -14,10 +14,10 @@ class PluginTest extends WP_UnitTestCase {
 	public function testGlobalPluginInstance() {
 		$this->assertTrue( isset( $GLOBALS['WpPluginCore'] ) );
 
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
-		$this->assertTrue( $WpPluginCore instanceof \WPluginCore002\Plugin\Plugin );
+		$this->assertTrue( $WpPluginCore instanceof \WPluginCore003\Plugin\Plugin );
 
 		$newPluginSlug = 'DummyPlugin';
 
@@ -25,7 +25,7 @@ class PluginTest extends WP_UnitTestCase {
 			$newPluginSlug );
 
 		$this->assertTrue( isset( $GLOBALS[ $newPluginSlug ] ) );
-		$this->assertTrue( $newPlugin instanceof \WPluginCore002\Plugin\Plugin );
+		$this->assertTrue( $newPlugin instanceof \WPluginCore003\Plugin\Plugin );
 	}
 
 	/**
@@ -33,12 +33,12 @@ class PluginTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testPluginFactory() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$factory = $WpPluginCore->getFactory();
 
-		$this->assertTrue( $factory instanceof \WPluginCore002\Factory );
+		$this->assertTrue( $factory instanceof \WPluginCore003\Factory );
 		$this->assertEquals( $factory->getPlugin(), $WpPluginCore );
 	}
 
@@ -47,16 +47,16 @@ class PluginTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public function testClassInstantiationFactory() {
-		/* @var \WPluginCore002\Plugin\Plugin $WpPluginCore */
+		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
 		$factory = $WpPluginCore->getFactory();
 
-		$this->assertTrue( $factory->paths() instanceof \WPluginCore002\Plugin\Paths );
-		$this->assertTrue( $factory->hooksFactory() instanceof \WPluginCore002\Hooks\HooksFactory );
-		$this->assertTrue( $factory->initializer() instanceof \WPluginCore002\Plugin\Initializer );
-		$this->assertTrue( $factory->installer() instanceof \WPluginCore002\Plugin\Installer );
-		$this->assertTrue( $factory->options() instanceof \WPluginCore002\Options\Options );
-		$this->assertTrue( $factory->widget() instanceof \WPluginCore002\Plugin\Widget );
+		$this->assertTrue( $factory->paths() instanceof \WPluginCore003\Plugin\Paths );
+		$this->assertTrue( $factory->hooksFactory() instanceof \WPluginCore003\Hooks\HooksFactory );
+		$this->assertTrue( $factory->initializer() instanceof \WPluginCore003\Plugin\Initializer );
+		$this->assertTrue( $factory->installer() instanceof \WPluginCore003\Plugin\Installer );
+		$this->assertTrue( $factory->options() instanceof \WPluginCore003\Options\Options );
+		$this->assertTrue( $factory->widget() instanceof \WPluginCore003\Plugin\Widget );
 	}
 }

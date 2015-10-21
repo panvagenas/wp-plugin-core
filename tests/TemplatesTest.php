@@ -24,7 +24,7 @@ class TemplatesTest extends WP_UnitTestCase {
 	 */
 	protected static $rootDir;
 	/**
-	 * @var \WPluginCore002\Plugin\Plugin
+	 * @var \WPluginCore003\Plugin\Plugin
 	 */
 	protected static $WpPluginCore;
 
@@ -49,12 +49,12 @@ class TemplatesTest extends WP_UnitTestCase {
 	 */
 	protected static $templateFile;
 	/**
-	 * @var \WPluginCore002\Templates\Template
+	 * @var \WPluginCore003\Templates\Template
 	 */
 	protected static $templateObj;
 
 	/**
-	 * @throws \WPluginCore002\Diagnostics\Exception
+	 * @throws \WPluginCore003\Diagnostics\Exception
 	 * @throws vfs\vfsStreamException
 	 * @static
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>

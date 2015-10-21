@@ -9,17 +9,17 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Abs;
+namespace WPluginCore003\Abs;
 
 
-use WPluginCore002\Options\Components\HelpTab;
-use WPluginCore002\Options\Components\Section;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Options\Components\HelpTab;
+use WPluginCore003\Options\Components\Section;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class AbsOptionsPage
  *
- * @package WPluginCore002\Abs
+ * @package WPluginCore003\Abs
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

@@ -9,18 +9,18 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Hooks;
+namespace WPluginCore003\Hooks;
 
 
-use WPluginCore002\Abs\AbsFactory;
-use WPluginCore002\Abs\AbsHook;
-use WPluginCore002\Diagnostics\Exception;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsFactory;
+use WPluginCore003\Abs\AbsHook;
+use WPluginCore003\Diagnostics\Exception;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class HooksFactory
  *
- * @package WPluginCore002\Hooks
+ * @package WPluginCore003\Hooks
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
@@ -52,7 +52,7 @@ class HooksFactory extends AbsFactory {
 	protected static $pool = array();
 
 	/**
-	 * See {@link WPluginCore002\Hooks\HooksFactory::createOrGetHook()}
+	 * See {@link WPluginCore003\Hooks\HooksFactory::createOrGetHook()}
 	 *
 	 * @param string              $tag
 	 * @param null|array|callable $callback
@@ -69,7 +69,7 @@ class HooksFactory extends AbsFactory {
 	}
 
 	/**
-	 * See {@link WPluginCore002\Hooks\HooksFactory::createOrGetHook()}
+	 * See {@link WPluginCore003\Hooks\HooksFactory::createOrGetHook()}
 	 *
 	 * @param string              $tag
 	 * @param null|array|callable $callback

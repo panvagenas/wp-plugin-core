@@ -9,13 +9,13 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Scripts;
+namespace WPluginCore003\Scripts;
 
 
 /**
  * Class LoginScript
  *
- * @package WPluginCore002\Scripts
+ * @package WPluginCore003\Scripts
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

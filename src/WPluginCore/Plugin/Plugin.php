@@ -9,21 +9,21 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Plugin;
+namespace WPluginCore003\Plugin;
 
 
 use Stringy\Stringy;
-use WPluginCore002\Abs\AbsPluginSingleton;
-use WPluginCore002\Diagnostics\Exception;
-use WPluginCore002\Diagnostics\InvalidArgumentException;
-use WPluginCore002\Factory;
-use WPluginCore002\Hooks\HooksFactory;
-use WPluginCore002\Options\Options;
+use WPluginCore003\Abs\AbsPluginSingleton;
+use WPluginCore003\Diagnostics\Exception;
+use WPluginCore003\Diagnostics\InvalidArgumentException;
+use WPluginCore003\Factory;
+use WPluginCore003\Hooks\HooksFactory;
+use WPluginCore003\Options\Options;
 
 /**
  * Class Plugin
  *
- * @package WPluginCore002\Plugin
+ * @package WPluginCore003\Plugin
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
@@ -57,7 +57,7 @@ class Plugin extends AbsPluginSingleton {
 	 * Plugin slug. Should contain only alpha-numeric chars and underscore. This also the `global` var
 	 * you can use to reference your plugin class, so it should be unique.
 	 *
-	 * **Optional**: Will be generated from {@link WPluginCore002\Plugin\Plugin::$name}
+	 * **Optional**: Will be generated from {@link WPluginCore003\Plugin\Plugin::$name}
 	 * based on various string transformation rules.
 	 *
 	 * @var string
@@ -66,7 +66,7 @@ class Plugin extends AbsPluginSingleton {
 	/**
 	 * Text domain of the plugin for localization support.
 	 *
-	 * **Optional**: if omitted, it will be generated from {@link WPluginCore002\Plugin\Plugin::$slug}
+	 * **Optional**: if omitted, it will be generated from {@link WPluginCore003\Plugin\Plugin::$slug}
 	 *
 	 * @var string
 	 */
@@ -93,7 +93,7 @@ class Plugin extends AbsPluginSingleton {
 	 * Use this factory to get class instances.
 	 *
 	 * @var Factory
-	 * @see WPluginCore002\Factory
+	 * @see WPluginCore003\Factory
 	 */
 	protected $factory;
 	/**
@@ -106,16 +106,16 @@ class Plugin extends AbsPluginSingleton {
 	protected $options;
 
 	/**
-	 * @param string $name       Plugin name. {@link WPluginCore002\Plugin\Plugin::$name}
-	 * @param string $version    Version of the plugin. {@link WPluginCore002\Plugin\Plugin::$version}
-	 * @param string $filePath   Abs path to plugin file. {@link WPluginCore002\Plugin\Plugin::$filePath}
+	 * @param string $name       Plugin name. {@link WPluginCore003\Plugin\Plugin::$name}
+	 * @param string $version    Version of the plugin. {@link WPluginCore003\Plugin\Plugin::$version}
+	 * @param string $filePath   Abs path to plugin file. {@link WPluginCore003\Plugin\Plugin::$filePath}
 	 * @param string $slug       Plugin slug. Should contain only alpha-numeric chars and underscore. All other chars
 	 *                           get replaced with ` `(space) and the {@link Stringy::upperCamelize()} is then
-	 *                           applied. See also {@link WPluginCore002\Plugin\Plugin::$slug}
+	 *                           applied. See also {@link WPluginCore003\Plugin\Plugin::$slug}
 	 * @param string $textDomain Text domain of the plugin for localization support.
 	 *                           This should be a lowercase alpha-num string with underscores.
 	 *                           {@link Stringy::underscored()} is applied to this.
-	 *                           See also {@link WPluginCore002\Plugin\Plugin::$textDomain}
+	 *                           See also {@link WPluginCore003\Plugin\Plugin::$textDomain}
 	 *
 	 * @throws Exception If plugin base namespace isn't set or trying to instantiate core Plugin class
 	 */

@@ -9,7 +9,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Diagnostics;
+namespace WPluginCore003\Diagnostics;
 
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;

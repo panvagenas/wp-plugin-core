@@ -9,26 +9,26 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002;
+namespace WPluginCore003;
 
 
-use WPluginCore002\Abs\AbsCoreSingleton;
-use WPluginCore002\Abs\AbsFactory;
-use WPluginCore002\Abs\AbsPluginSingleton;
-use WPluginCore002\Diagnostics\Exception;
-use WPluginCore002\Helpers\File;
-use WPluginCore002\Hooks\HooksFactory;
-use WPluginCore002\Options\Options;
-use WPluginCore002\Plugin\Initializer;
-use WPluginCore002\Plugin\Installer;
-use WPluginCore002\Plugin\Paths;
-use WPluginCore002\Plugin\Plugin;
-use WPluginCore002\Plugin\Widget;
+use WPluginCore003\Abs\AbsCoreSingleton;
+use WPluginCore003\Abs\AbsFactory;
+use WPluginCore003\Abs\AbsPluginSingleton;
+use WPluginCore003\Diagnostics\Exception;
+use WPluginCore003\Helpers\File;
+use WPluginCore003\Hooks\HooksFactory;
+use WPluginCore003\Options\Options;
+use WPluginCore003\Plugin\Initializer;
+use WPluginCore003\Plugin\Installer;
+use WPluginCore003\Plugin\Paths;
+use WPluginCore003\Plugin\Plugin;
+use WPluginCore003\Plugin\Widget;
 
 /**
  * Class Factory
  *
- * @package WPluginCore002
+ * @package WPluginCore003
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */

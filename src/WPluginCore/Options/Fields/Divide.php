@@ -9,10 +9,10 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Options\Fields;
+namespace WPluginCore003\Options\Fields;
 
 
-use WPluginCore002\Abs\AbsOptionsHtmlField;
+use WPluginCore003\Abs\AbsOptionsHtmlField;
 
 class Divide extends AbsOptionsHtmlField {
 	/**

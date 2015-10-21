@@ -9,17 +9,17 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Helpers;
+namespace WPluginCore003\Helpers;
 
 
-use WPluginCore002\Abs\AbsCoreSingleton;
-use WPluginCore002\Plugin\Paths;
-use WPluginCore002\Plugin\Plugin;
+use WPluginCore003\Abs\AbsCoreSingleton;
+use WPluginCore003\Plugin\Paths;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class File
  *
- * @package WPluginCore002\Helpers
+ * @package WPluginCore003\Helpers
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
@@ -31,7 +31,7 @@ class File extends AbsCoreSingleton {
 	 * @param Plugin $plugin
 	 *
 	 * @return string
-	 * @throws \WPluginCore002\Diagnostics\Exception
+	 * @throws \WPluginCore003\Diagnostics\Exception
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  0.0.2
 	 */

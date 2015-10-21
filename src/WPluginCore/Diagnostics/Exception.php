@@ -9,7 +9,7 @@
  * Copyright: 2015 Panagiotis Vagenas
  */
 
-namespace WPluginCore002\Diagnostics;
+namespace WPluginCore003\Diagnostics;
 
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
@@ -17,7 +17,7 @@ use Whoops\Run;
 /**
  * Class Exception
  *
- * @package WPluginCore002\Diagnostics
+ * @package WPluginCore003\Diagnostics
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
