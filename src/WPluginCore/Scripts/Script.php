@@ -86,13 +86,13 @@ class Script extends AbsScript {
 	/**
 	 * Localize script
 	 *
-	 * @param array       $params
-	 * @param null|string $objectName Default is {@link Plugin::slug}
+	 * @param array  $params
+	 * @param string $objectName Default is {@link Plugin::slug}
 	 *
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function localize( $params, $objectName = null ) {
+	public function localize( $params, $objectName = '' ) {
 		$scriptHandle = $this->handle;
 		$params       = (array) $params;
 
@@ -100,11 +100,13 @@ class Script extends AbsScript {
 			$objectName = $this->plugin->getSlug();
 		}
 
-		$this->plugin->getHookFactory()->action( 'admin_enqueue_scripts',
-			function () use ( $params, $scriptHandle, $objectName ) {
-				wp_localize_script( $scriptHandle, $objectName, $params );
-			}
-		)->add();
+		foreach ( $this->hook as $hook ) {
+			$this->plugin->getHookFactory()->action( $hook,
+				function () use ( $params, $scriptHandle, $objectName ) {
+					wp_localize_script( $scriptHandle, $objectName, $params );
+				}
+			)->add();
+		}
 	}
 
 	/**
