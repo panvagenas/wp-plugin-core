@@ -74,13 +74,13 @@ class Options extends AbsPluginSingleton {
 
 	/**
 	 * @param string $name
-	 * @param mixed  $defaultValue
+	 * @param mixed|null  $defaultValue
 	 *
 	 * @return array|null
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  0.0.2
 	 */
-	public function get( $name, $defaultValue ) {
+	public function get( $name, $defaultValue = null ) {
 		return isset( $this->options[ $name ] )
 			? $this->options[ $name ]
 			: $this->def( $name, $defaultValue );
@@ -100,7 +100,7 @@ class Options extends AbsPluginSingleton {
 
 	/**
 	 * @param string $name
-	 * @param mixed  $defaultValue
+	 * @param mixed|null  $defaultValue
 	 *
 	 * @return array|null
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
