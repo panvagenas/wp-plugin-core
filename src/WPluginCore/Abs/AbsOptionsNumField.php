@@ -19,7 +19,7 @@ namespace WPluginCore003\Abs;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-abstract class AbsOptionsNumField extends AbsOptionField {
+abstract class AbsOptionsNumField extends AbsOptionGenField {
 	/**
 	 * Value to set the minimum value
 	 *
@@ -104,5 +104,4 @@ abstract class AbsOptionsNumField extends AbsOptionField {
 
 		return $this;
 	}
-
 }

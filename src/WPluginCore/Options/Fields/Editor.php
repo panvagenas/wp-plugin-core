@@ -12,9 +12,9 @@
 namespace WPluginCore003\Options\Fields;
 
 
-use WPluginCore003\Abs\AbsOptionField;
+use WPluginCore003\Abs\AbsOptionGenField;
 
-class Editor extends AbsOptionField {
+class Editor extends AbsOptionGenField {
 	/**
 	 * @var string
 	 */

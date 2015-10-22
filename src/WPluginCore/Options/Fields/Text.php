@@ -12,7 +12,7 @@
 namespace WPluginCore003\Options\Fields;
 
 
-use WPluginCore003\Abs\AbsOptionField;
+use WPluginCore003\Abs\AbsOptionGenField;
 
 /**
  * Class Text
@@ -21,7 +21,7 @@ use WPluginCore003\Abs\AbsOptionField;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-class Text extends AbsOptionField {
+class Text extends AbsOptionGenField {
 	/**
 	 * Value identifying the field type
 	 *

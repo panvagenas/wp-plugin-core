@@ -12,7 +12,7 @@
 namespace WPluginCore003\Options\Fields;
 
 
-use WPluginCore003\Abs\AbsOptionField;
+use WPluginCore003\Abs\AbsOptionGenField;
 
 /**
  * Class SwitchField
@@ -21,7 +21,7 @@ use WPluginCore003\Abs\AbsOptionField;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-class SwitchField extends AbsOptionField {
+class SwitchField extends AbsOptionGenField {
 	/**
 	 * Text display for the true value
 	 *
