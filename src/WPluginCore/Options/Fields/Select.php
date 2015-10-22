@@ -65,6 +65,12 @@ class Select extends AbsOptionField {
 	 */
 	protected $sortable = false;
 	/**
+	 * Array of options in key pair format.  The key represents the ID of the option.  The value represents the text to appear in the selector
+	 *
+	 * @var array
+	 */
+	protected $options = array();
+	/**
 	 * Array of select2 arguments. For more information see the ‘Constructor’ section of the
 	 * <a href="http://ivaynberg.github.io/select2/index.html">Select2 docs</a>.
 	 * Only applies when `display_value` is set to `select`
@@ -202,6 +208,28 @@ class Select extends AbsOptionField {
 	 */
 	public function setSelect2( $select2 ) {
 		$this->select2 = $select2;
+
+		return $this;
+	}
+
+	/**
+	 * @return array
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getOptions() {
+		return $this->options;
+	}
+
+	/**
+	 * @param array $options
+	 *
+	 * @return $this
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function setOptions( $options ) {
+		$this->options = $options;
 
 		return $this;
 	}
