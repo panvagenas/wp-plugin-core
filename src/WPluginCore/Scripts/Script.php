@@ -84,6 +84,30 @@ class Script extends AbsScript {
 	}
 
 	/**
+	 * Localize script
+	 *
+	 * @param array       $params
+	 * @param null|string $objectName Default is {@link Plugin::slug}
+	 *
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function localize( $params, $objectName = null ) {
+		$scriptHandle = $this->handle;
+		$params       = (array) $params;
+
+		if ( ! $objectName ) {
+			$objectName = $this->plugin->getSlug();
+		}
+
+		$this->plugin->getHookFactory()->action( 'admin_enqueue_scripts',
+			function () use ( $params, $scriptHandle, $objectName ) {
+				wp_localize_script( $scriptHandle, $objectName, $params );
+			}
+		)->add();
+	}
+
+	/**
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  0.0.2
 	 */
