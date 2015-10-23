@@ -1,7 +1,7 @@
 <?php
 /**
  * Project: wp-plugins-core.dev
- * File: HooksFactory.php
+ * File: FcrHooks.php
  * User: Panagiotis Vagenas <pan.vagenas@gmail.com>
  * Date: 28/9/2015
  * Time: 7:41 μμ
@@ -15,16 +15,15 @@ namespace WPluginCore003\Hooks;
 use WPluginCore003\Abs\AbsFactory;
 use WPluginCore003\Abs\AbsHook;
 use WPluginCore003\Diagnostics\Exception;
-use WPluginCore003\Plugin\Plugin;
 
 /**
- * Class HooksFactory
+ * Class FcrHooks
  *
  * @package WPluginCore003\Hooks
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-class HooksFactory extends AbsFactory {
+class FcrHooks extends AbsFactory {
 	/**
 	 *
 	 */
@@ -52,7 +51,7 @@ class HooksFactory extends AbsFactory {
 	protected static $pool = array();
 
 	/**
-	 * See {@link WPluginCore003\Hooks\HooksFactory::createOrGetHook()}
+	 * See {@link WPluginCore003\Hooks\FcrHooks::createOrGetHook()}
 	 *
 	 * @param string              $tag
 	 * @param null|array|callable $callback
@@ -69,7 +68,7 @@ class HooksFactory extends AbsFactory {
 	}
 
 	/**
-	 * See {@link WPluginCore003\Hooks\HooksFactory::createOrGetHook()}
+	 * See {@link WPluginCore003\Hooks\FcrHooks::createOrGetHook()}
 	 *
 	 * @param string              $tag
 	 * @param null|array|callable $callback
@@ -193,7 +192,6 @@ class HooksFactory extends AbsFactory {
 	}
 
 	/**
-	 * @param Plugin              $plugin
 	 * @param null|array|callable $callback
 	 * @param int                 $priority
 	 * @param int                 $acceptedArgs
@@ -203,18 +201,16 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	public function getWhereTemplatesMayResideFilter(
-		Plugin $plugin,
 		$callback = null,
 		$priority = 10,
 		$acceptedArgs = 1
 	) {
-		$hookTag = $plugin->getSlug() . static::WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX;
+		$hookTag = $this->plugin->getSlug() . static::WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX;
 
 		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
 
 	/**
-	 * @param Plugin              $plugin
 	 * @param null|array|callable $callback
 	 * @param int                 $priority
 	 * @param int                 $acceptedArgs
@@ -224,18 +220,16 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	public function getWhereScriptsMayResideFilter(
-		Plugin $plugin,
 		$callback = null,
 		$priority = 10,
 		$acceptedArgs = 1
 	) {
-		$hookTag = $plugin->getSlug() . static::WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX;
+		$hookTag = $this->plugin->getSlug() . static::WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX;
 
 		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
 
 	/**
-	 * @param Plugin              $plugin
 	 * @param null|array|callable $callback
 	 * @param int                 $priority
 	 * @param int                 $acceptedArgs
@@ -245,12 +239,11 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	public function getWhereStylesMayResideFilter(
-		Plugin $plugin,
 		$callback = null,
 		$priority = 10,
 		$acceptedArgs = 1
 	) {
-		$hookTag = $plugin->getSlug() . static::WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX;
+		$hookTag = $this->plugin->getSlug() . static::WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX;
 
 		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
