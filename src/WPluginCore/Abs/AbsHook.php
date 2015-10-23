@@ -12,7 +12,8 @@
 namespace WPluginCore003\Abs;
 
 
-use WPluginCore003\Hooks\HooksFactory;
+use WPluginCore003\Hooks\FcrHooks;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class AbsHook
@@ -21,7 +22,7 @@ use WPluginCore003\Hooks\HooksFactory;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-abstract class AbsHook {
+abstract class AbsHook extends AbsClass{
 	/**
 	 * Hook tag. See {@link https://codex.wordpress.org/Plugin_API/Action_Reference} and
 	 * {@link https://codex.wordpress.org/Plugin_API/Filter_Reference}.
@@ -43,12 +44,14 @@ abstract class AbsHook {
 	protected $acceptedArgs;
 
 	/**
-	 * @param     $tag
-	 * @param     $callback
-	 * @param int $priority
-	 * @param int $acceptedArgs
+	 * @param Plugin $plugin
+	 * @param        $tag
+	 * @param        $callback
+	 * @param int    $priority
+	 * @param int    $acceptedArgs
 	 */
-	public function __construct( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
+	public function __construct( Plugin $plugin, $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
+		parent::__construct($plugin);
 		$this->tag          = $tag;
 		$this->callBack     = $callback;
 		$this->priority     = $priority;
@@ -87,9 +90,7 @@ abstract class AbsHook {
 	 * @since  0.0.2
 	 */
 	public function removeAll() {
-		$hookFactory = new HooksFactory();
-
-		return $hookFactory->removeAll( $this->tag, $this->priority );
+		return $this->plugin->getHookFactory()->removeAll( $this->tag, $this->priority );
 	}
 
 	/**

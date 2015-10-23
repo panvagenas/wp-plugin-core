@@ -112,7 +112,7 @@ class FcrHooks extends AbsFactory {
 		}
 
 		$class   = __NAMESPACE__ . '\\' . $type;
-		$newHook = new $class( $tag, $callback, $priority, $acceptedArgs );
+		$newHook = new $class( $this->plugin, $tag, $callback, $priority, $acceptedArgs );
 
 		if ( isset( $hookId ) && $hookId && $callback ) {
 			$this->addToPool( $hookId, $newHook );
