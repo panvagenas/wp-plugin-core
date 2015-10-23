@@ -65,7 +65,7 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	public function filter( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		return $this->createOrGetHook( self::FILTER, $tag, $callback, $priority, $acceptedArgs );
+		return $this->createOrGetHook( static::FILTER, $tag, $callback, $priority, $acceptedArgs );
 	}
 
 	/**
@@ -82,7 +82,7 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	public function action( $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		return $this->createOrGetHook( self::ACTION, $tag, $callback, $priority, $acceptedArgs );
+		return $this->createOrGetHook( static::ACTION, $tag, $callback, $priority, $acceptedArgs );
 	}
 
 	/**
@@ -98,7 +98,7 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	protected function createOrGetHook( $type, $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		if ( ! in_array( $type, array( self::FILTER, self::ACTION ) ) ) {
+		if ( ! in_array( $type, array( static::FILTER, static::ACTION ) ) ) {
 			throw new Exception( "Invalid hook type: $type" );
 		}
 
@@ -144,7 +144,7 @@ class HooksFactory extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	protected function getFromPool( $hookId, $tag, $priority = 10 ) {
-		return isset( self::$pool[ $tag ][ $priority ][ $hookId ] ) ? self::$pool[ $tag ][ $priority ][ $hookId ] : false;
+		return isset( static::$pool[ $tag ][ $priority ][ $hookId ] ) ? static::$pool[ $tag ][ $priority ][ $hookId ] : false;
 	}
 
 	/**
@@ -161,15 +161,15 @@ class HooksFactory extends AbsFactory {
 			throw new Exception( "Key: $hookId is not a valid array key" );
 		}
 
-		if ( ! isset( self::$pool[ $hook->getTag() ] ) ) {
-			self::$pool[ $hook->getTag() ] = array();
+		if ( ! isset( static::$pool[ $hook->getTag() ] ) ) {
+			static::$pool[ $hook->getTag() ] = array();
 		}
 
-		if ( ! isset( self::$pool[ $hook->getTag() ][ $hook->getPriority() ] ) ) {
-			self::$pool[ $hook->getTag() ][ $hook->getPriority() ] = array();
+		if ( ! isset( static::$pool[ $hook->getTag() ][ $hook->getPriority() ] ) ) {
+			static::$pool[ $hook->getTag() ][ $hook->getPriority() ] = array();
 		}
 
-		return self::$pool[ $hook->getTag() ][ $hook->getPriority() ][ $hookId ] = $hook;
+		return static::$pool[ $hook->getTag() ][ $hook->getPriority() ][ $hookId ] = $hook;
 	}
 
 	/**
@@ -183,10 +183,10 @@ class HooksFactory extends AbsFactory {
 	public function removeAll( $tag, $priority = - 1 ) {
 		$priority = $priority < 0 ? false : $priority;
 
-		if ( $priority === false && isset( self::$pool[ $tag ] ) ) {
-			self::$pool[ $tag ] = array();
-		} elseif ( isset( self::$pool[ $tag ][ $priority ] ) ) {
-			self::$pool[ $tag ][ $priority ] = array();
+		if ( $priority === false && isset( static::$pool[ $tag ] ) ) {
+			static::$pool[ $tag ] = array();
+		} elseif ( isset( static::$pool[ $tag ][ $priority ] ) ) {
+			static::$pool[ $tag ][ $priority ] = array();
 		}
 
 		return remove_all_filters( $tag, $priority );
@@ -208,7 +208,7 @@ class HooksFactory extends AbsFactory {
 		$priority = 10,
 		$acceptedArgs = 1
 	) {
-		$hookTag = $plugin->getSlug() . self::WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX;
+		$hookTag = $plugin->getSlug() . static::WHERE_TEMPLATES_MAY_RESIDE_FILTER_TAG_SUFFIX;
 
 		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
@@ -229,7 +229,7 @@ class HooksFactory extends AbsFactory {
 		$priority = 10,
 		$acceptedArgs = 1
 	) {
-		$hookTag = $plugin->getSlug() . self::WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX;
+		$hookTag = $plugin->getSlug() . static::WHERE_SCRIPTS_MAY_RESIDE_FILTER_TAG_SUFFIX;
 
 		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
@@ -250,7 +250,7 @@ class HooksFactory extends AbsFactory {
 		$priority = 10,
 		$acceptedArgs = 1
 	) {
-		$hookTag = $plugin->getSlug() . self::WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX;
+		$hookTag = $plugin->getSlug() . static::WHERE_STYLES_MAY_RESIDE_FILTER_TAG_SUFFIX;
 
 		return $this->filter( $hookTag, $callback, $priority, $acceptedArgs );
 	}
