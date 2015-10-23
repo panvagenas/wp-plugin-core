@@ -12,7 +12,6 @@
 namespace WPluginCore003\Abs;
 
 
-use WPluginCore003\Hooks\FcrHooks;
 use WPluginCore003\Plugin\Plugin;
 
 /**

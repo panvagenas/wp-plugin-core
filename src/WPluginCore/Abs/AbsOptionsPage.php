@@ -323,7 +323,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 */
 	public function __construct( Plugin $plugin, $menuType ) {
 		parent::__construct( $plugin );
-		$this->opt_name = $plugin->getFactory()->options()->getOptName();
+		$this->opt_name = $plugin->getOptions()->getOptName();
 
 		$this->display_name
 			= $this->page_title
@@ -341,7 +341,7 @@ abstract class AbsOptionsPage extends AbsClass {
 	 * @since  0.0.2
 	 */
 	public function setUpPage() {
-		$optName = $this->plugin->getFactory()->options()->getOptName();
+		$optName = $this->plugin->getOptions()->getOptName();
 
 		\Redux::setArgs( $optName, $this->toArray() );
 

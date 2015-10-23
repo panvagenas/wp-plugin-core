@@ -52,7 +52,7 @@ class Initializer extends AbsPluginSingleton {
 	 */
 	protected function pluginInit() {
 		$this->plugin->getHookFactory()->action( 'after_setup_theme', array( $this, 'init' ) )->add();
-		$pluginFactory = $this->plugin->getFactory();
+		$pluginFactory = $this->plugin->getFactory()->fcrPlugin();
 
 		$textDomain = $this->plugin->getTextDomain();
 

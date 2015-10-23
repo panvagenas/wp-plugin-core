@@ -14,6 +14,7 @@ namespace WPluginCore003;
 
 use WPluginCore003\Abs\AbsFactory;
 use WPluginCore003\Diagnostics\Exception;
+use WPluginCore003\Helpers\FcrHelpers;
 use WPluginCore003\Hooks\FcrHooks;
 use WPluginCore003\Options\FcrOptions;
 use WPluginCore003\Plugin\FcrPlugin;
@@ -65,5 +66,15 @@ class Factory extends AbsFactory {
 	 */
 	public final function fcrPlugin(){
 		return $this->createOrGet( 'Plugin\\FcrPlugin' );
+	}
+
+	/**
+	 * @return FcrHelpers
+	 * @throws Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function fcrHelpers(){
+		return $this->createOrGet('Helpers\\FcrHelpers');
 	}
 }

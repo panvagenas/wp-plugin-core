@@ -51,7 +51,7 @@ abstract class AbsFactory extends AbsClass {
 	 * is used. In that case any additional args will be discarded. If this is not the case then a new
 	 * instance of class is returned.
 	 *
-	 * @param string $className baseNamespace must be omitted. eg. `$className = 'MyBaceNamespaceChildren\MyClass'
+	 * @param string $className baseNamespace must be omitted. eg. `$className = 'MyBaseNamespaceChildren\MyClass'
 	 *
 	 * @return object An instance of [baseNamespace]\$className
 	 * @throws Exception If class not found or isn't instantiable or is plugin class has same name as one in core and

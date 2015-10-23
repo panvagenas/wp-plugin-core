@@ -58,8 +58,8 @@ class Template extends AbsClass {
 	 * @since  0.0.2
 	 */
 	public function locate( $templateName ) {
-		$fileObj  = $this->plugin->getFactory()->file();
-		$pathsObj = $this->plugin->getFactory()->paths();
+		$fileObj  = $this->plugin->getFactory()->fcrHelpers()->file();
+		$pathsObj = $this->plugin->getFactory()->fcrPlugin()->paths();
 
 		return $fileObj->locate( $templateName, $pathsObj->getWhereTemplatesMayReside(), 'php', $this->plugin );
 	}

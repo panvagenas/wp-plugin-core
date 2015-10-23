@@ -86,7 +86,7 @@ abstract class AbsScript extends AbsClass {
 	 * @since  0.0.2
 	 */
 	public function locate() {
-		$fileObj = $this->plugin->getFactory()->file();
+		$fileObj = $this->plugin->getFactory()->fcrHelpers()->file();
 
 		return $fileObj->locate( $this->handle, $this->whereMayReside, $this->fileExtension, $this->plugin );
 	}

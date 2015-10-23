@@ -53,6 +53,7 @@ class ShortCode extends AbsClass {
 	/**
 	 * @param Plugin     $plugin
 	 * @param string     $tag
+	 * @param callback   $callBack
 	 * @param array      $atts
 	 * @param array      $types
 	 * @param bool|false $enclosing

@@ -48,7 +48,7 @@ class File extends AbsCoreSingleton {
 			}
 
 			if (
-				$plugin->getFactory()->paths()->verifyPathIsUnder( $filePath, $path )
+				$plugin->getFactory()->fcrPlugin()->paths()->verifyPathIsUnder( $filePath, $path )
 				&& file_exists( $filePath )
 				&& is_readable( $filePath )
 			) {

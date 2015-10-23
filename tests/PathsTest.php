@@ -36,7 +36,7 @@ class PathsTest extends WP_UnitTestCase {
 		/* @var \WPluginCore003\Plugin\Plugin $WpPluginCore */
 		global $WpPluginCore;
 
-		$paths = $WpPluginCore->getFactory()->paths();
+		$paths = $WpPluginCore->getFactory()->fcrPlugin()->paths();
 
 		$rootDir = new vfs\vfsStreamDirectory( 'rootDir' );
 		vfs\vfsStreamWrapper::setRoot( $rootDir );
