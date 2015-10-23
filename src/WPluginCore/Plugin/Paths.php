@@ -13,7 +13,7 @@ namespace WPluginCore003\Plugin;
 
 
 use Stringy\Stringy;
-use WPluginCore003\Abs\AbsClass;
+use WPluginCore003\Abs\AbsPluginSingleton;
 use WPluginCore003\Diagnostics\Exception;
 use WPluginCore003\Hooks\Filter;
 use WPluginCore003\Hooks\HooksFactory;
@@ -25,7 +25,7 @@ use WPluginCore003\Hooks\HooksFactory;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-class Paths extends AbsClass {
+class Paths extends AbsPluginSingleton {
 	/**
 	 * @var string
 	 */
