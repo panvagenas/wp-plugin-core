@@ -33,14 +33,14 @@ class Style extends AbsScript {
 
 	/**
 	 * @param Plugin $plugin
-	 * @param        $handle
+	 * @param string $handle
 	 * @param string $wpRelPath
 	 * @param array  $deps
 	 * @param string $media
 	 */
 	public function __construct( Plugin $plugin, $handle, $wpRelPath = '', Array $deps = array(), $media = 'all' ) {
 		$this->media          = $media;
-		$this->whereMayReside = $plugin->getFactory()->paths()->getWhereStylesMayReside();
+		$this->whereMayReside = $plugin->getFactory()->fcrPlugin()->paths()->getWhereStylesMayReside();
 
 		parent::__construct( $plugin, $handle, $wpRelPath, $deps );
 	}

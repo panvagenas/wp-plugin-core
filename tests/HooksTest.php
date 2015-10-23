@@ -226,11 +226,11 @@ class HooksTest extends WP_UnitTestCase {
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
 
-		$originalWhereStylesMayResideArray = $WpPluginCore->getFactory()->paths()->getWhereStylesMayReside();
+		$originalWhereStylesMayResideArray = $WpPluginCore->getFactory()->fcrPlugin()->paths()->getWhereStylesMayReside();
 		$pathToInclude                     = array( '/my/new/path' );
 		$newWhereStylesMayResideArray      = $originalWhereStylesMayResideArray + $pathToInclude;
 
-		$hook = $hooksFactory->getWhereStylesMayResideFilter( $WpPluginCore,
+		$hook = $hooksFactory->getWhereStylesMayResideFilter(
 			function ( $orAr ) use ( $pathToInclude ) {
 				return $orAr + $pathToInclude;
 			}
@@ -238,7 +238,7 @@ class HooksTest extends WP_UnitTestCase {
 		$hook->add();
 
 		$this->assertEquals( $originalWhereStylesMayResideArray,
-			$WpPluginCore->getFactory()->paths()->getWhereStylesMayReside() );
+			$WpPluginCore->getFactory()->fcrPlugin()->paths()->getWhereStylesMayReside() );
 
 		$filteredPaths = $hook->apply( $originalWhereStylesMayResideArray );
 
@@ -257,11 +257,11 @@ class HooksTest extends WP_UnitTestCase {
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
 
-		$originalWhereScriptsMayResideArray = $WpPluginCore->getFactory()->paths()->getWhereScriptsMayReside();
+		$originalWhereScriptsMayResideArray = $WpPluginCore->getFactory()->fcrPlugin()->paths()->getWhereScriptsMayReside();
 		$pathToInclude                      = array( '/my/new/path' );
 		$newWhereScriptsMayResideArray      = $originalWhereScriptsMayResideArray + $pathToInclude;
 
-		$hook = $hooksFactory->getWhereScriptsMayResideFilter( $WpPluginCore,
+		$hook = $hooksFactory->getWhereScriptsMayResideFilter(
 			function ( $orAr ) use ( $pathToInclude ) {
 				return $orAr + $pathToInclude;
 			}
@@ -269,7 +269,7 @@ class HooksTest extends WP_UnitTestCase {
 		$hook->add();
 
 		$this->assertEquals( $originalWhereScriptsMayResideArray,
-			$WpPluginCore->getFactory()->paths()->getWhereScriptsMayReside() );
+			$WpPluginCore->getFactory()->fcrPlugin()->paths()->getWhereScriptsMayReside() );
 
 		$filteredPaths = $hook->apply( $originalWhereScriptsMayResideArray );
 
@@ -288,11 +288,11 @@ class HooksTest extends WP_UnitTestCase {
 
 		$hooksFactory = $WpPluginCore->getHookFactory();
 
-		$originalWhereTemplatesMayResideArray = $WpPluginCore->getFactory()->paths()->getWhereTemplatesMayReside();
+		$originalWhereTemplatesMayResideArray = $WpPluginCore->getFactory()->fcrPlugin()->paths()->getWhereTemplatesMayReside();
 		$pathToInclude                        = array( '/my/new/path' );
 		$newWhereTemplatesMayResideArray      = $originalWhereTemplatesMayResideArray + $pathToInclude;
 
-		$hook = $hooksFactory->getWhereTemplatesMayResideFilter( $WpPluginCore,
+		$hook = $hooksFactory->getWhereTemplatesMayResideFilter(
 			function ( $orAr ) use ( $pathToInclude ) {
 				return $orAr + $pathToInclude;
 			}
@@ -300,7 +300,7 @@ class HooksTest extends WP_UnitTestCase {
 		$hook->add();
 
 		$this->assertEquals( $originalWhereTemplatesMayResideArray,
-			$WpPluginCore->getFactory()->paths()->getWhereTemplatesMayReside() );
+			$WpPluginCore->getFactory()->fcrPlugin()->paths()->getWhereTemplatesMayReside() );
 
 		$filteredPaths = $hook->apply( $originalWhereTemplatesMayResideArray );
 

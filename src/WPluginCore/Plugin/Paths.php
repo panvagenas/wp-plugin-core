@@ -16,7 +16,7 @@ use Stringy\Stringy;
 use WPluginCore003\Abs\AbsPluginSingleton;
 use WPluginCore003\Diagnostics\Exception;
 use WPluginCore003\Hooks\Filter;
-use WPluginCore003\Hooks\HooksFactory;
+use WPluginCore003\Hooks\FcrHooks;
 
 /**
  * Class Paths
@@ -93,26 +93,26 @@ class Paths extends AbsPluginSingleton {
 
 		$templatePluginSlugDir = get_template_directory() . '/' . $plugin->getSlug();
 
-		/* @var HooksFactory $hookFactory */
+		/* @var FcrHooks $hookFactory */
 		$hookFactory = $this->plugin->getHookFactory();
 
 		$this->whereTemplatesMayReside       = array(
 			$templatePluginSlugDir,
 			$this->pluginBaseDir . '/templates',
 		);
-		$this->whereTemplatesMayResideFilter = $hookFactory->getWhereTemplatesMayResideFilter( $plugin );
+		$this->whereTemplatesMayResideFilter = $hookFactory->getWhereTemplatesMayResideFilter();
 
 		$this->whereScriptsMayReside       = array(
 			$templatePluginSlugDir . '/js',
 			$this->pluginBaseDir . '/assets/js'
 		);
-		$this->whereScriptsMayResideFilter = $hookFactory->getWhereScriptsMayResideFilter( $plugin );
+		$this->whereScriptsMayResideFilter = $hookFactory->getWhereScriptsMayResideFilter(  );
 
 		$this->whereStylesMayReside       = array(
 			$templatePluginSlugDir . '/css',
 			$this->pluginBaseDir . '/assets/css'
 		);
-		$this->whereStylesMayResideFilter = $hookFactory->getWhereStylesMayResideFilter( $plugin, array() );
+		$this->whereStylesMayResideFilter = $hookFactory->getWhereStylesMayResideFilter(  array() );
 	}
 
 	/**

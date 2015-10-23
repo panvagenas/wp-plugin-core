@@ -40,7 +40,7 @@ class Script extends AbsScript {
 	 */
 	public function __construct( Plugin $plugin, $handle, $wpRelPath = '', Array $deps = array(), $inFooter = true ) {
 		$this->inFooter       = $inFooter;
-		$this->whereMayReside = $plugin->getFactory()->pluginFactory()->paths()->getWhereScriptsMayReside();
+		$this->whereMayReside = $plugin->getFactory()->fcrPlugin()->paths()->getWhereScriptsMayReside();
 
 		parent::__construct( $plugin, $handle, $wpRelPath, $deps );
 	}

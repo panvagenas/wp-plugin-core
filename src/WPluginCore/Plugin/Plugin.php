@@ -17,7 +17,7 @@ use WPluginCore003\Abs\AbsPluginSingleton;
 use WPluginCore003\Diagnostics\Exception;
 use WPluginCore003\Diagnostics\InvalidArgumentException;
 use WPluginCore003\Factory;
-use WPluginCore003\Hooks\HooksFactory;
+use WPluginCore003\Hooks\FcrHooks;
 use WPluginCore003\Options\Options;
 
 /**
@@ -97,7 +97,7 @@ class Plugin extends AbsPluginSingleton {
 	 */
 	protected $factory;
 	/**
-	 * @var HooksFactory
+	 * @var FcrHooks
 	 */
 	protected $hookFactory;
 	/**
@@ -125,7 +125,7 @@ class Plugin extends AbsPluginSingleton {
 		$this->version = $version;
 
 		$this->factory     = new Factory( $this );
-		$this->hookFactory = new HooksFactory();
+		$this->hookFactory = $this->factory->fcrHooks();
 
 		$ref       = new \ReflectionClass( get_class( $this ) );
 		$baseNSStr = $ref->getNamespaceName();
@@ -145,7 +145,7 @@ class Plugin extends AbsPluginSingleton {
 		if ( ( ! empty( $filePath ) && ! file_exists( $filePath ) )
 		     || ( empty( $filePath ) && ! file_exists( $filePath = dirname( dirname( dirname( __FILE__ ) ) ) . '/plugin.php' ) )
 		) {
-			throw new InvalidArgumentException( 'Plugin file couldn\'t be located' );
+			throw new InvalidArgumentException( "Plugin file couldn't be located" );
 		}
 		$this->filePath = $filePath;
 
@@ -168,9 +168,9 @@ class Plugin extends AbsPluginSingleton {
 		$this->textDomain = preg_replace( "/[^A-Za-z0-9 _]/", ' ', $this->textDomain );
 		$this->textDomain = (string) Stringy::create( $this->textDomain )->underscored();
 
-		$this->options = $this->factory->options();
+		$this->options = $this->factory->fcrOptions()->options();
 
-		$this->factory->initializer()->coreInit();
+		$this->factory->fcrPlugin()->initializer()->coreInit();
 	}
 
 	/**
@@ -230,9 +230,18 @@ class Plugin extends AbsPluginSingleton {
 	}
 
 	/**
-	 * @return HooksFactory
+	 * @return FcrHooks
 	 */
 	public function getHookFactory() {
 		return $this->hookFactory;
+	}
+
+	/**
+	 * @return Options
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function getOptions() {
+		return $this->options;
 	}
 }

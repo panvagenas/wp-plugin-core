@@ -175,12 +175,12 @@ class ScriptsTest extends WP_UnitTestCase {
 		$stylesDir->addChild( $styleFile );
 
 		$hooksFactoryObj = $WpPluginCore->getHookFactory();
-		$pathsObj        = $WpPluginCore->getFactory()->paths();
+		$pathsObj        = $WpPluginCore->getFactory()->fcrPlugin()->paths();
 
 		$scriptsRootDir->addChild( $stylesDir );
 		$scriptsRootDir->addChild( $scriptsDir );
 
-		$scriptsFilter = $hooksFactoryObj->getWhereScriptsMayResideFilter( $WpPluginCore,
+		$scriptsFilter = $hooksFactoryObj->getWhereScriptsMayResideFilter(
 			function ( $paths ) use ( $scriptsDir ) {
 				$paths[] = $scriptsDir->url();
 
@@ -189,7 +189,7 @@ class ScriptsTest extends WP_UnitTestCase {
 		);
 		$scriptsFilter->add();
 
-		$stylesFilter = $hooksFactoryObj->getWhereStylesMayResideFilter( $WpPluginCore,
+		$stylesFilter = $hooksFactoryObj->getWhereStylesMayResideFilter(
 			function ( $paths ) use ( $stylesDir ) {
 				$paths[] = $stylesDir->url();
 

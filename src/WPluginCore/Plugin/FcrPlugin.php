@@ -32,4 +32,13 @@ class FcrPlugin extends AbsFactory{
 	public function paths(){
 		return Paths::getInstance($this->plugin);
 	}
+
+	/**
+	 * @return Installer
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function installer(){
+		return Installer::getInstance($this->plugin);
+	}
 }

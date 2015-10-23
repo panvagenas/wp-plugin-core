@@ -90,7 +90,7 @@ class TemplatesTest extends WP_UnitTestCase {
 	 * @since  0.0.2
 	 */
 	public static function tearDownAfterClass() {
-		self::$WpPluginCore->getHookFactory()->getWhereTemplatesMayResideFilter( self::$WpPluginCore )->removeAll();
+		self::$WpPluginCore->getHookFactory()->getWhereTemplatesMayResideFilter(  )->removeAll();
 
 		self::$rootDir             = null;
 		self::$WpPluginCore        = null;
@@ -113,7 +113,7 @@ class TemplatesTest extends WP_UnitTestCase {
 
 		$filter = self::$WpPluginCore
 			->getHookFactory()
-			->getWhereTemplatesMayResideFilter( self::$WpPluginCore,
+			->getWhereTemplatesMayResideFilter(
 				function ( $paths ) use ( $rootDirPath ) {
 					$paths[] = $rootDirPath;
 
@@ -139,7 +139,7 @@ class TemplatesTest extends WP_UnitTestCase {
 
 		$filter = self::$WpPluginCore
 			->getHookFactory()
-			->getWhereTemplatesMayResideFilter( self::$WpPluginCore,
+			->getWhereTemplatesMayResideFilter(
 				function ( $paths ) use ( $rootDirPath ) {
 					$paths[] = $rootDirPath;
 

@@ -52,11 +52,10 @@ class PluginTest extends WP_UnitTestCase {
 
 		$factory = $WpPluginCore->getFactory();
 
-		$this->assertTrue( $factory->paths() instanceof \WPluginCore003\Plugin\Paths );
-		$this->assertTrue( $factory->hooksFactory() instanceof \WPluginCore003\Hooks\HooksFactory );
-		$this->assertTrue( $factory->initializer() instanceof \WPluginCore003\Plugin\Initializer );
-		$this->assertTrue( $factory->installer() instanceof \WPluginCore003\Plugin\Installer );
-		$this->assertTrue( $factory->options() instanceof \WPluginCore003\Options\Options );
-		$this->assertTrue( $factory->widget() instanceof \WPluginCore003\Plugin\Widget );
+		$this->assertTrue( $factory->fcrPlugin()->paths() instanceof \WPluginCore003\Plugin\Paths );
+		$this->assertTrue( $factory->fcrHooks() instanceof \WPluginCore003\Hooks\FcrHooks );
+		$this->assertTrue( $factory->fcrPlugin()->initializer() instanceof \WPluginCore003\Plugin\Initializer );
+		$this->assertTrue( $factory->fcrPlugin()->installer() instanceof \WPluginCore003\Plugin\Installer );
+		$this->assertTrue( $factory->fcrOptions()->options() instanceof \WPluginCore003\Options\Options );
 	}
 }
