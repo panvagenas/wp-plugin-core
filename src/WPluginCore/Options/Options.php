@@ -59,7 +59,7 @@ class Options extends AbsPluginSingleton {
 
 			if ( ! $this->menuSetupHook ) {
 				$this->menuSetupHook = $plugin->getHookFactory()->action( 'plugins_loaded',
-					array( $this, 'menuPages' ) );
+					array( $this, 'setupMenuPages' ) );
 			}
 			$this->menuSetupHook->add();
 		}
@@ -69,7 +69,7 @@ class Options extends AbsPluginSingleton {
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  0.0.2
 	 */
-	public function menuPages() {
+	public function setupMenuPages() {
 	}
 
 	/**
