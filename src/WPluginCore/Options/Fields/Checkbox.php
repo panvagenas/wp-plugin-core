@@ -13,6 +13,7 @@ namespace WPluginCore003\Options\Fields;
 
 
 use WPluginCore003\Abs\AbsOptionGenField;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class Checkbox
@@ -55,13 +56,13 @@ class Checkbox extends AbsOptionGenField {
 	protected $default;
 
 	/**
-	 * @param       $fieldId
-	 * @param       $title
-	 * @param       $default
-	 * @param array $options
+	 * @param Plugin $plugin
+	 * @param        $fieldId
+	 * @param        $title
+	 * @param array  $options
 	 */
-	public function __construct( $fieldId, $title, $default, $options = array() ) {
-		parent::__construct( $fieldId, $title, $default );
+	public function __construct( Plugin $plugin, $fieldId, $title, $options = array() ) {
+		parent::__construct( $plugin, $fieldId, $title );
 		$this->options = (array) $options;
 	}
 

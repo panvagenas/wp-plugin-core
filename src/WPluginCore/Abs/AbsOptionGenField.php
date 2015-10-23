@@ -13,6 +13,7 @@ namespace WPluginCore003\Abs;
 
 use Respect\Validation\Exceptions\ValidationExceptionInterface;
 use Respect\Validation\Validator;
+use WPluginCore003\Plugin\Plugin;
 
 
 /**
@@ -66,14 +67,14 @@ abstract class AbsOptionGenField extends AbsOptionField {
 	protected $validators = array();
 
 	/**
-	 * @param $fieldId
-	 * @param $title
-	 * @param $default
+	 * @param Plugin $plugin
+	 * @param        $fieldId
+	 * @param        $title
 	 */
-	public function __construct( $fieldId, $title, $default ) {
-		parent::__construct( $fieldId );
+	public function __construct( Plugin $plugin, $fieldId, $title ) {
+		parent::__construct( $plugin, $fieldId );
 		$this->title             = $title;
-		$this->default           = $default;
+		$this->default           = $this->plugin->getOptions()->def( $this->id );
 		$this->validate_callback = array( $this, 'validate' );
 	}
 

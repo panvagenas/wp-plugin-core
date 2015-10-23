@@ -13,6 +13,7 @@ namespace WPluginCore003\Abs;
 
 
 use WPluginCore003\Options\Components\Section;
+use WPluginCore003\Plugin\Plugin;
 
 /**
  * Class AbsOptionField
@@ -21,7 +22,7 @@ use WPluginCore003\Options\Components\Section;
  * @author  Panagiotis Vagenas <pan.vagenas@gmail.com>
  * @since   0.0.2
  */
-abstract class AbsOptionField {
+abstract class AbsOptionField extends AbsClass{
 	/**
 	 * Value identifying the field type.
 	 *
@@ -67,9 +68,11 @@ abstract class AbsOptionField {
 	protected $required;
 
 	/**
-	 * @param $fieldId
+	 * @param Plugin $plugin
+	 * @param        $fieldId
 	 */
-	public function __construct( $fieldId ) {
+	public function __construct( Plugin $plugin, $fieldId ) {
+		parent::__construct($plugin);
 		$this->id = $fieldId;
 	}
 
