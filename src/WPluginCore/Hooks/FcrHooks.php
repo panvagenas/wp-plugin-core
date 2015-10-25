@@ -32,6 +32,8 @@ class FcrHooks extends AbsFactory {
 	 *
 	 */
 	const ACTION = 'Action';
+	const AJAX = 'Ajax';
+	const AJAX_NO_PRIV = 'AjaxNoPriv';
 	/**
 	 *
 	 */
@@ -85,6 +87,36 @@ class FcrHooks extends AbsFactory {
 	}
 
 	/**
+	 * @param     $tag
+	 * @param     $callback
+	 * @param int $priority
+	 * @param int $acceptedArgs
+	 *
+	 * @return Action|Filter
+	 * @throws Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function ajax($tag, $callback, $priority = 10, $acceptedArgs = 0){
+		return $this->createOrGetHook( static::AJAX, $tag, $callback, $priority, $acceptedArgs );
+	}
+
+	/**
+	 * @param     $tag
+	 * @param     $callback
+	 * @param int $priority
+	 * @param int $acceptedArgs
+	 *
+	 * @return Action|Filter
+	 * @throws Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function ajaxNoPriv($tag, $callback, $priority = 10, $acceptedArgs = 0){
+		return $this->createOrGetHook( static::AJAX_NO_PRIV, $tag, $callback, $priority, $acceptedArgs );
+	}
+
+	/**
 	 * @param string              $type
 	 * @param string              $tag
 	 * @param null|array|callable $callback
@@ -97,7 +129,7 @@ class FcrHooks extends AbsFactory {
 	 * @since  0.0.2
 	 */
 	protected function createOrGetHook( $type, $tag, $callback, $priority = 10, $acceptedArgs = 1 ) {
-		if ( ! in_array( $type, array( static::FILTER, static::ACTION ) ) ) {
+		if ( ! in_array( $type, array( static::FILTER, static::ACTION, static::AJAX, static::AJAX_NO_PRIV ) ) ) {
 			throw new Exception( "Invalid hook type: $type" );
 		}
 
