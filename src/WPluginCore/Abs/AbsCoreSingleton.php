@@ -24,6 +24,14 @@ abstract class AbsCoreSingleton {
 	 * @var $this ::class The reference to *Singleton* instance of this class
 	 */
 	private static $instances = array();
+	/**
+	 * An instance-based reference to the global/static cache for the current blog ID & class extender
+	 *
+	 * **Should NOT be overridden by class extenders**
+	 *
+	 * @var array An instance-based reference to the global/static cache for the current blog ID & class extender
+	 */
+	protected $static = array();
 
 	/**
 	 * Protected constructor to prevent creating a new instance of the
