@@ -32,7 +32,13 @@ class FcrHooks extends AbsFactory {
 	 *
 	 */
 	const ACTION = 'Action';
+	/**
+	 *
+	 */
 	const AJAX = 'Ajax';
+	/**
+	 *
+	 */
 	const AJAX_NO_PRIV = 'AjaxNoPriv';
 	/**
 	 *
