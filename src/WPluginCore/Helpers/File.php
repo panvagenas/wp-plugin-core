@@ -36,14 +36,14 @@ class File extends AbsCoreSingleton {
 	 * @since  0.0.2
 	 */
 	public function locate( $name, $searchIn, $ext, Plugin $plugin ) {
-		if ( ! preg_match( '/.*\.' . $ext . '$/', $name ) ) {
+		if ( !preg_match( '/.*\.' . $ext . '$/', $name ) ) {
 			$name .= ".$ext";
 		}
 
-		foreach ( (array) $searchIn as $path ) {
+		foreach ( (array)$searchIn as $path ) {
 			$filePath = Paths::truePath( "{$path}/{$name}", true );
 
-			if ( ! $filePath ) {
+			if ( !$filePath ) {
 				continue;
 			}
 

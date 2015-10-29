@@ -14,13 +14,13 @@ namespace WPluginCore003\Helpers;
 
 use WPluginCore003\Abs\AbsFactory;
 
-class FcrHelpers extends AbsFactory{
+class FcrHelpers extends AbsFactory {
 	/**
 	 * @return Dumper
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function dumper(){
+	public function dumper() {
 		return Dumper::getInstance();
 	}
 
@@ -29,7 +29,7 @@ class FcrHelpers extends AbsFactory{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function file(){
+	public function file() {
 		return File::getInstance();
 	}
 
@@ -38,7 +38,7 @@ class FcrHelpers extends AbsFactory{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function random(){
+	public function random() {
 		return new Random();
 	}
 
@@ -47,7 +47,7 @@ class FcrHelpers extends AbsFactory{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function string(){
+	public function string() {
 		return new String();
 	}
 
@@ -56,7 +56,7 @@ class FcrHelpers extends AbsFactory{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function vars(){
+	public function vars() {
 		return Vars::getInstance();
 	}
 
@@ -65,8 +65,8 @@ class FcrHelpers extends AbsFactory{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function dirs(){
-		return Dirs::getInstance($this->plugin);
+	public function dirs() {
+		return Dirs::getInstance( $this->plugin );
 	}
 
 	/**
@@ -74,7 +74,7 @@ class FcrHelpers extends AbsFactory{
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
-	public function url(){
-		return URL::getInstance($this->plugin);
+	public function url() {
+		return URL::getInstance( $this->plugin );
 	}
 }
