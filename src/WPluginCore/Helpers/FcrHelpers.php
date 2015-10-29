@@ -43,11 +43,38 @@ class FcrHelpers extends AbsFactory{
 	}
 
 	/**
-	 * @return String
+	 * @return \WPluginCore003\Helpers\String
 	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
 	 * @since  TODO ${VERSION}
 	 */
 	public function string(){
 		return new String();
+	}
+
+	/**
+	 * @return Vars
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function vars(){
+		return Vars::getInstance();
+	}
+
+	/**
+	 * @return Dirs
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function dirs(){
+		return Dirs::getInstance($this->plugin);
+	}
+
+	/**
+	 * @return URL
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function url(){
+		return URL::getInstance($this->plugin);
 	}
 }
