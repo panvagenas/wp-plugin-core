@@ -212,12 +212,11 @@ class URL extends AbsPluginSingleton {
 	 */
 	public function parseUri( $url_uri_query_fragment, $normalize = null, $include_fragment = true ) {
 		if ( ( $parts = $this->parseUriParts( $url_uri_query_fragment, $normalize ) ) ) {
-			if ( !$include_fragment ) // Ditch fragment?
-			{
+			if ( !$include_fragment ) {// Ditch fragment?
 				unset( $parts['fragment'] );
 			}
 
-			return $this->unparse( $parts, $normalize );
+			return $this->unParse( $parts, $normalize );
 		}
 
 		return null; // Default return value.
@@ -253,7 +252,22 @@ class URL extends AbsPluginSingleton {
 		return null; // Default return value.
 	}
 
-	public function unparse( $parsed, $normalize = null ) {
+	/**
+	 * Unparses a URL (putting it all back together again).
+	 *
+	 * @param array        $parsed    An array with at least one URL component.
+	 *
+	 * @param null|integer $normalize A bitmask. Defaults to NULL (indicating a default bitmask).
+	 *                                Defaults include: {@link fw_constants::url_scheme}, {@link
+	 *                                fw_constants::url_host}, {@link fw_constants::url_path}. However, we DO allow a
+	 *                                trailing slash (even if path is being normalized by this parameter).
+	 *
+	 * @return string A full or partial URL, based on components provided in the `$parsed` array.
+	 *    It IS possible to receive an empty string, when/if `$parsed` does NOT contain any portion of a URL.
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public function unParse( $parsed, $normalize = null ) {
 		$unParsed = ''; // Initialize string value.
 
 		if ( !isset( $normalize ) ) // Use defaults?
@@ -367,7 +381,7 @@ class URL extends AbsPluginSingleton {
 			);
 		}
 
-		return $this->unparse( $parts, 0 ); // Back together again.
+		return $this->unParse( $parts, 0 ); // Back together again.
 	}
 
 	/**

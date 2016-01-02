@@ -60,16 +60,7 @@ abstract class AbsFactory extends AbsClass {
 	 * @since  0.0.2
 	 */
 	public function createOrGet( $className ) {
-		if ( $this->existsInPlugin( $className ) ) {
-			if ( $this->coreClassExists( $className ) && ! $this->isCoreExtension( $className ) ) {
-				throw new Exception( 'Classes that have core name should ALWAYS extend core classes. Class name: ' . $className );
-			}
-			$class = $this->getPluginClassName( $className );
-		} elseif ( $this->coreClassExists( $className ) ) {
-			$class = $this->getCoreClassName( $className );
-		} else {
-			throw new Exception( 'Class ' . $className . ' doesn\'t seem to exists!' );
-		}
+		$class = $this->maybeGetPluginClass($className);
 
 		$args = func_get_args();
 		array_shift( $args );
@@ -211,5 +202,26 @@ abstract class AbsFactory extends AbsClass {
 	 */
 	public final function coreClassExists( $className ) {
 		return class_exists( $this->getCoreClassName( $className ) );
+	}
+
+	/**
+	 * @param $className
+	 *
+	 * @return string
+	 * @throws Exception
+	 * @author Panagiotis Vagenas <pan.vagenas@gmail.com>
+	 * @since  TODO ${VERSION}
+	 */
+	public final function maybeGetPluginClass($className){
+		if ( $this->existsInPlugin( $className ) ) {
+			if ( $this->coreClassExists( $className ) && ! $this->isCoreExtension( $className ) ) {
+				throw new Exception( 'Classes that have core name should ALWAYS extend core classes. Class name: ' . $className );
+			}
+			return $this->getPluginClassName( $className );
+		} elseif ( $this->coreClassExists( $className ) ) {
+			return $this->getCoreClassName( $className );
+		}
+
+		throw new Exception( 'Class ' . $className . ' doesn\'t seem to exists!' );
 	}
 }
